@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="aboutPerfume.php" server="10.250.0.7" local="132249378740000000" remote="132250094400000000" Dst="0" />
+<file name="header.php" server="10.250.0.7" local="132248498060000000" remote="132250094400000000" Dst="0" />
+<file name="footer.inc" server="10.250.0.7" local="132249450480000000" remote="132250094400000000" Dst="0" />
+<file name="add_item.php" server="10.250.0.7" local="132247953420000000" remote="132250094400000000" Dst="0" />
+<file name="db_connect.php" server="10.250.0.7" local="132250076562021378" remote="132250094400000000" Dst="0" />
+<file name="add_to_cart.php" server="10.250.0.7" local="132250081990626319" remote="132250094400000000" Dst="0" />
+<file name="admin.php" server="10.250.0.7" local="132249378860000000" remote="132250094400000000" Dst="0" />
+<file name="permission.php" server="10.250.0.7" local="132247149780000000" remote="132250094400000000" Dst="0" />
+<file name="update_code.php" server="10.250.0.7" local="132248684340000000" remote="132250095000000000" Dst="0" />
+<file name="delete_code.php" server="10.250.0.7" local="132247849240000000" remote="132250095000000000" Dst="0" />
+<file name="delete_item.php" server="10.250.0.7" local="132249374420000000" remote="132250095000000000" Dst="0" />
+<file name="update_item.php" server="10.250.0.7" local="132247992140000000" remote="132250095000000000" Dst="0" />
+<file name="authenticateLogin.php" server="10.250.0.7" local="132250097215627823" remote="132250098000000000" Dst="0" />
+<file name="buy.php" server="10.250.0.7" local="132249510380000000" remote="132250095000000000" Dst="0" />
+<file name="delete_tempItems.php" server="10.250.0.7" local="132250100302804781" remote="132250100400000000" Dst="0" />
+<file name="contactUs.php" server="10.250.0.7" local="132249516820000000" remote="132250095000000000" Dst="0" />
+<file name="database_connection.php" server="10.250.0.7" local="132250076327958196" remote="132250095000000000" Dst="0" />
+<file name="delete_cart_item.php" server="10.250.0.7" local="132250097445314651" remote="132250098000000000" Dst="0" />
+<file name="detail.php" server="10.250.0.7" local="132249474960000000" remote="132250095000000000" Dst="0" />
+<file name="testDetail.php" server="10.250.0.7" local="132250056380000000" remote="132250095000000000" Dst="0" />
+<file name="faqs.php" server="10.250.0.7" local="132249379260000000" remote="132250095000000000" Dst="0" />
+<file name="fetch_data.php" server="10.250.0.7" local="132250104829534496" remote="132250105200000000" Dst="0" />
+<file name="generateRandomSalt.inc" server="10.250.0.7" local="132245187380000000" remote="132250095000000000" Dst="0" />
+<file name="index.php" server="10.250.0.7" local="132250110536710452" remote="132250110600000000" Dst="0" />
+<file name="logIn.php" server="10.250.0.7" local="132249380000000000" remote="132250095000000000" Dst="0" />
+<file name="storeUserData.php" server="10.250.0.7" local="132250105662348088" remote="132250105200000000" Dst="0" />
+<file name="logOut.php" server="10.250.0.7" local="132249325680000000" remote="132250095000000000" Dst="0" />
+<file name="ourBrands.php" server="10.250.0.7" local="132249378660000000" remote="132250095000000000" Dst="0" />
+<file name="ourStory.php" server="10.250.0.7" local="132249380800000000" remote="132250095000000000" Dst="0" />
+<file name="promotionCode.php" server="10.250.0.7" local="132248518960000000" remote="132250095000000000" Dst="0" />
+<file name="shoppingCart.php" server="10.250.0.7" local="132249380480000000" remote="132250095000000000" Dst="0" />
+<file name="user.php" server="10.250.0.7" local="132249380580000000" remote="132250095000000000" Dst="0" />
+</dwsync>
