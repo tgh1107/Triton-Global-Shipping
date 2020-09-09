@@ -1,0 +1,128 @@
+.row1:after{
+    content:"";
+    display: table;
+    clear: both;
+}
+.row1{
+background-color:#E5E7E9;
+
+}
+.column{
+    float: left;
+    width: 33.33%;
+    padding: 30px;
+    margin-top: 50px;
+    
+}
+.columnpic{
+    float: left;
+    width: 33.33%;        
+}
+.network{
+    width: 100%;
+    height: 200px;
+    background-image: url("network.jpg");
+    color: white;
+    text-align: center;
+    padding-top: 5%;
+    padding-left: 5%;
+    margin-bottom: 5%;
+}
+.contactus{
+    width: 100%;
+    height: 200px;
+    background-image: url("contactus.jpg");
+    color: white;
+    text-align: center;
+    padding-top: 5%;
+    padding-left: 5%;
+    margin-bottom: 5%;
+}
+
+.login{
+    width: 100%;
+    height: 900px;
+    background-image: url("login.jpg");
+}
+.form{
+    width: 100%;
+    max-width: 600px;
+    background-color: #E5E7E9;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 10px;
+}
+.form h2{
+    margin-top: 0;
+    font-weight: bold;
+}
+.info{
+    border: 1px solid black;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 5px;
+    width: 200%;
+}
+.click{
+    display: block;
+    background-color: #1E378E  ;
+    padding: 14px 0;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.contact_content{
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+.contact_content p, .contact_form{
+    margin-left: 6%;
+}
+.button{
+    text-align: center;
+}
+.contact_form input, textarea{
+    width: 85%;
+}
+.aboutus_content{
+    margin:6%;
+}
+.order_form{
+    margin: 5%;
+    background-color:#F5F6FA   ;
+    border-radius: 5px;
+}
+.order_button{
+    text-align: center;
+}
+.cus_info{
+    float: left;
+    width: 50%;
+    padding: 30px;
+    
+}
+.cus_info input{
+    border: 1px solid black;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 3px;
+    width: 80%;
+}
+.package_info input{
+    border: 1px solid black;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 3px;
+    width: 20%;
+}
+.form_title{
+    margin-left: 3%;
+}
