@@ -6,10 +6,10 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 	<title>ABOUT US </title>
-	<link rel="stylesheet" href="./vendor.css">
-	<link rel="stylesheet" href="./main.css">
-	<link rel="stylesheet" href="./style.css">
-	<link rel="stylesheet" href="./font-awesome.css">
+	<link rel="stylesheet" href="./css/vendor.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/font-awesome.css">
     
     
 </head>
@@ -19,7 +19,7 @@
     	<div class="container">
     		<div class="row">
     			<nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
-					<img src="logo.png">
+					<img src="./image/logo.png">
     				<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
     				<div class="collapse navbar-collapse" id="navbarSupportedContent">
     					<ul class="navbar-nav ml-auto">
@@ -68,10 +68,10 @@
 
 
 		<div style = "margin-bottom:100px;font-size: 20px; margin-left:30px;">
-			<a href= "P1.pdf" target= "_blank">Company-Profile-TGS20182_2020-1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </a> 
-			<a href="P1.pdf" download> <button class ="btn btn-info">Download</button> </a> <br><br>
-			<a href= "P2.pdf" target= "_blank">TGS-Values-mission-Policy2019-copy-1 </a> 
-			<a href= "P2.pdf" download> <button class ="btn btn-info">Download</button> </a><br>
+			<a href= "./other/P1.pdf" target= "_blank">Company-Profile-TGS20182_2020-1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </a> 
+			<a href="./other/P1.pdf" download> <button class ="btn btn-info">Download</button> </a> <br><br>
+			<a href= "./other/P2.pdf" target= "_blank">TGS-Values-mission-Policy2019-copy-1 </a> 
+			<a href= "./other/P2.pdf" download> <button class ="btn btn-info">Download</button> </a><br>
 			</div>
 
 	</div>
@@ -83,7 +83,7 @@
 	<!--FOOTER-->
 	<div class="row1">
 		<div class="columnpic">
-			<img src="logo1.png">	
+			<img src="./image/logo1.png">	
 		</div>
 		<div class="column">
 			<p>TGS 2017 Copyright (c) </br> TRITON GLOBAL SHIPPING (PVT) LTD </br> Office: Level 36, The Riparian Plaza 71 Eagle Street BRISBANE, QLD. 4000 AUSTRALIA</br> </p>

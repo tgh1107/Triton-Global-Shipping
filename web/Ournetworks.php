@@ -6,10 +6,10 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 	<title>OUR NETWORKS</title>
-	<link rel="stylesheet" href="./vendor.css">
-    <link rel="stylesheet" href="./main.css">
-	<link rel="stylesheet" href="./style.css">
-	<link rel="stylesheet" href="./font-awesome.css">
+	<link rel="stylesheet" href="./css/vendor.css">
+    <link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/font-awesome.css">
     <title>Google Maps Multiple Markers</title>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJYjmTFKo21igdDqgNXOb171mXQzn3hnk&sensor=false&libraries=visualization"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -20,7 +20,7 @@
     	<div class="container">
     		<div class="row">
     			<nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
-					<img src="logo.png">
+					<img src="./image/logo.png">
     				<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
     				<div class="collapse navbar-collapse" id="navbarSupportedContent">
     					<ul class="navbar-nav ml-auto">
@@ -58,7 +58,7 @@
     <!--FOOTER-->
     <div class="row1">
 		<div class="columnpic">
-			<img src="logo1.png">	
+			<img src="./image/logo1.png">	
 		</div>
 		<div class="column">
 			<p>TGS 2017 Copyright (c) </br> TRITON GLOBAL SHIPPING (PVT) LTD </br> Office: Level 36, The Riparian Plaza 71 Eagle Street BRISBANE, QLD. 4000 AUSTRALIA</br> </p>
@@ -357,7 +357,7 @@
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map,
                 title: locations[i][0],
-                icon: 'map2.png'
+                icon: './image/map2.png'
             });
             bounds.extend(marker.position);
             marker.id = uniqid;
@@ -461,7 +461,7 @@
                         position: new google.maps.LatLng(servicelocations[i][1], servicelocations[i][2]),
                         map: map,
                         title: servicelocations[i][0],
-                        icon: 'map1.png'
+                        icon: './image/map1.png'
                     });
 
                     var startPt = new google.maps.LatLng(locations[locid - 1][1], locations[locid-1][2]);
