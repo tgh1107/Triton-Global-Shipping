@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
+
+<?php
+	require 'service/database_connection.php';
+	if (isset($_POST["btn_submit"])) {
+		$username = $_POST["username"];
+		$password = $_POST["password"];
+                //protect from sql injection
+		$username = strip_tags($username);
+		$username = addslashes($username);
+		$password = strip_tags($password);
+		$password = addslashes($password);
+		if ($username == "" || $password =="") {
+			echo "username or password can not be blank";
+		}else{
+			$sql = "select * from users where username = '$username' and password = '$password' ";
+			$query = mysqli_query($conn,$sql);
+			$num_rows = mysqli_num_rows($query);
+			if ($num_rows==0) {
+				echo "Wrong username or password";
+			}else{
+				$_SESSION['username'] = $username;
+                header('Location: PendingOrder.php');
+			}
+		}
+	}
+?>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -10,8 +39,7 @@
 	<link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/font-awesome.css">
-    <title>Google Maps Multiple Markers</title>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJYjmTFKo21igdDqgNXOb171mXQzn3hnk&sensor=false&libraries=visualization"></script>
+
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     
 </head>
@@ -57,19 +85,22 @@
     <div class="form"> 
 		<h2>ARE YOU A MEMBER?</h2> 
 		<h3> Log In here</h3>
-		<form>
+		<form method="POST" action="login.php">
 			<table border ="0">
 				<tr>
 					<td align="left"> Username: </td>
-					<td><input type="text" class="info" id=""name=""></td>
+					<td><input type="text" name="username" class="info" id=""></td>
 				</tr>
 				<tr>
 					<td align="left"> Password:</td>
-					<td><input type="password" class="info" id="" name=""></td>
+					<td><input type="password" name="password" class="info" id="" ></td>
 				</tr>
+				<tr>
+	    			<td colspan="2" align="center"> <input type="submit" name="btn_submit" value="login"></td>
+	    		</tr>
 			</table>
 		</form>
-		<a class="click" href=""> LOG IN</a>
+		<!--<a class="click" href=""> LOG IN</a>-->
 		<p> Not a member yet? <a href="Register.php">Register now</a></p>
 	</div>
 
