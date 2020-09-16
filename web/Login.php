@@ -4,7 +4,7 @@ session_start();
 ?>
 
 <?php
-	require 'service/database_connection.php';
+	require './service/database_connection.php';
 	if (isset($_POST["btn_submit"])) {
 		$username = $_POST["username"];
 		$password = $_POST["password"];

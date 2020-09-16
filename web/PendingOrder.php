@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 ?>
 <?php
 //Connect
-require 'Connect.php';
+require './service/database_connection.php';
 
 //Sql statement
 $sql = "SELECT 
@@ -70,7 +70,7 @@ if (!$result){
             <input type="submit" value="confirm" name="abc">
             
             <?php
-            require 'Connect.php';
+            require './service/database_connection.php';
             if(isset($_POST['abc'])){
                 $update = $_POST['update'];
                     $sql1= "UPDATE `orderlist` SET `OrderTrack`= '1' WHERE OrderID = '$update'";
