@@ -1,33 +1,4 @@
 <!DOCTYPE html>
-<?php
-session_start();
-?>
-
-<?php
-	require './service/database_connection.php';
-	if (isset($_POST["btn_submit"])) {
-		$username = $_POST["username"];
-		$password = $_POST["password"];
-                //protect from sql injection
-		$username = strip_tags($username);
-		$username = addslashes($username);
-		$password = strip_tags($password);
-		$password = addslashes($password);
-		if ($username == "" || $password =="") {
-			echo "username or password can not be blank";
-		}else{
-			$sql = "select * from users where username = '$username' and password = '$password' ";
-			$query = mysqli_query($conn,$sql);
-			$num_rows = mysqli_num_rows($query);
-			if ($num_rows==0) {
-				echo "Wrong username or password";
-			}else{
-				$_SESSION['username'] = $username;
-                header('Location: PendingOrder.php');
-			}
-		}
-	}
-?>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -80,12 +51,41 @@ session_start();
 	
 	
 
+<?php
+session_start();
+?>
+
+<?php
+	require './service/database_connection.php';
+	if (isset($_POST["btn_submit"])) {
+		$username = $_POST["username"];
+		$password = $_POST["password"];
+                //protect from sql injection
+		$username = strip_tags($username);
+		$username = addslashes($username);
+		$password = strip_tags($password);
+		$password = addslashes($password);
+		if ($username == "" || $password =="") {
+			echo "username or password can not be blank";
+		}else{
+			$sql = "select * from users where username = '$username' and password = '$password' ";
+			$query = mysqli_query($conn,$sql);
+			$num_rows = mysqli_num_rows($query);
+			if ($num_rows==0) {
+				echo "Wrong username or password";
+			}else{
+				$_SESSION['username'] = $username;
+                header('Location: PendingOrder.php');
+			}
+		}
+	}
+?>
 	<!--FORM-->
 	<div class="login">
     <div class="form"> 
 		<h2>ARE YOU A MEMBER?</h2> 
 		<h3> Log In here</h3>
-		<form method="POST" action="login.php">
+		<form method="POST" action="Login.php">
 			<table border ="0">
 				<tr>
 					<td align="left"> Username: </td>

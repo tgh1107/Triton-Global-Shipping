@@ -1,28 +1,4 @@
-<?php
-session_start();
-
-//Checking if user logged in or not
-if (!isset($_SESSION['username'])) {
-	 header('Location: Login.php');
-}
-?>
-<?php
-//Connect
-require './service/database_connection.php';
-
-//Sql statement
-$sql = "SELECT 
-            *
-        FROM 
-            orderlist
-        where OrderTrack = 0";
-$result = mysqli_query($conn, $sql);
-
-//check error
-if (!$result){
-    die('error'.mysqli_error($conn));
-}
-?>
+<!DOCTYPE html>
 
 <html>
     <head>
@@ -146,3 +122,28 @@ if (!$result){
     </body>
 </html>
 
+<?php
+session_start();
+
+//Checking if user logged in or not
+if (!isset($_SESSION['username'])) {
+	 header('Location: Login.php');
+}
+?>
+<?php
+//Connect
+require './service/database_connection.php';
+
+//Sql statement
+$sql = "SELECT 
+            *
+        FROM 
+            orderlist
+        where OrderTrack = 0";
+$result = mysqli_query($conn, $sql);
+
+//check error
+if (!$result){
+    die('error'.mysqli_error($conn));
+}
+?>
