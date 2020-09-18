@@ -1,10 +1,35 @@
+<?php
+session_start();
+
+//Checking if user logged in or not
+//if (!isset($_SESSION['username'])) {
+	// header('Location: Login.php');
+//}
+?>
+<?php
+//Connect
+require_once './service/config.php';
+
+//Sql statement
+$sql = "SELECT 
+            *
+        FROM 
+            orderlist
+        where OrderTrack = 1";
+$result = mysqli_query($link, $sql);
+
+//check error
+if (!$result){
+    die('error'.mysqli_error($link));
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-		<title>Pending Orders</title>
+		<title>Order  Management</title>
 		<link rel="stylesheet" href="./css/vendor.css">
 		<link rel="stylesheet" href="./css/main.css">
 		<link rel="stylesheet" href="./css/style.css">
@@ -120,28 +145,4 @@
 	
     </body>
 </html>
-<?php
-session_start();
 
-//Checking if user logged in or not
-if (!isset($_SESSION['username'])) {
-	 header('Location: Login.php');
-}
-?>
-<?php
-//Connect
-require './service/database_connection.php';
-
-//Sql statement
-$sql = "SELECT 
-            *
-        FROM 
-            orderlist
-        where OrderTrack = 1";
-$result = mysqli_query($conn, $sql);
-
-//check error
-if (!$result){
-    die('error'.mysqli_error($conn));
-}
-?>
