@@ -115,10 +115,10 @@ if (!$result){
             <input type="submit" value="confirm" name="abc">
             
             <?php
-            require './service/database_connection.php';
+            require_once './service/config.php';
             if(isset($_POST['abc'])){
                 $update = $_POST['update'];
-                    $sql1= "UPDATE `orderlist` SET `OrderTrack`= '1' WHERE OrderID = '$update'";
+                    $sql1= "UPDATE `orderlist` SET `OrderTrack`= '0' WHERE OrderID = '$update'";
                     $result1 = mysqli_query($conn, $sql1);
                 header("Location: PendingOrder.php");
             }
