@@ -33,11 +33,29 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 		<title>Pending Orders</title>
 		<link rel="stylesheet" href="./css/vendor.css">
-		<link rel="stylesheet" href="./css/main.css">
+		<link rel="stylesheet" href="./css/main.css?v=111">
 		<link rel="stylesheet" href="./css/style.css">
 		<link rel="stylesheet" href="./css/font-awesome.css">
 
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<style>
+			
+		.edit_btn {
+			text-decoration: none;
+			padding: 2px 5px;
+			background: #2E8B57;
+			color: white;
+			border-radius: 3px;
+		}
+
+		.confirm_btn {
+			text-decoration: none;
+			padding: 2px 5px;
+			color: white;
+			border-radius: 3px;
+			background: #800000;
+		}
+		</style>
     </head>
     <body>
 	<!--NAVIGATION-->
@@ -88,27 +106,29 @@
                     <td>Order_id</</td>
                     <td>Customer Name</td>
                     <td>Customer Mobile Number</td>
+					<th colspan="2">Action</th>
                 </tr>
             </thread>
             <tbody>
                 <?php
                 if (mysqli_num_rows($result)>0){
-                    while ($row = mysqli_fetch_assoc($result)){
-                    ?>
+                    while ($row = mysqli_fetch_assoc($result)){  ?>
                     <tr>
                         <td><?php echo $row['OrderID']?></td>
                         <td><?php echo $row['CusName']?></td>
                         <td><?php echo $row['CusMobile']?></td>
-                        <?php
-
-                        
-                    };
-                        ?>
+                        <td>
+							<a href="PendingOrder.php?edit=<?php echo $row['OrderID']; ?>" class="edit_btn" >Edit</a>
+						</td>
+						<td>
+							<a href="PendingOrder.php?confirm=<?php echo $row['OrderID']; ?>" class="confirm_btn">Confirm</a>
+						</td>
+						
+				<?php  
+					};     
+					?>
                     </tr>
-                    <?php
-                    
-                }
-                ?>
+                <?php } ?>
             </tbody>
         </table>
         <form method="post">
@@ -117,7 +137,7 @@
             <input type="submit" value="confirm" name="abc">
             
             <?php
-            require './service/database_connection.php';
+            require_once './service/config.php';
             if(isset($_POST['abc'])){
                 $update = $_POST['update'];
                     $sql1= "UPDATE `orderlist` SET `OrderTrack`= '1' WHERE OrderID = '$update'";

@@ -86,6 +86,7 @@ if (!$result){
                     <td>Order_id</</td>
                     <td>Customer Name</td>
                     <td>Customer Mobile Number</td>
+					<th colspan="2">Action</th>
                 </tr>
             </thread>
             <tbody>
@@ -97,6 +98,12 @@ if (!$result){
                         <td><?php echo $row['OrderID']?></td>
                         <td><?php echo $row['CusName']?></td>
                         <td><?php echo $row['CusMobile']?></td>
+						<td>
+							<a href="OrderManagement.php?edit=<?php echo $row['OrderID']; ?>" class="edit_btn" >Edit</a>
+						</td>
+						<td>
+							<a href="OrderManagement.php?confirm=<?php echo $row['OrderID']; ?>" class="confirm_btn">Confirm</a>
+						</td>
                         <?php
 
                         
