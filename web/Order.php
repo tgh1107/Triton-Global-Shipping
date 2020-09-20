@@ -84,8 +84,19 @@
 		</div>
 			<div style="margin-left: 8px"><h4> PACKAGE DETAILS</h4></div>
 			<div class="package_info">		
+				<div>
 				<label> Package type</label>
-				<input type="text" name="">
+				<div id="list1" class="dropdown-check-list" tabindex="100">
+					<span class="anchor">Select package types</span>
+				<ul class="items">
+					<li><input type="checkbox" />Hazardous </li>
+					<li><input type="checkbox" />Non-hazardous</li>
+					<li><input type="checkbox" />Liquid </li>
+					<li><input type="checkbox" />Solid </li>
+					<li><input type="checkbox" />Gas </li>
+					<li><input type="checkbox" />Food </li>
+				  </ul>
+				</div>
 				<label class="form_title"> Weight(kg)</label>
 				<input type="text" name="">
 				<label class="form_title"> Length(cm)</label>
@@ -107,9 +118,9 @@
 				<input type="date" name="">
 				<label class="form_title"> Level of urgency</label>
 				<select>
-					<option value="level1"> In 12 hours</option>
-					<option value="level2"> In 1 day</option>
-					<option value="level3"> In 2 days</option>
+					<option value="level1"> In 1 week</option>
+					<option value="level2"> In 2 weeks</option>
+					<option value="level3"> In 1 month</option>
 				</select>
 			
 				<input type="checkbox">
@@ -140,5 +151,14 @@
 			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
 		</div>
 	</div>
+<script>
+	var checkList = document.getElementById('list1');
+checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+  if (checkList.classList.contains('visible'))
+    checkList.classList.remove('visible');
+  else
+    checkList.classList.add('visible');
+}
+</script>
 </body>
 </html>
