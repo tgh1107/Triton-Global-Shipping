@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
-                            session_start();
+                            //session_start();
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
@@ -150,7 +150,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<div class="login">
     <div class="form"> 
 		<div class="wrapper">
-		<h2>ARE YOU A MEMBER?</h2> 
+		<!--<h2>ARE YOU A MEMBER?</h2> -->
 		<h3> Log In here</h3>
 
         <p>Please fill in your credentials to login.</p>
@@ -168,7 +168,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <!--<p>Don't have an account? <a href="register.php">Sign up now</a>.</p>-->
         </form>
 		</div> 
 	</div>

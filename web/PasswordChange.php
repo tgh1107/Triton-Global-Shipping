@@ -86,7 +86,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<link rel="stylesheet" href="./css/font-awesome.css">
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
+	<!-- CSS Files -->
+	<link href="./css/bootstrap.min.css" rel="stylesheet" />
+	<link href="./css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
 </head>
 <body>
 <!--NAVIGATION-->
@@ -123,8 +125,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="header-spacing-helper" style="height: 90px;">
 	</div>
 
+	<!--  side bar -->
+    <?php include('./include/sidebar.php'); ?>
+    <!-- end of side bar -->
 	<!--CONTAINER-->
-
+	<div class="main-panel">
     <div class="wrapper">
         <h2>Reset Password</h2>
         <p>Please fill out this form to reset your password.</p>
@@ -145,6 +150,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
         </form>
     </div> 
+	</div>
 
 	<!--FOOTER-->
 	<div class="row1">
