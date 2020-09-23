@@ -113,49 +113,54 @@
 				<input type="text" name="">
 			</div>
 		</div>
-			<div style="margin-left: 8px"><h4> PACKAGE DETAILS</h4></div>
-			<div class="package_info">		
-				<div>
-				<label> Package type</label>
-				<div id="list1" class="dropdown-check-list" tabindex="100">
-					<span class="anchor">Select package types</span>
-				<ul class="items">
-					<li><input type="checkbox" />Hazardous </li>
-					<li><input type="checkbox" />Non-hazardous</li>
-					<li><input type="checkbox" />Liquid </li>
-					<li><input type="checkbox" />Solid </li>
-					<li><input type="checkbox" />Gas </li>
-					<li><input type="checkbox" />Food </li>
-				  </ul>
-				</div>
-				<label class="form_title"> Weight(kg)</label>
+			<div style="margin-left: 8px"><h4> PACKAGE DETAILS *</h4></div>
+			<div class="package_info">	
+				
+				<label> Package type</label> <br>
+				<label for="">Hazardous item ?</label>
+				<select name="" id="">
+  					<option value="">Hazardous</option>
+  					<option value="">Non-hazardous</option>	
+				</select> <br>
+				<label for="">Package type</label>
+				<select name="" id="">
+  					<option value="">Solid</option>
+					<option value="">Liquid</option>	
+					<option value="">Gas</option>
+				</select> <br>
+				<label for="">Food ?</label>
+				<select name="" id="">
+  					<option value="">Yes</option>
+					<option value="">No</option>	
+				</select> <br>
+				<label class="form_title"> Weight(kg)</label><br>
+				<input type="text" name=""><br>
+				<label class="form_title"> Length(cm)</label><br>
 				<input type="text" name="">
-				<label class="form_title"> Length(cm)</label>
-				<input type="text" name="">
+			
 			</div>
 			<div class="package_info">
-				<label> Width(cm)</label>
-				<input type="text" name="">
-				<label class="form_title"> Height(cm)</label>
-				<input type="text" name="">
-				<label class="form_title"> Quantity</label>
+				<label> Width(cm)</label> <br>
+				<input type="text" name=""> <br>
+				<label class="form_title"> Height(cm)</label> <br>
+				<input type="text" name=""><br>
+				<label class="form_title"> Quantity</label> <br>
 				<input type="text" name="">
 			
 			</div>
 			<div class="package_info"> 
-				<label> Day of dispatch</label>
-				<input type="date" name="day_of_dispatch">
-				<label class="form_title"> Day of arrival</label>
-				<input type="date" name="">
-				<label class="form_title"> Level of urgency</label>
+				<label> Day of dispatch</label> <br>
+				<input type="date" name="day_of_dispatch"> <br>
+				<label class="form_title"> Day of arrival</label> <br>
+				<input type="date" name=""> <br>
+				<label class="form_title"> Level of urgency</label> <br>
 				<select name='level_of_urgency'>
 					<option value="level1"> In 1 week</option>
 					<option value="level2"> In 2 weeks</option>
 					<option value="level3"> In 1 month</option>
 				</select>
 			
-				<input type="checkbox">
-				<label> Dangerous item</label>
+				
 			
 			</div>
 			<div class="order_button">
@@ -183,14 +188,5 @@
 			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
 		</div>
 	</div>
-<script>
-	var checkList = document.getElementById('list1');
-checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
-  if (checkList.classList.contains('visible'))
-    checkList.classList.remove('visible');
-  else
-    checkList.classList.add('visible');
-}
-</script>
 </body>
 </html>
