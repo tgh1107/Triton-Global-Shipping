@@ -1,8 +1,39 @@
 <!DOCTYPE html>
+        <?php
+        //require 'Connect.php';
+        //include './vendor/autoload.php';
+		require './service/config.php';
+        include './service/vendor/autoload.php';
+        //if(isset($_POST['sender_number'])&& isset($_POST['sender_name']) && isset($_POST['day_of_dispatch']) && isset($_POST['level_of_urgency'])){
+        if($_SERVER["REQUEST_METHOD"] == "POST"){    
+            // Your Account SID and Auth Token from twilio.com/console
+			$account_sid = 'AC3ade4674ed858c35870efd8a9791cca3';
+            $auth_token = '2468ecd6a18aa0819946360af04bd85c';
+            $twilio_number = "+12029534948";
+            
+
+            $AdminNumber ="+61481272472";
+            
+            $Message = 'Customer number: '.$_POST['sender_number'].';'.' Customer Name: '.$_POST['sender_name'] .';'.'Day of Dispatch : '.$_POST['day_of_dispatch'].';'.'Level of urgency : '.$_POST['level_of_urgency'] ;
+            
+            $client = new Twilio\Rest\Client($account_sid, $auth_token);
+            $client->messages->create(
+                    $AdminNumber, 
+                        array(
+                              'from' => $twilio_number,
+                              'body' => $Message
+                             )
+                    );
+          
+            
+            //Insert record into DB
+            $sql = "insert into orderlist (sender_name, sender_number) values ('".$_POST['sender_name']."','".$_POST['sender_number']."')";
+            $result = mysqli_query($link, $sql);
+        }
+        ?>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 	<title>REQUEST AN ORDER </title>
@@ -56,16 +87,16 @@
 	<h2 style="margin-top: 30px; text-align: center;">READY TO SHIP YOUR PACKAGE? </h2>
 	<div class="order_form">
 		<p> Fields marked * are required</p>
-		<form>
+		<form action = "" method="post" >
 			<div>
 			<div class="cus_info">
 				<h4> SENDER DETAILS</h4>
 				<label> Name*</label><br>
-				<input type="text" name=""><br>
+				<input type="text" name="sender_name"><br>
 				<label> Email*</label><br>
 				<input type="text" name=""><br>
 				<label> Contact number*</label><br>
-				<input type="text" name=""><br>
+				<input type="text" name="sender_number"><br>
 				<label> Address*</label><br>
 				<input type="text" name="">
 			</div>
@@ -113,11 +144,11 @@
 			</div>
 			<div class="package_info"> 
 				<label> Day of dispatch</label>
-				<input type="date" name="">
+				<input type="date" name="day_of_dispatch">
 				<label class="form_title"> Day of arrival</label>
 				<input type="date" name="">
 				<label class="form_title"> Level of urgency</label>
-				<select>
+				<select name='level_of_urgency'>
 					<option value="level1"> In 1 week</option>
 					<option value="level2"> In 2 weeks</option>
 					<option value="level3"> In 1 month</option>
@@ -128,8 +159,9 @@
 			
 			</div>
 			<div class="order_button">
-				<button> ADD ANOTHER ITEM</button>
-				<button> ORDER</button>
+				<!--<button> ADD ANOTHER ITEM</button>
+				<button> ORDER</button>-->
+				<input type="submit" value="ORDER">
 			</div>
 		</form>
 

@@ -27,7 +27,7 @@ and open the template in the editor.
             
             // Your Account SID and Auth Token from twilio.com/console
 			$account_sid = 'AC3ade4674ed858c35870efd8a9791cca3';
-            $auth_token = '6db7ae93c72898483d8da81d4af765c0';
+            $auth_token = '2468ecd6a18aa0819946360af04bd85c';
             $twilio_number = "+12029534948";
             
 
