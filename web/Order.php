@@ -1,36 +1,85 @@
 <!DOCTYPE html>
-        <?php
-        //require 'Connect.php';
-        //include './vendor/autoload.php';
-		require './service/config.php';
-        include './service/vendor/autoload.php';
-        //if(isset($_POST['sender_number'])&& isset($_POST['sender_name']) && isset($_POST['day_of_dispatch']) && isset($_POST['level_of_urgency'])){
-        if($_SERVER["REQUEST_METHOD"] == "POST"){    
-            // Your Account SID and Auth Token from twilio.com/console
-			$account_sid = 'AC3ade4674ed858c35870efd8a9791cca3';
-            $auth_token = '2468ecd6a18aa0819946360af04bd85c';
-            $twilio_number = "+12029534948";
-            
+<?php
 
-            $AdminNumber ="+61481272472";
-            
-            $Message = 'Customer number: '.$_POST['sender_number'].';'.' Customer Name: '.$_POST['sender_name'] .';'.'Day of Dispatch : '.$_POST['day_of_dispatch'].';'.'Level of urgency : '.$_POST['level_of_urgency'] ;
-            
-            $client = new Twilio\Rest\Client($account_sid, $auth_token);
-            $client->messages->create(
-                    $AdminNumber, 
-                        array(
-                              'from' => $twilio_number,
-                              'body' => $Message
-                             )
-                    );
-          
-            
-            //Insert record into DB
-            $sql = "insert into orderlist (sender_name, sender_number) values ('".$_POST['sender_name']."','".$_POST['sender_number']."')";
-            $result = mysqli_query($link, $sql);
-        }
-        ?>
+// Include file
+include_once './include/debug.php';
+//require_once './include/EnvFile.php';
+//require 'Connect.php';
+//include './vendor/autoload.php';
+//require './service/config.php';
+include_once './service/database_connection.php';
+include_once './service/vendor/autoload.php';
+
+// Define variables and initialize with empty values
+$account_sid = $auth_token = $twilio_number = $AdminNumber = "";
+
+// functions
+function readEnv(){
+
+    $root_dir = realpath(dirname(getcwd()));
+	//echo nl2br (" ========== \n".$root_dir."\r\n");
+	//echo " ========== ".getcwd()."\n";
+    $ini_array = parse_ini_file($root_dir.'\web\.env', true, INI_SCANNER_RAW);
+    //$env_str[0] = $ini_array['DB_DATABASE'];
+	//echo " ========== ".$ini_array['DB_DATABASE']."\n";
+	//putenv("DB_DATABASE=$env_str[0]");
+	//putenv("DB_DATABASE={$ini_array['DB_DATABASE']}");
+	putenv("TWILIO_ACCOUNT_SID={$ini_array['TWILIO_ACCOUNT_SID']}");
+	putenv("TWILIO_AUTH_TOKEN={$ini_array['TWILIO_AUTH_TOKEN']}");
+	putenv("TWILIO_PHONE_NUMBER={$ini_array['TWILIO_PHONE_NUMBER']}");
+	putenv("TWILIO_ADMIN_PHONE_NUMBER={$ini_array['TWILIO_ADMIN_PHONE_NUMBER']}");
+	
+    //$env_str[1] = $ini_array['DB_USERNAME'];
+    //$env_str[2] = $ini_array['DB_PASSWORD'];
+	/*$ef = new EnvFile($root_dir.'\web\.env'); 
+	$ef->addOrChangeKey('DB_DATABASE', 'ROSEY');
+	$ef->save();*/
+    return ;
+
+}
+
+function sendMessage($Message)
+{
+	$account_sid = getenv("TWILIO_ACCOUNT_SID");
+    $auth_token = getenv("TWILIO_AUTH_TOKEN");
+    $twilio_number = getenv("TWILIO_PHONE_NUMBER");
+    $AdminNumber = getenv("TWILIO_ADMIN_PHONE_NUMBER");
+	console_log("account_sid :".$account_sid);
+	console_log("auth_token : ".$auth_token);
+	console_log("twilio_number : ".$twilio_number);
+	console_log("AdminNumber : ".$AdminNumber);
+	/*if(empty($account_sid) && empty($auth_token && empty($twilio_number) && empty($AdminNumber)
+	{
+		$client = new Twilio\Rest\Client($account_sid, $auth_token);
+		$client->messages->create(
+						$AdminNumber, 
+							array(
+								  'from' => $twilio_number,
+								  'body' => $Message
+								 )
+						);
+	}else{
+		console_log("ERROR : Can not send the messages");
+	}	*/
+}
+
+function saveData()
+{
+	//Insert record into DB
+	$sql = "insert into orderlist (sender_name, sender_number) values ('".$_POST['sender_name']."','".$_POST['sender_number']."')";
+	$result = mysqli_query($link, $sql);
+}	
+
+	readEnv();
+
+	//if(isset($_POST['sender_number'])&& isset($_POST['sender_name']) && isset($_POST['day_of_dispatch']) && isset($_POST['level_of_urgency'])){
+	if($_SERVER["REQUEST_METHOD"] == "POST"){ 
+		$Message = 'Customer number: '.$_POST['sender_number'].';'.' Customer Name: '.$_POST['sender_name'] .';'.'Day of Dispatch : '.$_POST['day_of_dispatch'].';'.'Level of urgency : '.$_POST['level_of_urgency'] ;
+		
+		sendMessage($Message);
+
+	}
+?>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
