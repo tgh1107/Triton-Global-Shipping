@@ -9,23 +9,6 @@ session_start();
 ?>
 
 <?php
-//Connect
-require_once './service/config.php';
-
-//Sql statement
-$sql = "SELECT 
-            *
-        FROM 
-            orderlist
-        where OrderTrack = 1";
-$result = mysqli_query($link, $sql);
-
-//check error
-if (!$result){
-    die('error'.mysqli_error($link));
-}
-?>
-<?php
 
  
 // Define variables and initialize with empty values
@@ -35,39 +18,7 @@ $username_err = $password_err = $confirm_password_err = "";
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-    // Validate username
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-            $param_username = trim($_POST["username"]);
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                /* store result */
-                mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
-                } else{
-                    $username = trim($_POST["username"]);
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-    
+ 
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
@@ -90,37 +41,103 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
-        // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-         
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-            
-            // Set parameters
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
+ 
     }
     
-    // Close connection
-    mysqli_close($link);
+
 }
 ?>
 
 <!DOCTYPE html>
+<?php
 
+// Include file
+include_once './include/debug.php';
+include_once './service/vendor/autoload.php';
+
+// Define variables and initialize with empty values
+$account_sid = $auth_token = $twilio_number = $AdminNumber = "";
+
+// functions
+function readEnv(){
+
+    $root_dir = realpath(dirname(getcwd()));
+    $ini_array = parse_ini_file($root_dir.'\web\.env', true, INI_SCANNER_RAW);
+
+	putenv("TWILIO_ACCOUNT_SID={$ini_array['TWILIO_ACCOUNT_SID']}");
+	putenv("TWILIO_AUTH_TOKEN={$ini_array['TWILIO_AUTH_TOKEN']}");
+	putenv("TWILIO_PHONE_NUMBER={$ini_array['TWILIO_PHONE_NUMBER']}");
+	putenv("TWILIO_ADMIN_PHONE_NUMBER={$ini_array['TWILIO_ADMIN_PHONE_NUMBER']}");
+	
+
+    return ;
+
+}
+
+function changeEnv($key,$value)
+{
+    $path = base_path('.env');
+
+    if(is_bool(env($key)))
+    {
+        $old = env($key)? 'true' : 'false';
+    }
+    elseif(env($key)===null){
+        $old = 'null';
+    }
+    else{
+        $old = env($key);
+    }
+
+    if (file_exists($path)) {
+        file_put_contents($path, str_replace(
+            "$key=".$old, "$key=".$value, file_get_contents($path)
+        ));
+    }
+}
+
+/*function sendMessage($Message)
+{
+	$account_sid = getenv("TWILIO_ACCOUNT_SID");
+    $auth_token = getenv("TWILIO_AUTH_TOKEN");
+    $twilio_number = getenv("TWILIO_PHONE_NUMBER");
+    $AdminNumber = getenv("TWILIO_ADMIN_PHONE_NUMBER");
+	console_log("account_sid :".$account_sid);
+	console_log("auth_token : ".$auth_token);
+	console_log("twilio_number : ".$twilio_number);
+	console_log("AdminNumber : ".$AdminNumber);
+	if(empty($account_sid) && empty($auth_token && empty($twilio_number) && empty($AdminNumber)
+	{
+		$client = new Twilio\Rest\Client($account_sid, $auth_token);
+		$client->messages->create(
+						$AdminNumber, 
+							array(
+								  'from' => $twilio_number,
+								  'body' => $Message
+								 )
+						);
+	}else{
+		console_log("ERROR : Can not send the messages");
+	}	
+}
+
+function saveData()
+{
+	//Insert record into DB
+	$sql = "insert into orderlist (sender_name, sender_number) values ('".$_POST['sender_name']."','".$_POST['sender_number']."')";
+	$result = mysqli_query($link, $sql);
+}	*/
+
+	readEnv();
+
+	//if(isset($_POST['sender_number'])&& isset($_POST['sender_name']) && isset($_POST['day_of_dispatch']) && isset($_POST['level_of_urgency'])){
+	if($_SERVER["REQUEST_METHOD"] == "POST"){ 
+		//$Message = 'Customer number: '.$_POST['sender_number'].';'.' Customer Name: '.$_POST['sender_name'] .';'.'Day of Dispatch : '.$_POST['day_of_dispatch'].';'.'Level of urgency : '.$_POST['level_of_urgency'] ;
+		
+		//sendMessage($Message);
+
+	}
+?>
 <html>
     <head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -184,25 +201,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Please fill this form to change phone number.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Phone</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <label>ACCOUNT SID</label>
+                <input type="text" name="username" class="form-control" value="<?php echo getenv("TWILIO_ACCOUNT_SID"); ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input  name="password" class="form-control" value="<?php echo $password; ?>">
+                <label>AUTH TOKEN</label>
+                <input  name="password" class="form-control" value="<?php echo getenv("TWILIO_AUTH_TOKEN"); ?>">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
-                <input name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                <label>TRIAL NUMBER</label>
+                <input name="confirm_password" class="form-control" value="<?php echo getenv("TWILIO_PHONE_NUMBER"); ?>">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+			<div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <label>PHONE NUMBER</label>
+                <input name="confirm_password" class="form-control" value="<?php echo getenv("TWILIO_ADMIN_PHONE_NUMBER"); ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="save" class="btn btn-primary" value="Save">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            <p>Already have an phone number? <a class="btn" href="https://www.twilio.com/">Register</a></p>
+			<p>NOTE : You need to register and add here</p>
         </form>
     </div>    
 		

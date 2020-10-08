@@ -237,5 +237,11 @@ function saveData()
 			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
 		</div>
 	</div>
+	<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LeSCLMZAAAAAKVvuKlLIW4VcnyHi_yYvp3Ar1Qh&#038;ver=3.0'></script>
+	<script type='text/javascript'>
+	/* <![CDATA[ */
+	var wpcf7_recaptcha = {"sitekey":"6LeSCLMZAAAAAKVvuKlLIW4VcnyHi_yYvp3Ar1Qh","actions":{"homepage":"homepage","contactform":"contactform"}};
+	/* ]]> */
+	</script>
 </body>
 </html>
