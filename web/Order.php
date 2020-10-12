@@ -48,7 +48,7 @@ function sendMessage($Message)
 	console_log("auth_token : ".$auth_token);
 	console_log("twilio_number : ".$twilio_number);
 	console_log("AdminNumber : ".$AdminNumber);
-	/*if(empty($account_sid) && empty($auth_token && empty($twilio_number) && empty($AdminNumber)
+	if(empty($account_sid) && empty($auth_token && empty($twilio_number) && empty($AdminNumber)
 	{
 		$client = new Twilio\Rest\Client($account_sid, $auth_token);
 		$client->messages->create(
@@ -60,7 +60,7 @@ function sendMessage($Message)
 						);
 	}else{
 		console_log("ERROR : Can not send the messages");
-	}	*/
+	}	
 }
 
 function saveData()

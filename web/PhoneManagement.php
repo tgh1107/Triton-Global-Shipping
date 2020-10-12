@@ -1,5 +1,14 @@
-
+<!DOCTYPE html>
 <?php
+// Include file
+include_once './include/debug.php';
+include_once './service/vendor/autoload.php';
+
+// Define variables and initialize with empty values
+$account_sid = $auth_token = $twilio_number = $AdminNumber = "";
+$username = $password = $confirm_password = "";
+$username_err = $password_err = $confirm_password_err = "";
+
 session_start();
 
 //Checking if user logged in or not
@@ -9,56 +18,46 @@ session_start();
 ?>
 
 <?php
+if (! function_exists('env')) {
+    /**
+     * Gets the value of an environment variable.
+     *
+     * @param  string  $key
+     * @param  mixed   $default
+     * @return mixed
+     */
+    function env($key, $default = null)
+    {
+        $value = getenv($key);
 
- 
-// Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
- 
-    // Validate password
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-    
-    // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
-    } else{
-        $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
+        if ($value === false) {
+            return value($default);
         }
-    }
-    
-    // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-        
- 
-    }
-    
 
+        switch (strtolower($value)) {
+            case 'true':
+            case '(true)':
+                return true;
+            case 'false':
+            case '(false)':
+                return false;
+            case 'empty':
+            case '(empty)':
+                return '';
+            case 'null':
+            case '(null)':
+                return;
+        }
+
+        if (($valueLength = strlen($value)) > 1 && $value[0] === '"' && $value[$valueLength - 1] === '"') {
+            return substr($value, 1, -1);
+        }
+
+        return $value;
+    }
 }
-?>
-
-<!DOCTYPE html>
-<?php
-
-// Include file
-include_once './include/debug.php';
-include_once './service/vendor/autoload.php';
-
-// Define variables and initialize with empty values
-$account_sid = $auth_token = $twilio_number = $AdminNumber = "";
-
-// functions
+ 
+ // functions
 function readEnv(){
 
     $root_dir = realpath(dirname(getcwd()));
@@ -76,7 +75,8 @@ function readEnv(){
 
 function changeEnv($key,$value)
 {
-    $path = base_path('.env');
+	$root_dir = realpath(dirname(getcwd()));
+    $path = $root_dir.'\web\.env';
 
     if(is_bool(env($key)))
     {
@@ -128,15 +128,57 @@ function saveData()
 	$result = mysqli_query($link, $sql);
 }	*/
 
+
+// MAIN
 	readEnv();
 
+// Processing form data when form is submitted
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		if(isset($_POST['submit'])){
+			console_log("============ [INFO] $_POST : submit");
+			$Message1 = 'TWILIO_ADMIN_PHONE_NUMBER'; 
+			$Message2 = '+61481272472111111111';
+			
+			
+			changeEnv($Message1,$Message2);
+			// Validate password
+			/*if(empty(trim($_POST["password"]))){
+				$password_err = "Please enter a password.";     
+			} elseif(strlen(trim($_POST["password"])) < 6){
+				$password_err = "Password must have atleast 6 characters.";
+			} else{
+				$password = trim($_POST["password"]);
+			}
+			
+			// Validate confirm password
+			if(empty(trim($_POST["confirm_password"]))){
+				$confirm_password_err = "Please confirm password.";     
+			} else{
+				$confirm_password = trim($_POST["confirm_password"]);
+				if(empty($password_err) && ($password != $confirm_password)){
+					$confirm_password_err = "Password did not match.";
+				}
+			}
+			
+			// Check input errors before inserting in database
+			if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+				
+		 
+			}*/
+		
+		}
+	}
+?>
+
+
+<?php
 	//if(isset($_POST['sender_number'])&& isset($_POST['sender_name']) && isset($_POST['day_of_dispatch']) && isset($_POST['level_of_urgency'])){
-	if($_SERVER["REQUEST_METHOD"] == "POST"){ 
+	//if($_SERVER["REQUEST_METHOD"] == "POST"){ 
 		//$Message = 'Customer number: '.$_POST['sender_number'].';'.' Customer Name: '.$_POST['sender_name'] .';'.'Day of Dispatch : '.$_POST['day_of_dispatch'].';'.'Level of urgency : '.$_POST['level_of_urgency'] ;
 		
 		//sendMessage($Message);
 
-	}
+	//}
 ?>
 <html>
     <head>
@@ -152,7 +194,7 @@ function saveData()
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<!-- CSS Files -->
 		<link href="./css/bootstrap.min.css" rel="stylesheet" />
-		<link href="./css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+		<link href="./css/paper-dashboard.css" rel="stylesheet" />
 	</head>
     <body>
 	
@@ -199,7 +241,7 @@ function saveData()
 	<div class="wrapper">
         <h2>Phone Management</h2>
         <p>Please fill this form to change phone number.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>ACCOUNT SID</label>
                 <input type="text" name="username" class="form-control" value="<?php echo getenv("TWILIO_ACCOUNT_SID"); ?>">
@@ -221,7 +263,7 @@ function saveData()
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="save" class="btn btn-primary" value="Save">
+                <input type="submit" name="submit" class="btn btn-primary" value="Save">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
             <p>Already have an phone number? <a class="btn" href="https://www.twilio.com/">Register</a></p>
