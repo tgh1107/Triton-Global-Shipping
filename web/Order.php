@@ -36,7 +36,7 @@ function readEnv(){
 
 }
 
-function getAminInfo()
+function getAdminInfo()
 {
 	global $conn, $account_sid, $auth_token, $twilio_number, $AdminNumber;
 	$sql = "SELECT * FROM  twilio_service where USER_ID = 1";
@@ -100,7 +100,7 @@ function saveData()
 
 	// main process
 	//readEnv();
-	getAminInfo();
+	getAdminInfo();
 	console_log("account_sid :".$account_sid);
 	console_log("auth_token : ".$auth_token);
 	console_log("twilio_number : ".$twilio_number);

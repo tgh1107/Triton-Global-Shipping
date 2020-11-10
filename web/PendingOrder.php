@@ -1,15 +1,26 @@
+<!DOCTYPE html>
 <?php
+	//Connect
+	require_once './service/config.php';
+	
 	session_start();
 
 	//Checking if user logged in or not
 	if (!isset($_SESSION['username'])) {
 		 header('Location: Login.php');
-}
-?>
+	}
 
-<?php
-	//Connect
-	require_once './service/config.php';
+function getOrderInfo(){
+	
+}
+
+function updateOrderInfo(){
+	
+}
+
+function deleteOrderInfo(){
+	
+}
 
 	//Sql statement
 	$sql = "SELECT 
@@ -23,8 +34,13 @@
 	if (!$result){
 		die('error'.mysqli_error($link));
 	}
+	
+	// MAIN
+	
+	
+	//------ END ----------//
 ?>
-<!DOCTYPE html>
+
 
 <html>
     <head>

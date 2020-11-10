@@ -126,7 +126,7 @@ function saveData()
 	$result = mysqli_query($link, $sql);
 }	*/
 
-function getAminInfo()
+function getAdminInfo()
 {
 	global $conn, $account_sid, $auth_token, $twilio_number, $AdminNumber;
 	$sql = "SELECT * FROM  twilio_service where USER_ID = 1";
@@ -155,10 +155,44 @@ function getAminInfo()
 }	
 
 
+function setAdminInfo()
+{
+	global $conn, $account_sid, $auth_token, $twilio_number, $AdminNumber;
+	$sql = "SELECT * FROM  twilio_service where USER_ID = 1";
+	$result = mysqli_query($conn, $sql);
+
+	//check error
+	if (!$result){
+		die('error'.mysqli_error($conn));
+	}
+	
+	$row_number = mysqli_num_rows($result);
+	console_log("row_number :".$row_number);
+	
+	if (mysqli_num_rows($result) > 0){
+		while ($row = mysqli_fetch_assoc($result)){
+			$account_sid = $row['ACCOUNT_SID'];
+			$auth_token = $row['AUTH_TOKEN'];
+			$twilio_number = $row['PHONE_NUMBER'];
+			$AdminNumber = $row['ADMIN_PHONE_NUMBER'];
+		}
+	}
+	console_log("account_sid :".$account_sid);
+	console_log("auth_token : ".$auth_token);
+	console_log("twilio_number : ".$twilio_number);
+	console_log("AdminNumber : ".$AdminNumber);
+	
+	if(isset($_POST['abc'])){
+                $update = $_POST['update'];
+                    $sql1= "UPDATE `orderlist` SET `OrderTrack`= '0' WHERE OrderID = '$update'";
+                    $result1 = mysqli_query($conn, $sql1);
+                header("Location: PendingOrder.php");
+            }
+}
 
 	// MAIN
 	//readEnv();
-	getAminInfo();
+	getAdminInfo();
 	console_log("account_sid :".$account_sid);
 	console_log("auth_token : ".$auth_token);
 	console_log("twilio_number : ".$twilio_number);

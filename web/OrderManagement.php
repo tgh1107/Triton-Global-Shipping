@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 // Include file
 require_once './service/config.php';
@@ -9,6 +10,17 @@ session_start();
 	// header('Location: Login.php');
 //}
 
+function getOrderInfo(){
+	
+}
+
+function updateOrderInfo(){
+	
+}
+
+function deleteOrderInfo(){
+	
+}
 
 //Sql statement
 $sql = "SELECT 
@@ -22,8 +34,11 @@ $result = mysqli_query($link, $sql);
 if (!$result){
     die('error'.mysqli_error($link));
 }
+	// MAIN
+	
+	//------ END ----------//
 ?>
-<!DOCTYPE html>
+
 <html>
     <head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
