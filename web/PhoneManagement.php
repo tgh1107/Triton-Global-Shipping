@@ -15,9 +15,7 @@ session_start();
 /* if (!isset($_SESSION['username'])) {
 	 header('Location: Login.php');
 } */
-?>
 
-<?php
 if (! function_exists('env')) {
     /**
      * Gets the value of an environment variable.
@@ -128,11 +126,45 @@ function saveData()
 	$result = mysqli_query($link, $sql);
 }	*/
 
+function getAminInfo()
+{
+	global $conn, $account_sid, $auth_token, $twilio_number, $AdminNumber;
+	$sql = "SELECT * FROM  twilio_service where USER_ID = 1";
+	$result = mysqli_query($conn, $sql);
 
-// MAIN
-	readEnv();
+	//check error
+	if (!$result){
+		die('error'.mysqli_error($conn));
+	}
+	
+	$row_number = mysqli_num_rows($result);
+	console_log("row_number :".$row_number);
+	
+	if (mysqli_num_rows($result) > 0){
+		while ($row = mysqli_fetch_assoc($result)){
+			$account_sid = $row['ACCOUNT_SID'];
+			$auth_token = $row['AUTH_TOKEN'];
+			$twilio_number = $row['PHONE_NUMBER'];
+			$AdminNumber = $row['ADMIN_PHONE_NUMBER'];
+		}
+	}
+	console_log("account_sid :".$account_sid);
+	console_log("auth_token : ".$auth_token);
+	console_log("twilio_number : ".$twilio_number);
+	console_log("AdminNumber : ".$AdminNumber);
+}	
 
-// Processing form data when form is submitted
+
+
+	// MAIN
+	//readEnv();
+	getAminInfo();
+	console_log("account_sid :".$account_sid);
+	console_log("auth_token : ".$auth_token);
+	console_log("twilio_number : ".$twilio_number);
+	console_log("AdminNumber : ".$AdminNumber);
+
+	// Processing form data when form is submitted
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		if(isset($_POST['submit'])){
 			console_log("============ [INFO] $_POST : submit");
@@ -168,10 +200,7 @@ function saveData()
 		
 		}
 	}
-?>
 
-
-<?php
 	//if(isset($_POST['sender_number'])&& isset($_POST['sender_name']) && isset($_POST['day_of_dispatch']) && isset($_POST['level_of_urgency'])){
 	//if($_SERVER["REQUEST_METHOD"] == "POST"){ 
 		//$Message = 'Customer number: '.$_POST['sender_number'].';'.' Customer Name: '.$_POST['sender_name'] .';'.'Day of Dispatch : '.$_POST['day_of_dispatch'].';'.'Level of urgency : '.$_POST['level_of_urgency'] ;
@@ -179,6 +208,8 @@ function saveData()
 		//sendMessage($Message);
 
 	//}
+	
+	//------ END ----------//
 ?>
 <html>
     <head>
@@ -244,22 +275,22 @@ function saveData()
         <form action="" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>ACCOUNT SID</label>
-                <input type="text" name="username" class="form-control" value="<?php echo getenv("TWILIO_ACCOUNT_SID"); ?>">
+                <input type="text" name="username" class="form-control" value="<?php echo $account_sid; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>AUTH TOKEN</label>
-                <input  name="password" class="form-control" value="<?php echo getenv("TWILIO_AUTH_TOKEN"); ?>">
+                <input  name="password" class="form-control" value="<?php echo $auth_token; ?>">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                 <label>TRIAL NUMBER</label>
-                <input name="confirm_password" class="form-control" value="<?php echo getenv("TWILIO_PHONE_NUMBER"); ?>">
+                <input name="confirm_password" class="form-control" value="<?php echo $twilio_number; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
 			<div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                 <label>PHONE NUMBER</label>
-                <input name="confirm_password" class="form-control" value="<?php echo getenv("TWILIO_ADMIN_PHONE_NUMBER"); ?>">
+                <input name="confirm_password" class="form-control" value="<?php echo $AdminNumber; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">

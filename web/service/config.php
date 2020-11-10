@@ -6,6 +6,10 @@ define('DB_USERNAME', 'id14886494_root');
 define('DB_PASSWORD', 'E[fHArGadEUD9[\d');
 define('DB_NAME', 'id14886494_ict2020');
  
+//define('DB_USERNAME', 'root');
+//define('DB_PASSWORD', '');
+//define('DB_NAME', 'ict2020');
+
 /* Attempt to connect to MySQL database */
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
  

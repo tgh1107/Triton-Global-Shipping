@@ -1,14 +1,14 @@
 <?php
+// Include file
+require_once './service/config.php';
+
 session_start();
 
 //Checking if user logged in or not
 //if (!isset($_SESSION['username'])) {
 	// header('Location: Login.php');
 //}
-?>
-<?php
-//Connect
-require_once './service/config.php';
+
 
 //Sql statement
 $sql = "SELECT 
@@ -139,8 +139,7 @@ if (!$result){
             ?>
             
         </form>
-        <a href="Logout.php"> logout</a>
-		
+        		
 	</div>
 
 

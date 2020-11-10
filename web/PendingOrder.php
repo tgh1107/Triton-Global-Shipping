@@ -154,7 +154,7 @@
             ?>
             
         </form>
-        <a href="Logout.php"> logout</a>
+        
 		
 	</div>
 

@@ -4,10 +4,8 @@
 // Include file
 include_once './include/debug.php';
 //require_once './include/EnvFile.php';
-//require 'Connect.php';
-//include './vendor/autoload.php';
-//require './service/config.php';
-include_once './service/database_connection.php';
+require_once './service/config.php';
+require_once './service/database_connection.php';
 include_once './service/vendor/autoload.php';
 
 // Define variables and initialize with empty values
@@ -15,11 +13,11 @@ $account_sid = $auth_token = $twilio_number = $AdminNumber = "";
 
 // functions
 function readEnv(){
-
     $root_dir = realpath(dirname(getcwd()));
 	//echo nl2br (" ========== \n".$root_dir."\r\n");
 	//echo " ========== ".getcwd()."\n";
     $ini_array = parse_ini_file($root_dir.'\web\.env', true, INI_SCANNER_RAW);
+	console_log("root_dir :".$root_dir);
     //$env_str[0] = $ini_array['DB_DATABASE'];
 	//echo " ========== ".$ini_array['DB_DATABASE']."\n";
 	//putenv("DB_DATABASE=$env_str[0]");
@@ -38,17 +36,47 @@ function readEnv(){
 
 }
 
-function sendMessage($Message)
+function getAminInfo()
 {
-	$account_sid = getenv("TWILIO_ACCOUNT_SID");
-    $auth_token = getenv("TWILIO_AUTH_TOKEN");
-    $twilio_number = getenv("TWILIO_PHONE_NUMBER");
-    $AdminNumber = getenv("TWILIO_ADMIN_PHONE_NUMBER");
+	global $conn, $account_sid, $auth_token, $twilio_number, $AdminNumber;
+	$sql = "SELECT * FROM  twilio_service where USER_ID = 1";
+	$result = mysqli_query($conn, $sql);
+
+	//check error
+	if (!$result){
+		die('error'.mysqli_error($conn));
+	}
+	
+	$row_number = mysqli_num_rows($result);
+	console_log("row_number :".$row_number);
+	
+	if (mysqli_num_rows($result) > 0){
+		while ($row = mysqli_fetch_assoc($result)){
+			$account_sid = $row['ACCOUNT_SID'];
+			$auth_token = $row['AUTH_TOKEN'];
+			$twilio_number = $row['PHONE_NUMBER'];
+			$AdminNumber = $row['ADMIN_PHONE_NUMBER'];
+		}
+	}
 	console_log("account_sid :".$account_sid);
 	console_log("auth_token : ".$auth_token);
 	console_log("twilio_number : ".$twilio_number);
 	console_log("AdminNumber : ".$AdminNumber);
-	if(empty($account_sid) && empty($auth_token && empty($twilio_number) && empty($AdminNumber)
+}	
+
+
+function sendMessage($Message)
+{
+	global $account_sid, $auth_token, $twilio_number, $AdminNumber;
+	/*$account_sid = getenv("TWILIO_ACCOUNT_SID");
+    $auth_token = getenv("TWILIO_AUTH_TOKEN");
+    $twilio_number = getenv("TWILIO_PHONE_NUMBER");
+    $AdminNumber = getenv("TWILIO_ADMIN_PHONE_NUMBER");*/
+	console_log("account_sid :".$account_sid);
+	console_log("auth_token : ".$auth_token);
+	console_log("twilio_number : ".$twilio_number);
+	console_log("AdminNumber : ".$AdminNumber);
+	if(empty($account_sid) && empty($auth_token) && empty($twilio_number) && empty($AdminNumber))
 	{
 		$client = new Twilio\Rest\Client($account_sid, $auth_token);
 		$client->messages->create(
@@ -66,12 +94,19 @@ function sendMessage($Message)
 function saveData()
 {
 	//Insert record into DB
-	$sql = "insert into orderlist (sender_name, sender_number) values ('".$_POST['sender_name']."','".$_POST['sender_number']."')";
-	$result = mysqli_query($link, $sql);
+	/*$sql = "insert into orderlist (sender_name, sender_number) values ('".$_POST['sender_name']."','".$_POST['sender_number']."')";
+	$result = mysqli_query($link, $sql);*/
 }	
 
-	readEnv();
-
+	// main process
+	//readEnv();
+	getAminInfo();
+	console_log("account_sid :".$account_sid);
+	console_log("auth_token : ".$auth_token);
+	console_log("twilio_number : ".$twilio_number);
+	console_log("AdminNumber : ".$AdminNumber);
+	
+	// handle post
 	//if(isset($_POST['sender_number'])&& isset($_POST['sender_name']) && isset($_POST['day_of_dispatch']) && isset($_POST['level_of_urgency'])){
 	if($_SERVER["REQUEST_METHOD"] == "POST"){ 
 		$Message = 'Customer number: '.$_POST['sender_number'].';'.' Customer Name: '.$_POST['sender_name'] .';'.'Day of Dispatch : '.$_POST['day_of_dispatch'].';'.'Level of urgency : '.$_POST['level_of_urgency'] ;
@@ -79,6 +114,8 @@ function saveData()
 		sendMessage($Message);
 
 	}
+	
+	//------ END ----------//
 ?>
 <html>
 <head>
