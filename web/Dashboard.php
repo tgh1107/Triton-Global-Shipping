@@ -1,31 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Dashboard 
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
+//dashboard.php
 
-  <link rel="stylesheet" href="./css/font-awesome.css">
-  <!-- CSS Files -->
-  <link href="./css/bootstrap.min.css" rel="stylesheet" />
-  <link href="./css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+include('sms.php');
 
-</head>
+$shipment_system = new sms();
 
-<body class="">
-    <!--  side bar -->
-    <?php include('./include/sidebar.php'); ?>
-    <!-- end of side bar -->
-    
+/*if(!$shipment_system->is_login())
+{
+	header("location:".$shipment_system->base_url."");
+}*/
 
+include('admin_header.php');
+
+include('admin_sidebar.php');
+
+?>
+	
+	
+	        <div class="col-sm-10 offset-sm-2 py-4">
+	            <div class="row">
+	            	<div class="col-sm-3">
+	            		<div class="card text-white bg-success mb-3">
+						  	<div class="card-header text-center"><h4>Total Today Order</h4></div>
+						  	<div class="card-body">
+						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_total_today_visitor(); ?></h1>
+						  	</div>
+						</div>
+	            	</div>
+	            	<div class="col-sm-3">
+	            		<div class="card text-white bg-primary mb-3">
+						  	<div class="card-header text-center"><h4>Total Order (Week)</h4></div>
+						  	<div class="card-body">
+						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_total_yesterday_visitor(); ?></h1>
+						  	</div>
+						</div>
+	            	</div>
+	            	<div class="col-sm-3">
+	            		<div class="card text-white bg-warning mb-3">
+						  	<div class="card-header text-center"><h4>Total Order (Month)</h4></div>
+						  	<div class="card-body">
+						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_last_seven_day_total_visitor(); ?></h1>
+						  	</div>
+						</div>
+	            	</div>
+	            	<div class="col-sm-3">
+	            		<div class="card text-white bg-info mb-3">
+						  	<div class="card-header text-center"><h4>Total Order (Year)</h4></div>
+						  	<div class="card-body">
+						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_total_visitor(); ?></h1>
+						  	</div>
+						</div>
+	            	</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
 </body>
-
 </html>

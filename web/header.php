@@ -1,71 +1,23 @@
+<!DOCTYPE html>
 <html>
-<head><link href="CSS/myStyle.css" rel="stylesheet" type="text/css">
-<script src="JS/myJS.js" type="text/javascript"></script>
-</head>
-<body>
-    
-        <div id="container">
-            <div class="logoHeader">
-                <div class="logo">
-                    <a href="index.php" class="navbar-brand">
-                        <img src="Images/logoo.PNG" class="logoImg">
-                    </a>
-                </div>
-                <div class="info">
-                    <a href="contactUs.php" class="navbar-brand">
-                        <h2>ORDER & SUPPORT</h2>
-                        <h2><img src="Images/phoneicon.png" class="icon"> 1300145000</h2>
-                    </a>
-                </div>
+	<head>
+		<title>Visitor Management System</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/bootstrap.min.css" >
 
-            </div>
+	    <script src="js/jquery.min.js"></script>
+	    <script src="js/popper.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
 
-            <div class="main-nav">
-                <ul>
-                    <li><a href="ourBrands.php">FRAGRANCES</a></li>
-                    <li><a href="ourStory.php">OUR STORY</a></li>
-                    <li><a href="contactUs.php">CONTACT US</a></li>
+	    <link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
+	 
+	    <script type="text/javascript" src="js/datatables.min.js"></script>
+	    <script type="text/javascript" src="parsley/dist/parsley.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="parsley/parsley.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-                    <li>
-                        <?php //session_start();
-                        /*Usually this isset below is not required. But if we prevent direct access to specific URL, 
-                        we need to use 'permission.php' with a new session so it will ignore this current session 
-                        since this line comes after that session in 'user.php' and 'admin.php'*/
-                        /*For that reason, we will only create this session only if there's no existing session before.*/
-                        
-                        if(!isset($_SESSION)) { 
-                            session_start(); //logIn.php should be hidden while the user is logged in (in a session)
-                        } 
-                    
-                        if(isset($_SESSION['username'])&& !empty($_SESSION['username'])){
-                            
-                            if($_SESSION['username']==='Admin'){ ?> 
-                                <a href="admin.php" >
-                                    <!-- <?php echo $_SESSION['username'] ?> -->
-                                    <?php echo "Profile" ?>
-                                </a>
-                            <?php }
-                            
-                            else{ ?>
-                                <a href="user.php">
-                                        <!-- <?php echo $_SESSION['username'] ?> -->
-                                        <?php echo "Profile" ?>
-                                </a>
-                            <?php } 
-                           
-                        }
-			            else{ ?> 
-                            <a href="logIn.php">LOGIN</a>
-			            <?php } ?> 
-
-                    </li>
-
-                    <li>
-                        <a href="shoppingCart.php"><img src="Images/cart1.png" width="40" height="40" alt=""></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    
-</body>
-</html>
+		<script type="text/javascript" src="js/bootstrap-datepicker1.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	</head>
+	<body>

@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <?php
+
+	//PendingOrder.php
+
+	include('sms.php');
+
+	$shipment_system = new sms();
+
+	/*if(!$shipment_system->is_login())
+	{
+		header("location:".$shipment_system->base_url."");
+	}*/
+
+	include('admin_header.php');
+
+	include('admin_sidebar.php');
+
 	//Connect
-	require_once './service/config.php';
+	//require_once './service/config.php';
 	
-	session_start();
+	//session_start();
 
 	//Checking if user logged in or not
 	if (!isset($_SESSION['username'])) {
@@ -44,18 +60,19 @@ function deleteOrderInfo(){
 
 <html>
     <head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>Pending Orders</title>
+		<!--<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-		<title>Pending Orders</title>
+		
 		<link rel="stylesheet" href="./css/vendor.css">
 		<link rel="stylesheet" href="./css/main.css?v=111">
 		<link rel="stylesheet" href="./css/style.css">
 		<link rel="stylesheet" href="./css/font-awesome.css">
 
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>-->
 		<!-- CSS Files -->
-		<link href="./css/bootstrap.min.css" rel="stylesheet" />
+		<!--<link href="./css/bootstrap.min.css" rel="stylesheet" />
 		<link href="./css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
 		<style>
 			
@@ -74,16 +91,16 @@ function deleteOrderInfo(){
 			border-radius: 3px;
 			background: #800000;
 		}
-		</style>
+		</style>-->
     </head>
     <body>
 	<!--NAVIGATION-->
-	<div class="header-main bg-white">
+	<!-- <div class="header-main bg-white">
     	<div class="container">
     		<div class="row">
     			<nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
 					<img src="./image/logo.png">
-    				<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
+    				<a class="navbar-brand font-weight-bold">TRITON GLOBAL SHIPPING</a> 
     				<div class="collapse navbar-collapse" id="navbarSupportedContent">
     					<ul class="navbar-nav ml-auto">
     						<li class="nav-item">
@@ -109,13 +126,16 @@ function deleteOrderInfo(){
     </div>
     </section>
     <div class="header-spacing-helper" style="height: 90px;">
-	</div>
+	</div> -->
 	
-   <!--  side bar -->
-    <?php include('./include/sidebar.php'); ?>
+	<!--  side bar -->
+    <?
+		//php include('./include/sidebar.php'); 
+	?>
     <!-- end of side bar -->
 
 	<!--CONTAINER-->
+	<div class="col-sm-10 offset-sm-2 py-4">
 	<div class="main-panel">
         <h4>
             Pending orders<br>
@@ -173,10 +193,11 @@ function deleteOrderInfo(){
         
 		
 	</div>
+	</div>
 
 
 	<!--FOOTER-->
-	<div class="row1">
+	<!--<div class="row1">
 		<div class="columnpic">
 			<img src="./image/logo1.png">	
 		</div>
@@ -186,7 +207,7 @@ function deleteOrderInfo(){
 		<div class="column">
 			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
 		</div>
-	</div>
+	</div>-->
 	
     </body>
 </html>

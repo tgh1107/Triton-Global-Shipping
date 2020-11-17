@@ -1,60 +1,78 @@
 <!DOCTYPE html>
 <?php
-// Include file
-include_once './include/debug.php';
-include_once './service/vendor/autoload.php';
 
-// Define variables and initialize with empty values
-$account_sid = $auth_token = $twilio_number = $AdminNumber = "";
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
+	//PhoneManagement.php
 
-session_start();
+	include('sms.php');
 
-//Checking if user logged in or not
-/* if (!isset($_SESSION['username'])) {
-	 header('Location: Login.php');
-} */
+	$shipment_system = new sms();
 
-if (! function_exists('env')) {
-    /**
-     * Gets the value of an environment variable.
-     *
-     * @param  string  $key
-     * @param  mixed   $default
-     * @return mixed
-     */
-    function env($key, $default = null)
-    {
-        $value = getenv($key);
+	/*if(!$shipment_system->is_login())
+	{
+		header("location:".$shipment_system->base_url."");
+	}*/
 
-        if ($value === false) {
-            return value($default);
-        }
+	include('admin_header.php');
 
-        switch (strtolower($value)) {
-            case 'true':
-            case '(true)':
-                return true;
-            case 'false':
-            case '(false)':
-                return false;
-            case 'empty':
-            case '(empty)':
-                return '';
-            case 'null':
-            case '(null)':
-                return;
-        }
+	include('admin_sidebar.php');
+	
+	
+	//--------------//
+	
+	// Include file
+	include_once './include/debug.php';
+	include_once './service/vendor/autoload.php';
 
-        if (($valueLength = strlen($value)) > 1 && $value[0] === '"' && $value[$valueLength - 1] === '"') {
-            return substr($value, 1, -1);
-        }
+	// Define variables and initialize with empty values
+	$account_sid = $auth_token = $twilio_number = $AdminNumber = "";
+	$username = $password = $confirm_password = "";
+	$username_err = $password_err = $confirm_password_err = "";
 
-        return $value;
-    }
-}
- 
+	//session_start();
+
+	//Checking if user logged in or not
+	/* if (!isset($_SESSION['username'])) {
+		 header('Location: Login.php');
+	} */
+
+	if (! function_exists('env')) {
+	/**
+	 * Gets the value of an environment variable.
+	 *
+	 * @param  string  $key
+	 * @param  mixed   $default
+	 * @return mixed
+	 */
+		function env($key, $default = null){
+			$value = getenv($key);
+
+			if ($value === false) {
+				return value($default);
+			}
+
+			switch (strtolower($value)) {
+				case 'true':
+				case '(true)':
+					return true;
+				case 'false':
+				case '(false)':
+					return false;
+				case 'empty':
+				case '(empty)':
+					return '';
+				case 'null':
+				case '(null)':
+					return;
+			}
+
+			if (($valueLength = strlen($value)) > 1 && $value[0] === '"' && $value[$valueLength - 1] === '"') {
+				return substr($value, 1, -1);
+		}
+
+		return $value;
+		}
+	}
+	 
  // functions
 function readEnv(){
 
@@ -192,7 +210,7 @@ function setAdminInfo()
 
 	// MAIN
 	//readEnv();
-	getAdminInfo();
+	//getAdminInfo();
 	console_log("account_sid :".$account_sid);
 	console_log("auth_token : ".$auth_token);
 	console_log("twilio_number : ".$twilio_number);
@@ -247,24 +265,25 @@ function setAdminInfo()
 ?>
 <html>
     <head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>Phone Management</title>
+		<!--<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-		<title>Pending Orders</title>
+		
 		<link rel="stylesheet" href="./css/vendor.css">
 		<link rel="stylesheet" href="./css/main.css">
 		<link rel="stylesheet" href="./css/style.css">
 		<link rel="stylesheet" href="./css/font-awesome.css">
 
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>-->
 		<!-- CSS Files -->
-		<link href="./css/bootstrap.min.css" rel="stylesheet" />
-		<link href="./css/paper-dashboard.css" rel="stylesheet" />
+		<!--<link href="./css/bootstrap.min.css" rel="stylesheet" />
+		<link href="./css/paper-dashboard.css" rel="stylesheet" />-->
 	</head>
     <body>
 	
 	<!--NAVIGATION-->
-	<div class="header-main bg-white">
+	<!--<div class="header-main bg-white">
     	<div class="container">
     		<div class="row">
     			<nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
@@ -295,14 +314,16 @@ function setAdminInfo()
     </div>
     </section>
     <div class="header-spacing-helper" style="height: 90px;">
-	</div>
+	</div>-->
 	
 	<!--  side bar -->
-    <?php include('./include/sidebar.php'); ?>
+    <?
+		//php include('./include/sidebar.php'); 
+	?>
     <!-- end of side bar -->
 	
 	<!--CONTAINER-->
-	<div class="main-panel">
+	<div class="col-sm-10 offset-sm-2 py-4">
 	<div class="wrapper">
         <h2>Phone Management</h2>
         <p>Please fill this form to change phone number.</p>
@@ -341,7 +362,7 @@ function setAdminInfo()
 
 
 	<!--FOOTER-->
-	<div class="row1">
+	<!--<div class="row1">
 		<div class="columnpic">
 			<img src="./image/logo1.png">	
 		</div>
@@ -351,7 +372,7 @@ function setAdminInfo()
 		<div class="column">
 			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
 		</div>
-	</div>
+	</div>-->
 	
     </body>
 </html>
