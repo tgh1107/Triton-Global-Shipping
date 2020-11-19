@@ -1,8 +1,9 @@
 <?php
 
 //sms.php
-
 //shipment management system
+
+include_once('./include/debug.php');
 class sms
 {
 	public $base_url = 'http://localhost/tutorial/vms/';

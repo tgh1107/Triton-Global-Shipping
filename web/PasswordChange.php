@@ -1,6 +1,6 @@
 <?php
 	//OrderManagement.php
-
+	include_once('./include/debug.php');
 	include('sms.php');
 
 	$shipment_system = new sms();
@@ -152,9 +152,12 @@
 	
 	<!--CONTAINER-->
 	<div class="col-sm-10 offset-sm-2 py-4">
-    <div class="wrapper">
-        <h2>Reset Password</h2>
-        <p>Please fill out this form to reset your password.</p>
+	<div class="card">
+		<div class="card-header">
+			<h2>Reset Password</h2>
+			<p>Please fill out this form to reset your password.</p>
+		</div>
+		<div class="card-body">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
             <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
                 <label>New Password</label>
@@ -171,7 +174,8 @@
                 <a class="btn btn-link" href="welcome.php">Cancel</a>
             </div>
         </form>
-    </div> 
+		</div>
+	</div>
 	</div>
 
 	<!--FOOTER-->

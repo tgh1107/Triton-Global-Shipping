@@ -2,7 +2,7 @@
 <?php
 
 	//PhoneManagement.php
-
+	include_once('./include/debug.php');
 	include('sms.php');
 
 	$shipment_system = new sms();
@@ -324,9 +324,12 @@ function setAdminInfo()
 	
 	<!--CONTAINER-->
 	<div class="col-sm-10 offset-sm-2 py-4">
-	<div class="wrapper">
+	<div class="card">
+		<div class="card-header">
         <h2>Phone Management</h2>
         <p>Please fill this form to change phone number.</p>
+		</div>
+		<div class="card-body">
         <form action="" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>ACCOUNT SID</label>
@@ -352,9 +355,14 @@ function setAdminInfo()
                 <input type="submit" name="submit" class="btn btn-primary" value="Save">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
+	
+        </form>
+		</div>
+		<div class="card-header">
             <p>Already have an phone number? <a class="btn" href="https://www.twilio.com/">Register</a></p>
 			<p>NOTE : You need to register and add here</p>
-        </form>
+		
+		</div>
     </div>    
 		
 	</div>

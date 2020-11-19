@@ -1,19 +1,19 @@
 <?php
 
 //dashboard.php
+	include_once('./include/debug.php');
+	include('sms.php');
 
-include('sms.php');
+	$shipment_system = new sms();
 
-$shipment_system = new sms();
+	/*if(!$shipment_system->is_login())
+	{
+		header("location:".$shipment_system->base_url."");
+	}*/
 
-/*if(!$shipment_system->is_login())
-{
-	header("location:".$shipment_system->base_url."");
-}*/
+	include('admin_header.php');
 
-include('admin_header.php');
-
-include('admin_sidebar.php');
+	include('admin_sidebar.php');
 
 ?>
 	

@@ -1,7 +1,7 @@
 <div class="container-fluid fixed-top bg-dark " style="z-index:1049;">
 	    <div class="row">
 	        <!--<div class="col-2 collapse show sidebar text-center">
-	            <img src="<?php echo $visitor->Get_profile_image(); ?>" class="img-fluid rounded-circle" width="50" />
+	            <img src="<?php echo $shipment_system->Get_profile_image(); ?>" class="img-fluid rounded-circle" width="50" />
 	        </div>-->
 	        <div class="col-10">
 	            <!-- toggler -->
