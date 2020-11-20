@@ -384,8 +384,10 @@ $(document).ready(function(){
 
 	load_data();
 
+	//#1
 	function load_data(from_date = '', to_date = '')
 	{
+		console.log("-----load_data");
 		var dataTable = $('#visitor_table').DataTable({
 			"processing" : true,
 			"serverSide" : true,
@@ -417,7 +419,9 @@ $(document).ready(function(){
 		});
 	}
 
-	$('#add_visitor').click(function(){		
+	//#2
+	$('#add_visitor').click(function(){	
+		console.log("-----add_visitor -- click");
 		$('#visitor_form')[0].reset();
 		$('#visitor_form').parsley().reset();
     	$('#modal_title').text('Add Visitor');
@@ -426,7 +430,9 @@ $(document).ready(function(){
     	$('#visitorModal').modal('show');
 	});
 
+	//#3
 	$(document).on('change', '#visitor_department', function(){
+		console.log("-----visitor_department -- change");
 		var person = $('#visitor_department').find(':selected').data('person');
 		var person_array = person.split(", ");
 		var html = '<option value="">Select Person</option>';
@@ -437,14 +443,17 @@ $(document).ready(function(){
 		$('#visitor_meet_person_name').html(html);
 	});
 
+	//#4
 	$('#visitor_form').parsley();
 
+	//#5
 	$('#visitor_form').on('submit', function(event){
+		console.log("-----visitor_form -- submit");
 		event.preventDefault();
 		if($('#visitor_form').parsley().isValid())
 		{		
 			$.ajax({
-				url:"visitor_action.php",
+				url:"PendingOrder_action.php",
 				method:"POST",
 				data:$(this).serialize(),
 				beforeSend:function()
@@ -467,11 +476,13 @@ $(document).ready(function(){
 		}
 	});
 
+	//#6
 	$(document).on('click', '.edit_button', function(){
+		console.log("-----edit_button -- click");
 		var visitor_id = $(this).data('id');
 		$('#visitor_form').parsley().reset();
 		$.ajax({
-	      	url:"visitor_action.php",
+	      	url:"PendingOrder_action.php",
 	      	method:"POST",
 	      	data:{visitor_id:visitor_id, action:'fetch_single'},
 	      	dataType:'JSON',
@@ -503,13 +514,15 @@ $(document).ready(function(){
 	      	}
 	    })
 	});
-
+	
+	//#7
 	$(document).on('click', '.delete_button', function(){
+		console.log("-----delete_button -- click");
 		var id = $(this).data('id');
 		if(confirm("Are you sure you want to remove it?"))
     	{
     		$.ajax({
-    			url:"visitor_action.php",
+    			url:"PendingOrder_action.php",
     			method:"POST",
     			data:{id:id, action:'delete'},
     			success:function(data)
@@ -525,10 +538,12 @@ $(document).ready(function(){
     	}
   	});
 
+	//#8
   	$(document).on('click', '.view_button', function(){
+		console.log("-----view_button -- click");
   		var visitor_id = $(this).data('id');
   		$.ajax({
-  			url:"visitor_action.php",
+  			url:"PendingOrder_action.php",
 	      	method:"POST",
 	      	data:{visitor_id:visitor_id, action:'fetch_single'},
 	      	dataType:'JSON',
@@ -548,14 +563,17 @@ $(document).ready(function(){
   		})
   	});
 
+	//#9
   	$('#visitor_details_form').parsley();
 
+	//#10
   	$('#visitor_details_form').on('submit', function(event){
+		console.log("-----visitor_details_form -- submit");
   		event.preventDefault();
   		if($('#visitor_details_form').parsley().isValid())
 		{		
 			$.ajax({
-				url:"visitor_action.php",
+				url:"PendingOrder_action.php",
 				method:"POST",
 				data:$(this).serialize(),
 				beforeSend:function()
@@ -579,21 +597,27 @@ $(document).ready(function(){
 		}
   	});
 
+	//#11
   	$('#filter').click(function(){
+		console.log("-----filter -- click");
   		var from_date = $('#from_date').val();
   		var to_date = $('#to_date').val();
   		$('#visitor_table').DataTable().destroy();
   		load_data(from_date, to_date);
   	});
 
+	//#12
   	$('#refresh').click(function(){
+		console.log("-----refresh -- click");
   		$('#from_date').val('');
   		$('#to_date').val('');
   		$('#visitor_table').DataTable().destroy();
   		load_data();
   	});
 
-  	$('#export').click(function(){
+	//#13
+  	$('#refresh').click(function(){
+		console.log("-----refresh -- click");
   		var from_date = $('#from_date').val();
   		var to_date = $('#to_date').val();
 
