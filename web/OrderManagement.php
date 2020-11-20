@@ -2,7 +2,7 @@
 <?php
 
 	//OrderManagement.php
-	include_once('include/debug.php');
+	include_once('./include/debug.php');
 	include('sms.php');
 
 	$shipment_system = new sms();
