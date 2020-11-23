@@ -352,6 +352,7 @@ function setAdminInfo()
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
+				<input type="hidden" name="action" value="change_phone_number" />
                 <input type="submit" name="submit" class="btn btn-primary" value="Save">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
@@ -359,7 +360,7 @@ function setAdminInfo()
         </form>
 		</div>
 		<div class="card-header">
-            <p>Already have an phone number? <a class="btn" href="https://www.twilio.com/">Register</a></p>
+            <p>Already have an phone number? <a class="btn btn-success" href="https://www.twilio.com/">Register</a></p>
 			<p>NOTE : You need to register and add here</p>
 		
 		</div>
@@ -384,4 +385,88 @@ function setAdminInfo()
 	
     </body>
 </html>
+
+<script>
+$(document).ready(function(){
+
+	//load_data();
+
+	//#1
+	function load_data(from_date = '', to_date = '')
+	{
+		console.log("-----load_data");
+		var dataTable = $('#visitor_table').DataTable({
+			"processing" : true,
+			"serverSide" : true,
+			"order" : [],
+			"ajax" : {
+				url:"PendingOrder_action.php",
+				type:"POST",
+				data:{action:'fetch', from_date:from_date, to_date:to_date}
+			},
+			"columnDefs":[
+				{
+					<?php
+					if($shipment_system->is_master_user())
+					{
+					?>
+					"targets":[7],
+					<?php
+					}
+					else
+					{
+					?>
+					"targets":[6],
+					<?php
+					}
+					?>
+					"orderable":false,
+				},
+			],
+		});
+		console.log("-----load_data--done");
+	}
+
+	$('#user_form').parsley();
+
+	$('#user_form').on('submit', function(){
+		event.preventDefault();
+		if($('#user_form').parsley().isValid())
+		{
+			$.ajax({
+				url:"user_action.php",
+				method:"POST",
+				data:new FormData(this),
+				contentType:false,
+				processData:false,
+				dataType:"JSON",
+				beforeSend:function()
+				{
+					$('#submit_button').attr('disabled', 'disabled');
+					$('#submit_button').html('wait...');
+				},
+				success:function(data)
+				{
+					$('#submit_button').attr('disabled', false);
+					$('#submit_button').html('<i class="fas fa-lock"></i> Change');
+					if(data.error != '')
+					{
+						$('#message').html(data.error);
+					}
+					else
+					{
+						$('#user_form')[0].reset();
+						$('#message').html(data.success);
+						setTimeout(function(){
+							$('#message').html('');
+						}, 5000);
+					}
+				}
+			})
+		}
+	});
+
+});
+
+</script>
 

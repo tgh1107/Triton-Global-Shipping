@@ -6,7 +6,7 @@
 include_once('./include/debug.php');
 class sms
 {
-	public $base_url = 'http://localhost/tutorial/vms/';
+	public $base_url = 'http://localhost/';
 	public $connect;
 	public $query;
 	public $statement;
@@ -80,6 +80,21 @@ class sms
 		return date("Y-m-d H:i:s",  STRTOTIME(date('h:i:sa')));
 	}
 
+	function get_phone_number()
+	{
+		$this->query = "
+		SELECT * FROM department_table 
+		ORDER BY department_name ASC
+		";
+		$result = $this->get_result();
+		$output = '';
+		foreach($result as $row)
+		{
+			$output .= '<option value="'.$row["department_name"].'" data-person="'.$row["department_contact_person"].'">'.$row["department_name"].'</option>';
+		}
+		return $output;
+	}
+	
 	function load_department()
 	{
 		$this->query = "

@@ -93,10 +93,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	$shipment_system = new sms();
 
-	if($shipment_system->is_login())
+	/*if($shipment_system->is_login())
 	{
 		header("location:".$shipment_system->base_url."dashboard.php");
-	}
+	}*/
 
 	include('admin_header.php');
 
@@ -168,32 +168,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		<h3> Log In here</h3>
 
         <p>Please fill in your credentials to login.</p>
-        <div class="row">
-				<div class="col-md-3">&nbsp;</div>
-				<div class="col-md-6">
-					<span id="error"></span>
-					<div class="card">
-						<div class="card-header">Login</div>
-						<div class="card-body">
-							<form method="post" id="login_form">
-								<div class="form-group">
-									<label>Enter Email Address</label>
-									<input type="text" name="user_name" id="user_name" class="form-control" required data-parsley-trigger="keyup" />
-								</div>
-								<div class="form-group">
-									<label>Enter password</label>
-									<input type="password" name="user_password" id="user_password" class="form-control" required  data-parsley-trigger="keyup" />
-								</div>
-								<div class="form-group text-center">
-									<input type="submit" name="login" id="login_button" class="btn btn-primary" value="Login" />
-								</div>
-							</form>
-						</div>
-					</div>
-					<br />
-					<br />
-				</div>
-			</div>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div>
+            <!--<p>Don't have an account? <a href="register.php">Sign up now</a>.</p>-->
+        </form>
 		</div> 
 	</div>
 

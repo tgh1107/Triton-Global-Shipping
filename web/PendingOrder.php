@@ -3,7 +3,7 @@
 
 	//PendingOrder.php
 	include_once('./include/debug.php');
-	include('sms.php');
+	include_once('sms.php');
 
 	$shipment_system = new sms();
 
@@ -417,6 +417,7 @@ $(document).ready(function(){
 				},
 			],
 		});
+		console.log("-----load_data--done");
 	}
 
 	//#2
