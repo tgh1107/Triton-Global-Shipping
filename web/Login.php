@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
 	<title>LOGIN</title>
-    <!--<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -116,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/font-awesome.css">
 
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>Login</title>-->
 
     <style type="text/css">
@@ -188,6 +188,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 									<input type="submit" name="login" id="login_button" class="btn btn-primary" value="Login" />
 								</div>
 							</form>
+							<br /><br />
+							<h3><u>Admin Login Details</u></h3><br />
+							<p><b>User Email - </b>admin</p>
+							<p><b>Password - </b>password123</p>
+							<br />
 						</div>
 					</div>
 					<br />
@@ -240,12 +245,13 @@ $(document).ready(function(){
 					$('#login_button').attr('disabled', false);
 					if(data.error != '')
 					{
+						console.log("00000000000000000000");
 						$('#error').html(data.error);
 						$('#login_button').val('Login');
 					}
 					else
 					{
-						window.location.href = "<?php echo $shipment_system->base_url; ?>dashboard.php";
+						window.location.href = "<?php echo $shipment_system->base_url; ?>Dashboard.php";
 					}
 				}
 			})

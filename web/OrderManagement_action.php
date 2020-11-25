@@ -11,7 +11,6 @@ if(isset($_POST["action"]))
 	//#1
 	if($_POST["action"] == 'fetch')
 	{
-		console_log("action : fetch");
 		$order_column = array('visitor_table.visitor_name', 'visitor_table.visitor_meet_person_name', 'visitor_table.visitor_department', 'visitor_table.visitor_enter_time', 'visitor_table.visitor_out_time', 'visitor_table.visitor_status', 'admin_table.admin_name');
 
 		$output = array();
@@ -158,7 +157,6 @@ if(isset($_POST["action"]))
 	//#2
 	if($_POST["action"] == 'Add')
 	{
-		console_log("action : Add");
 		$data = array(
 			':visitor_name'			=>	$shipment_system->clean_input($_POST["visitor_name"]),
 			':visitor_email'		=>	$_POST["visitor_email"],
@@ -188,7 +186,6 @@ if(isset($_POST["action"]))
 	//#3
 	if($_POST["action"] == 'fetch_single')
 	{
-		console_log("action : fetch_single");
 		$shipment_system->query = "
 		SELECT * FROM visitor_table 
 		WHERE visitor_id = '".$_POST["visitor_id"]."'
@@ -216,7 +213,6 @@ if(isset($_POST["action"]))
 	//#4
 	if($_POST["action"] == 'Edit')
 	{
-		console_log("action : Edit");
 		$data = array(
 			':visitor_name'			=>	$shipment_system->clean_input($_POST["visitor_name"]),
 			':visitor_email'		=>	$_POST["visitor_email"],
@@ -247,7 +243,6 @@ if(isset($_POST["action"]))
 	//#5
 	if($_POST["action"] == 'delete')
 	{
-		console_log("action : delete");
 		$shipment_system->query = "
 		DELETE FROM visitor_table 
 		WHERE visitor_id = '".$_POST["id"]."'
@@ -261,7 +256,6 @@ if(isset($_POST["action"]))
 	//#6
 	if($_POST["action"] == 'update_outing_detail')
 	{
-		console_log("action : update_outing_detail");
 		$data = array(
 			':visitor_outing_remark'	=>	$shipment_system->clean_input($_POST["visitor_outing_remark"]),
 			':visitor_out_time'			=>	$shipment_system->get_datetime(),

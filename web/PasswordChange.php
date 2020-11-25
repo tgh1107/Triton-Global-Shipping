@@ -35,7 +35,7 @@
 	// Processing form data when form is submitted
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 	 
-	 console_log("action : fetch");
+		console_log("REQUEST_METHOD : POST");
 		// Validate new password
 		if(empty(trim($_POST["new_password"]))){
 			$new_password_err = "Please enter the new password.";     
@@ -263,6 +263,12 @@ $(document).ready(function(){
 							$('#message').html('');
 						}, 5000);
 					}
+				},
+				error:function(data)
+				{
+					console.log("ERROR : ");
+					console.log(data);
+
 				}
 			})
 		}

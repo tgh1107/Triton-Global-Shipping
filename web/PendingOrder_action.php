@@ -8,11 +8,7 @@ $shipment_system = new sms();
 
 if(isset($_POST["action"]))
 {
-	//console_log("====action");
-	//echo "=======================999999999999";
-	//print( "There’s been a problem!");
 	//#1
-	//echo json_encode(array("message"=>"Here is the message"));
 	if($_POST["action"] == 'fetch')
 	{
 		//console_log("action : fetch");

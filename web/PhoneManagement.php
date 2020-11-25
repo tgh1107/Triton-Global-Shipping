@@ -147,25 +147,26 @@ function saveData()
 function getAdminInfo()
 {
 	global $conn, $account_sid, $auth_token, $twilio_number, $AdminNumber;
-	$sql = "SELECT * FROM  twilio_service where USER_ID = 1";
-	$result = mysqli_query($conn, $sql);
+	//$sql = "SELECT * FROM  twilio_service where USER_ID = 1";
+	//$result = mysqli_query($conn, $sql);
 
 	//check error
-	if (!$result){
-		die('error'.mysqli_error($conn));
-	}
+	//if (!$result){
+		//die('error'.mysqli_error($conn));
+	//}
 	
-	$row_number = mysqli_num_rows($result);
-	console_log("row_number :".$row_number);
+	$row = $shipment_system->get_phone_number();
+	//mysqli_num_rows($result);
+	//console_log("row_number :".$row_number);
 	
-	if (mysqli_num_rows($result) > 0){
-		while ($row = mysqli_fetch_assoc($result)){
+	//if (mysqli_num_rows($result) > 0){
+		//while ($row = mysqli_fetch_assoc($result)){
 			$account_sid = $row['ACCOUNT_SID'];
 			$auth_token = $row['AUTH_TOKEN'];
 			$twilio_number = $row['PHONE_NUMBER'];
 			$AdminNumber = $row['ADMIN_PHONE_NUMBER'];
-		}
-	}
+		//}
+	//}
 	console_log("account_sid :".$account_sid);
 	console_log("auth_token : ".$auth_token);
 	console_log("twilio_number : ".$twilio_number);
@@ -200,12 +201,12 @@ function setAdminInfo()
 	console_log("twilio_number : ".$twilio_number);
 	console_log("AdminNumber : ".$AdminNumber);
 	
-	if(isset($_POST['abc'])){
+	/*if(isset($_POST['abc'])){
                 $update = $_POST['update'];
                     $sql1= "UPDATE `orderlist` SET `OrderTrack`= '0' WHERE OrderID = '$update'";
                     $result1 = mysqli_query($conn, $sql1);
                 header("Location: PendingOrder.php");
-            }
+            }*/
 }
 
 	// MAIN
@@ -330,25 +331,25 @@ function setAdminInfo()
         <p>Please fill this form to change phone number.</p>
 		</div>
 		<div class="card-body">
-        <form action="" method="post">
+        <form action="" method="post" id="phone_management_form">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>ACCOUNT SID</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $account_sid; ?>">
+                <input type="text" name="account_sid" id="account_sid"  class="form-control" value="<?php echo $account_sid; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>AUTH TOKEN</label>
-                <input  name="password" class="form-control" value="<?php echo $auth_token; ?>">
+                <input type="text"  name="auth_token" id="auth_token" class="form-control" value="<?php echo $auth_token; ?>">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                 <label>TRIAL NUMBER</label>
-                <input name="confirm_password" class="form-control" value="<?php echo $twilio_number; ?>">
+                <input type="text" name="trail_number" id="trail_number" class="form-control" value="<?php echo $twilio_number; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
 			<div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                 <label>PHONE NUMBER</label>
-                <input name="confirm_password" class="form-control" value="<?php echo $AdminNumber; ?>">
+                <input type="text" name="phone_number" id="phone_number" class="form-control" value="<?php echo $AdminNumber; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
@@ -389,49 +390,41 @@ function setAdminInfo()
 <script>
 $(document).ready(function(){
 
-	//load_data();
+	load_data();
 
 	//#1
-	function load_data(from_date = '', to_date = '')
+	function load_data()
 	{
 		console.log("-----load_data");
-		var dataTable = $('#visitor_table').DataTable({
-			"processing" : true,
-			"serverSide" : true,
-			"order" : [],
-			"ajax" : {
-				url:"PendingOrder_action.php",
-				type:"POST",
-				data:{action:'fetch', from_date:from_date, to_date:to_date}
-			},
-			"columnDefs":[
-				{
-					<?php
-					if($shipment_system->is_master_user())
-					{
-					?>
-					"targets":[7],
-					<?php
-					}
-					else
-					{
-					?>
-					"targets":[6],
-					<?php
-					}
-					?>
-					"orderable":false,
-				},
-			],
-		});
+		$('#phone_management_form').parsley().reset();
+		$.ajax({
+	      	url:"user_action.php",
+	      	method:"POST",
+	      	data:{action:'fetch_phone'},
+	      	dataType:'JSON',
+	      	success:function(data)
+	      	{
+				console.log(data);
+	        	$('#account_sid').val(data.ACCOUNT_SID);
+	        	$('#auth_token').val(data.AUTH_TOKEN);
+	        	$('#trail_number').val(data.PHONE_NUMBER);
+	        	$('#phone_number').val(data.ADMIN_PHONE_NUMBER);
+	      	},
+			error:function(data)
+	      	{
+				console.log("ERROR : load error");
+	        	console.log(data);
+
+	      	}
+	    })
 		console.log("-----load_data--done");
 	}
 
-	$('#user_form').parsley();
+	$('#phone_management_form').parsley();
 
-	$('#user_form').on('submit', function(){
+	$('#phone_management_form').on('submit', function(){
 		event.preventDefault();
-		if($('#user_form').parsley().isValid())
+		if($('#phone_management_form').parsley().isValid())
 		{
 			$.ajax({
 				url:"user_action.php",
@@ -455,12 +448,18 @@ $(document).ready(function(){
 					}
 					else
 					{
-						$('#user_form')[0].reset();
+						$('#phone_management_form')[0].reset();
 						$('#message').html(data.success);
 						setTimeout(function(){
 							$('#message').html('');
 						}, 5000);
 					}
+				},
+				error:function(data)
+				{
+					console.log("ERROR : ");
+					console.log(data);
+
 				}
 			})
 		}

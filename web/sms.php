@@ -6,7 +6,7 @@
 include_once('./include/debug.php');
 class sms
 {
-	public $base_url = 'http://localhost/';
+	public $base_url = 'http://localhost/Triton-Global-Shipping/web/';
 	public $connect;
 	public $query;
 	public $statement;
@@ -83,16 +83,15 @@ class sms
 	function get_phone_number()
 	{
 		$this->query = "
-		SELECT * FROM department_table 
-		ORDER BY department_name ASC
+		SELECT * FROM  twilio_service where USER_ID = 1
 		";
 		$result = $this->get_result();
-		$output = '';
+		/*$output = '';
 		foreach($result as $row)
 		{
 			$output .= '<option value="'.$row["department_name"].'" data-person="'.$row["department_contact_person"].'">'.$row["department_name"].'</option>';
-		}
-		return $output;
+		}*/
+		return $result;
 	}
 	
 	function load_department()
