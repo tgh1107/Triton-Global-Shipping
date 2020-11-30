@@ -93,6 +93,17 @@ function deleteOrderInfo(){
 			
 	});
 	</script>
+	<style>
+		.btn-group-xs > .btn, .btn-xs {
+		  padding: .25rem .4rem;
+		  font-size: .4rem;
+		  line-height: .5;
+		  border-radius: .2rem;
+		}
+		.table-condensed{
+		  font-size: .5rem;
+		}
+	</style>
     </head>
     <body>
 	<!--NAVIGATION-->
@@ -143,7 +154,7 @@ function deleteOrderInfo(){
 	            	<div class="card-header">
 	            		<div class="row">
 	            			<div class="col-sm-4">
-	            				<h2>Visitor Area</h2>
+	            				<h2>Pending Order</h2>
 	            			</div>
 	            			<div class="col-sm-4">
 	            				<div class="row input-daterange">
@@ -169,22 +180,22 @@ function deleteOrderInfo(){
 	            	</div>
 	            	<div class="card-body">
 	            		<div class="table-responsive">
-	            			<table class="table table-striped table-bordered" id="visitor_table">
+	            			<table class="table table-striped table-bordered small text-xsmall" id="visitor_table">
 	            				<thead>
 	            					<tr>
-	            						<th>Visitor Name</th>
-										<th>Meet Person Name</th>
-										<th>Department</th>
-										<th>In Time</th>
-										<th>Out Time</th>
-										<th>Status</th>
-										<?php
-										if($shipment_system->is_master_user())
-										{
-											echo '<th>Enter By</th>';
-										}
-										?>										
-										<th>Action</th>
+	            						<th class="th-sm">Shipment Number</th>
+										<th class="th-sm">Sender</th>
+										<th class="th-sm">Receiver</th>
+										<th class="th-sm">Estimated Cost</th>
+										<th class="th-sm">Actual Cost</th>
+										<th class="th-sm">Source</th>						
+										<th class="th-sm">Destination</th>
+										<th class="th-sm">Order day</th>
+										<th class="th-sm">Priority</th>
+										<th class="th-sm">Status</th>
+										<th class="th-sm">Start Date</th>
+										<th class="th-sm">End Date</th>
+										<th class="th-sm">Action</th>
 	            					</tr>
 	            				</thead>
 	            			</table>
@@ -382,8 +393,9 @@ function deleteOrderInfo(){
 <script>
 $(document).ready(function(){
 
-	load_data();
-
+	//load_data();
+	load_shipment_data();
+	
 	//#1
 	function load_data(from_date = '', to_date = '')
 	{
@@ -395,7 +407,17 @@ $(document).ready(function(){
 			"ajax" : {
 				url:"PendingOrder_action.php",
 				type:"POST",
-				data:{action:'fetch', from_date:from_date, to_date:to_date}
+				data:{action:'fetch', from_date:from_date, to_date:to_date},
+				success:function(data)
+				{
+					console.log(data)
+				},
+				error:function(data)
+				{
+					console.log("ERROR : load error");
+					console.log(data);
+
+				}
 			},
 			"columnDefs":[
 				{
@@ -418,6 +440,36 @@ $(document).ready(function(){
 			],
 		});
 		console.log("-----load_data--done");
+	}
+	
+
+	//#1A
+	function load_shipment_data(from_date = '', to_date = '')
+	{
+		console.log("-----load_data1");
+		var dataTable = $('#visitor_table').DataTable({
+			"processing" : true,
+			"serverSide" : true,
+			"order" : [],
+			"ajax" : {
+				url:"PendingOrder_action.php",
+				type:"POST",
+				data:{action:'fetch_shipment', from_date:from_date, to_date:to_date},
+				error:function(data)
+				{
+					console.log("ERROR : load error");
+					console.log(data);
+
+				}
+			},
+			"columnDefs":[
+				{
+					"targets":[12],
+					"orderable":false,
+				},
+			],
+		});
+		console.log("-----load_data1--done");
 	}
 
 	//#2

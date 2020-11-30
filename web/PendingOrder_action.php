@@ -12,17 +12,24 @@ if(isset($_POST["action"]))
 	if($_POST["action"] == 'fetch')
 	{
 		//console_log("action : fetch");
-		$order_column = array('visitor_table.visitor_name', 'visitor_table.visitor_meet_person_name', 'visitor_table.visitor_department', 'visitor_table.visitor_enter_time', 'visitor_table.visitor_out_time', 'visitor_table.visitor_status', 'admin_table.admin_name');
+		$order_column = array('
+		visitor_table.visitor_name', 
+		'visitor_table.visitor_meet_person_name', 
+		'visitor_table.visitor_department', 
+		'visitor_table.visitor_enter_time', 
+		'visitor_table.visitor_out_time', 
+		'visitor_table.visitor_status'
+		);
 
 		$output = array();
 
 		$main_query = "
-		SELECT * FROM visitor_table 
-		INNER JOIN admin_table 
+		SELECT * FROM tgs_shipment ";
+		/*INNER JOIN admin_table 
 		ON admin_table.admin_id = visitor_table.visitor_enter_by 
-		";
+		";*/
 
-		if(!$shipment_system->is_master_user())
+		/*if(!$shipment_system->is_master_user())
 		{
 			$main_query .= "
 			WHERE visitor_table.visitor_enter_by = '".$_SESSION["admin_id"]."' 
@@ -84,7 +91,7 @@ if(isset($_POST["action"]))
 		else
 		{
 			$order_query = 'ORDER BY visitor_table.visitor_id DESC ';
-		}
+		}*/
 
 		$limit_query = '';
 
@@ -93,7 +100,168 @@ if(isset($_POST["action"]))
 			$limit_query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 		}
 
-		$shipment_system->query = $main_query . $search_query . $order_query;
+		$shipment_system->query = $main_query;// . $search_query . $order_query;
+
+		$shipment_system->execute();
+
+		$filtered_rows = $shipment_system->row_count();
+
+		//$shipment_system->query .= $limit_query;
+
+		$result = $shipment_system->get_result();
+
+		//$shipment_system->query = $main_query;
+
+		//$shipment_system->execute();
+
+		//$total_rows = $shipment_system->row_count();
+
+		$data = array();
+
+		foreach($result as $row)
+		{
+			$sub_array = array();
+			//$sub_array[] = html_entity_decode($row["visitor_name"]);
+			//$sub_array[] = html_entity_decode($row["visitor_meet_person_name"]);
+			/*$sub_array[] = $row["visitor_department"];
+			$sub_array[] = $row["visitor_enter_time"];
+			$sub_array[] = $row["visitor_out_time"];
+			$status = '';
+			if($row["visitor_status"] == 'In')
+			{
+				$status = '<span class="badge badge-success">In Premises</span>';
+			}
+			else
+			{
+				$status = '<span class="badge badge-danger">Leave</span>';
+			}
+			$sub_array[] = $status;
+			if($shipment_system->is_master_user())
+			{
+				$sub_array[] = $row["admin_name"];
+			}*/
+			$sub_array[] = '
+			<div align="center">
+			<button type="button" name="view_button" class="btn btn-primary btn-sm view_button" data-id=""><i class="fas fa-eye"></i></button>
+			&nbsp;
+			<button type="button" name="edit_button" class="btn btn-warning btn-sm edit_button" data-id=""><i class="fas fa-edit"></i></button>
+			&nbsp;
+			<button type="button" name="delete_button" class="btn btn-danger btn-sm delete_button" data-id=""><i class="fas fa-times"></i></button>
+			</div>
+			';
+			$data[] = $sub_array;
+		}
+
+		$output = array(
+			"draw"    			=> 	intval($_POST["draw"]),
+			//"recordsTotal"  	=>  $total_rows,
+			"recordsFiltered" 	=> 	$filtered_rows,
+			"data"    			=> 	$data
+		);
+			
+		echo json_encode($output);
+
+	}
+	
+	if($_POST["action"] == 'fetch_shipment')
+	{
+		//console_log("action : fetch");
+		$order_column = array(
+		'tgs_shipment.SHIPMENT_NUM', 
+		'tgs_shipment.CUS_ID_SENDER', 
+		'tgs_shipment.CUS_ID_RECEIVER', 
+		'tgs_shipment.SHIPMENT_DESCRIPTION', 
+		'tgs_shipment.SHIPMENT_ESTIMATED_COST', 
+		'tgs_shipment.SHIPMENT_ACTUAL_COST', 
+		'tgs_shipment.SHIPMENT_SOURCE', 
+		'tgs_shipment.SHIPMENT_DESTINATION', 
+		'tgs_shipment.SHIPMENT_ORDER_DAY', 
+		'tgs_shipment.SHIPMENT_CONFIRMATION_PRIORITY', 
+		'tgs_shipment.SHIPMENT_STATUS', 
+		'tgs_shipment.SHIPMENT_START_DATE', 
+		'tgs_shipment.SHIPMENT_END_DATE'
+		);
+
+		$output = array();
+
+		$main_query = "
+		SELECT * FROM tgs_shipment ";
+		//INNER JOIN admin_table 
+		//ON admin_table.admin_id = visitor_table.visitor_enter_by 
+		//";
+
+		/*if(!$shipment_system->is_master_user())
+		{
+			/*$main_query .= "
+			WHERE tgs_shipment.visitor_enter_by = '".$_SESSION["admin_id"]."' 
+			";
+
+			if($_POST["from_date"] != '')
+			{
+				$search_query = "
+				AND DATE(tgs_shipment.visitor_enter_time) BETWEEN '".$_POST["from_date"]."' AND  '".$_POST["to_date"]."' AND ( 
+				";
+			}
+			else
+			{
+				$search_query = " AND ( ";	
+			}
+			
+		}
+		else
+		{
+			if($_POST["from_date"] != '')
+			{
+				$search_query = "WHERE DATE(tgs_shipment.SHIPMENT_ORDER_DAY) BETWEEN '".$_POST["from_date"]."' AND  '".$_POST["to_date"]."' AND ( ";
+			}
+			else
+			{
+				$search_query = "WHERE ";	
+			}
+		}
+		
+
+		if(isset($_POST["search"]["value"]))
+		{
+			
+			$search_query .= 'tgs_shipment.visitor_name LIKE "%'.$_POST["search"]["value"].'%" ';
+			$search_query .= 'OR tgs_shipment.visitor_meet_person_name LIKE "%'.$_POST["search"]["value"].'%" ';
+			$search_query .= 'OR tgs_shipment.visitor_department LIKE "%'.$_POST["search"]["value"].'%" ';
+			$search_query .= 'OR tgs_shipment.visitor_enter_time LIKE "%'.$_POST["search"]["value"].'%" ';
+			$search_query .= 'OR tgs_shipment.visitor_out_time LIKE "%'.$_POST["search"]["value"].'%" ';
+			$search_query .= 'OR tgs_shipment.visitor_status LIKE "%'.$_POST["search"]["value"].'%" ';
+			
+			if($shipment_system->is_master_user())
+			{
+				$search_query .= 'OR admin_table.admin_name LIKE "%'.$_POST["search"]["value"].'%" ';
+				if($_POST["from_date"] != '')
+				{
+					$search_query .= ') ';
+				}
+			}
+			else
+			{
+				$search_query .= ') ';
+			}
+		}
+
+		if(isset($_POST["order"]))
+		{
+			$order_query = 'ORDER BY '.$order_column[$_POST['order']['0']['column']].' '.$_POST['order']['0']['dir'].' ';
+		}
+		else
+		{
+			$order_query = 'ORDER BY tgs_shipment.SHIPMENT_NUM DESC ';
+		}*/
+
+		$limit_query = '';
+
+		if($_POST["length"] != -1)
+		{
+			$limit_query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+		}
+
+		$shipment_system->query = $main_query; // . $search_query . $order_query;
 
 		$shipment_system->execute();
 
@@ -114,32 +282,37 @@ if(isset($_POST["action"]))
 		foreach($result as $row)
 		{
 			$sub_array = array();
-			$sub_array[] = html_entity_decode($row["visitor_name"]);
-			$sub_array[] = html_entity_decode($row["visitor_meet_person_name"]);
-			$sub_array[] = $row["visitor_department"];
-			$sub_array[] = $row["visitor_enter_time"];
-			$sub_array[] = $row["visitor_out_time"];
+			$sub_array[] = $row["SHIPMENT_NUM"];
+			$sub_array[] = $row["CUS_ID_SENDER"];
+			$sub_array[] = $row["CUS_ID_RECEIVER"];
+			//$sub_array[] = html_entity_decode($row["SHIPMENT_DESCRIPTION"]);
+			$sub_array[] = $row["SHIPMENT_ESTIMATED_COST"];
+			$sub_array[] = $row["SHIPMENT_ACTUAL_COST"];
+			$sub_array[] = html_entity_decode($row["SHIPMENT_SOURCE"]);
+			$sub_array[] = html_entity_decode($row["SHIPMENT_DESTINATION"]);
+			$sub_array[] = $row["SHIPMENT_ORDER_DAY"];
+			$sub_array[] = $row["SHIPMENT_CONFIRMATION_PRIORITY"];
 			$status = '';
-			if($row["visitor_status"] == 'In')
+			if($row["SHIPMENT_STATUS"] == 'Pending')
 			{
-				$status = '<span class="badge badge-success">In Premises</span>';
+				$status = '<span class="badge badge-success">Pending</span>';
 			}
 			else
 			{
-				$status = '<span class="badge badge-danger">Leave</span>';
+				$status = '<span class="badge badge-danger">Done</span>';
 			}
 			$sub_array[] = $status;
-			if($shipment_system->is_master_user())
-			{
-				$sub_array[] = $row["admin_name"];
-			}
+			
+			$sub_array[] = $row["SHIPMENT_START_DATE"];
+			$sub_array[] = $row["SHIPMENT_END_DATE"];
+
 			$sub_array[] = '
-			<div align="center">
-			<button type="button" name="view_button" class="btn btn-primary btn-sm view_button" data-id="'.$row["visitor_id"].'"><i class="fas fa-eye"></i></button>
+			<div align="center" class="btn-group">
+			<button type="button" name="view_button" class="btn btn-primary btn-xs view_button" data-id=""><i class="fas fa-eye"></i></button>
 			&nbsp;
-			<button type="button" name="edit_button" class="btn btn-warning btn-sm edit_button" data-id="'.$row["visitor_id"].'"><i class="fas fa-edit"></i></button>
+			<button type="button" name="edit_button" class="btn btn-warning btn-xs edit_button" data-id=""><i class="fas fa-edit"></i></button>
 			&nbsp;
-			<button type="button" name="delete_button" class="btn btn-danger btn-sm delete_button" data-id="'.$row["visitor_id"].'"><i class="fas fa-times"></i></button>
+			<button type="button" name="delete_button" class="btn btn-danger btn-xs delete_button" data-id=""><i class="fas fa-times"></i></button>
 			</div>
 			';
 			$data[] = $sub_array;

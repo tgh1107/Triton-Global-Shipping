@@ -168,9 +168,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		<h3> Log In here</h3>
 
         <p>Please fill in your credentials to login.</p>
-        <div class="row">
-				<div class="col-md-3">&nbsp;</div>
-				<div class="col-md-6">
+        <div class="row1">
+				<div class="col-md-39">&nbsp;</div>
+				<div class="col-md-69">
 					<span id="error"></span>
 					<div class="card">
 						<div class="card-header">Login</div>

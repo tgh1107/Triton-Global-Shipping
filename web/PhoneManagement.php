@@ -218,7 +218,7 @@ function setAdminInfo()
 	console_log("AdminNumber : ".$AdminNumber);
 
 	// Processing form data when form is submitted
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
+	if($_SERVER["REQUEST_METHOD"] == "POST111"){
 		if(isset($_POST['submit'])){
 			console_log("============ [INFO] $_POST : submit");
 			$Message1 = 'TWILIO_ADMIN_PHONE_NUMBER'; 
