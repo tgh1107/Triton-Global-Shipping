@@ -179,61 +179,43 @@ if(isset($_POST["action"]))
 		'tgs_shipment.SHIPMENT_CONFIRMATION_PRIORITY', 
 		'tgs_shipment.SHIPMENT_STATUS', 
 		'tgs_shipment.SHIPMENT_START_DATE', 
-		'tgs_shipment.SHIPMENT_END_DATE'
+		'tgs_shipment.SHIPMENT_END_DATE',
+		'tgs_customer.cus_fname'
 		);
 
 		$output = array();
 
 		$main_query = "
-		SELECT * FROM tgs_shipment ";
-		//INNER JOIN admin_table 
-		//ON admin_table.admin_id = visitor_table.visitor_enter_by 
-		//";
+		SELECT *, t1.cus_fname cus1, t2.cus_fname  cus2
+		FROM tgs_shipment
+		JOIN tgs_customer t1 ON t1.cus_id = tgs_shipment.CUS_ID_SENDER 
+		JOIN tgs_customer t2 ON t2.cus_id = tgs_shipment.CUS_ID_RECEIVER 
+		WHERE tgs_shipment.SHIPMENT_STATUS = 'Pending' 
+		";
 
-		/*if(!$shipment_system->is_master_user())
+		if($_POST["from_date"] != '')
 		{
-			/*$main_query .= "
-			WHERE tgs_shipment.visitor_enter_by = '".$_SESSION["admin_id"]."' 
-			";
-
-			if($_POST["from_date"] != '')
-			{
-				$search_query = "
-				AND DATE(tgs_shipment.visitor_enter_time) BETWEEN '".$_POST["from_date"]."' AND  '".$_POST["to_date"]."' AND ( 
-				";
-			}
-			else
-			{
-				$search_query = " AND ( ";	
-			}
-			
+			$search_query = " AND DATE(tgs_shipment.SHIPMENT_ORDER_DAY) BETWEEN '".$_POST["from_date"]."' AND  '".$_POST["to_date"]."' AND ( ";
 		}
 		else
 		{
-			if($_POST["from_date"] != '')
-			{
-				$search_query = "WHERE DATE(tgs_shipment.SHIPMENT_ORDER_DAY) BETWEEN '".$_POST["from_date"]."' AND  '".$_POST["to_date"]."' AND ( ";
-			}
-			else
-			{
-				$search_query = "WHERE ";	
-			}
+			$search_query = "AND ";	
 		}
+		
 		
 
 		if(isset($_POST["search"]["value"]))
 		{
 			
-			$search_query .= 'tgs_shipment.visitor_name LIKE "%'.$_POST["search"]["value"].'%" ';
-			$search_query .= 'OR tgs_shipment.visitor_meet_person_name LIKE "%'.$_POST["search"]["value"].'%" ';
-			$search_query .= 'OR tgs_shipment.visitor_department LIKE "%'.$_POST["search"]["value"].'%" ';
-			$search_query .= 'OR tgs_shipment.visitor_enter_time LIKE "%'.$_POST["search"]["value"].'%" ';
-			$search_query .= 'OR tgs_shipment.visitor_out_time LIKE "%'.$_POST["search"]["value"].'%" ';
-			$search_query .= 'OR tgs_shipment.visitor_status LIKE "%'.$_POST["search"]["value"].'%" ';
-			
+			$search_query .= ' tgs_shipment.SHIPMENT_SOURCE LIKE "%'.$_POST["search"]["value"].'%" ';
+			//$search_query .= 'OR tgs_shipment.visitor_meet_person_name LIKE "%'.$_POST["search"]["value"].'%" ';
+			//$search_query .= 'OR tgs_shipment.visitor_department LIKE "%'.$_POST["search"]["value"].'%" ';
+			//$search_query .= 'OR tgs_shipment.visitor_enter_time LIKE "%'.$_POST["search"]["value"].'%" ';
+			//$search_query .= 'OR tgs_shipment.visitor_out_time LIKE "%'.$_POST["search"]["value"].'%" ';
+			//$search_query .= 'OR tgs_shipment.visitor_status LIKE "%'.$_POST["search"]["value"].'%" ';
 			if($shipment_system->is_master_user())
 			{
-				$search_query .= 'OR admin_table.admin_name LIKE "%'.$_POST["search"]["value"].'%" ';
+				//$search_query .= ' tgs_shipment.SHIPMENT_SOURCE LIKE "%'.$_POST["search"]["value"].'%" ';
 				if($_POST["from_date"] != '')
 				{
 					$search_query .= ') ';
@@ -243,7 +225,10 @@ if(isset($_POST["action"]))
 			{
 				$search_query .= ') ';
 			}
+			
 		}
+
+
 
 		if(isset($_POST["order"]))
 		{
@@ -252,7 +237,7 @@ if(isset($_POST["action"]))
 		else
 		{
 			$order_query = 'ORDER BY tgs_shipment.SHIPMENT_NUM DESC ';
-		}*/
+		}
 
 		$limit_query = '';
 
@@ -261,7 +246,7 @@ if(isset($_POST["action"]))
 			$limit_query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 		}
 
-		$shipment_system->query = $main_query; // . $search_query . $order_query;
+		$shipment_system->query = $main_query . $search_query . $order_query;
 
 		$shipment_system->execute();
 
@@ -283,8 +268,8 @@ if(isset($_POST["action"]))
 		{
 			$sub_array = array();
 			$sub_array[] = $row["SHIPMENT_NUM"];
-			$sub_array[] = $row["CUS_ID_SENDER"];
-			$sub_array[] = $row["CUS_ID_RECEIVER"];
+			$sub_array[] = html_entity_decode($row["cus1"]);
+			$sub_array[] = html_entity_decode($row["cus2"]);
 			//$sub_array[] = html_entity_decode($row["SHIPMENT_DESCRIPTION"]);
 			$sub_array[] = $row["SHIPMENT_ESTIMATED_COST"];
 			$sub_array[] = $row["SHIPMENT_ACTUAL_COST"];
@@ -308,11 +293,11 @@ if(isset($_POST["action"]))
 
 			$sub_array[] = '
 			<div align="center" class="btn-group">
-			<button type="button" name="view_button" class="btn btn-primary btn-xs view_button" data-id=""><i class="fas fa-eye"></i></button>
+			<button type="button" name="view_button" class="btn btn-primary btn-xs view_button" data-id="'.$row["SHIPMENT_NUM"].'"><i class="fas fa-eye"></i></button>
 			&nbsp;
-			<button type="button" name="edit_button" class="btn btn-warning btn-xs edit_button" data-id=""><i class="fas fa-edit"></i></button>
+			<button type="button" name="edit_button" class="btn btn-warning btn-xs edit_button" data-id="'.$row["SHIPMENT_NUM"].'"><i class="fas fa-edit"></i></button>
 			&nbsp;
-			<button type="button" name="delete_button" class="btn btn-danger btn-xs delete_button" data-id=""><i class="fas fa-times"></i></button>
+			<button type="button" name="delete_button" class="btn btn-danger btn-xs delete_button" data-id="'.$row["SHIPMENT_NUM"].'"><i class="fas fa-times"></i></button>
 			</div>
 			';
 			$data[] = $sub_array;
@@ -423,13 +408,13 @@ if(isset($_POST["action"]))
 	{
 		//console_log("action : delete");
 		$shipment_system->query = "
-		DELETE FROM visitor_table 
-		WHERE visitor_id = '".$_POST["id"]."'
+		DELETE FROM tgs_shipment 
+		WHERE SHIPMENT_NUM = '".$_POST["id"]."'
 		";
 
 		$shipment_system->execute();
 
-		echo '<div class="alert alert-success">Visitor Details Deleted</div>';
+		echo '<div class="alert alert-success">Shipment Deleted</div>';
 	}
 
 	//#6

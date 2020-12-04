@@ -172,15 +172,15 @@ function deleteOrderInfo(){
 	            				<button type="button" name="refresh" id="refresh" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt"></i></button>
 	            			</div>
 	            			<div class="col-md-2" align="right">
-	            				<a href="#" name="export" id="export" class="text-success"><i class="fas fa-file-csv fa-2x"></i></a>
+	            				<a href="#" name="file_export" id="file_export" class="text-success"><i class="fas fa-file-csv fa-2x"></i></a>
 	            				&nbsp;
-	            				<button type="button" name="add_visitor" id="add_visitor" class="btn btn-success btn-sm" style="margin-top: -15px;"><i class="fas fa-user-plus"></i></button>
+	            				<button type="button" name="add_shipment" id="add_shipment" class="btn btn-success btn-sm" style="margin-top: -15px;"><i class="fas fa-user-plus"></i></button>
 	            			</div>
 	            		</div>
 	            	</div>
 	            	<div class="card-body">
 	            		<div class="table-responsive">
-	            			<table class="table table-striped table-bordered small text-xsmall" id="visitor_table">
+	            			<table class="table table-striped table-bordered small text-xsmall" id="shipment_table">
 	            				<thead>
 	            					<tr>
 	            						<th class="th-sm">Shipment Number</th>
@@ -400,7 +400,7 @@ $(document).ready(function(){
 	function load_data(from_date = '', to_date = '')
 	{
 		console.log("-----load_data");
-		var dataTable = $('#visitor_table').DataTable({
+		var dataTable = $('#shipment_table').DataTable({
 			"processing" : true,
 			"serverSide" : true,
 			"order" : [],
@@ -446,8 +446,8 @@ $(document).ready(function(){
 	//#1A
 	function load_shipment_data(from_date = '', to_date = '')
 	{
-		console.log("-----load_data1");
-		var dataTable = $('#visitor_table').DataTable({
+		console.log("-----load_shipment_data");
+		var dataTable = $('#shipment_table').DataTable({
 			"processing" : true,
 			"serverSide" : true,
 			"order" : [],
@@ -469,15 +469,15 @@ $(document).ready(function(){
 				},
 			],
 		});
-		console.log("-----load_data1--done");
+		console.log("-----load_shipment_data--done");
 	}
 
 	//#2
-	$('#add_visitor').click(function(){	
-		console.log("-----add_visitor -- click");
+	$('#add_shipment').click(function(){	
+		console.log("-----add_shipment -- click");
 		$('#visitor_form')[0].reset();
 		$('#visitor_form').parsley().reset();
-    	$('#modal_title').text('Add Visitor');
+    	$('#modal_title').text('Add Shipment');
     	$('#action').val('Add');
     	$('#submit_button').val('Add');
     	$('#visitorModal').modal('show');
@@ -519,8 +519,8 @@ $(document).ready(function(){
 					$('#submit_button').attr('disabled', false);
 					$('#visitorModal').modal('hide');
 					$('#message').html(data);
-					$('#visitor_table').DataTable().destroy();
-					load_data();
+					$('#shipment_table').DataTable().destroy();
+					load_shipment_data();
 					setTimeout(function(){
 						$('#message').html('');
 					}, 5000);
@@ -581,8 +581,8 @@ $(document).ready(function(){
     			success:function(data)
         		{
         			$('#message').html(data);
-        			$('#visitor_table').DataTable().destroy();
-        			load_data();
+        			$('#shipment_table').DataTable().destroy();
+        			load_shipment_data();
         			setTimeout(function(){
         				$('#message').html('');
         			}, 5000);
@@ -640,8 +640,8 @@ $(document).ready(function(){
 					$('#detail_submit_button').val('Save');
 					$('#visitordetailModal').modal('hide');
 					$('#message').html(data);
-					$('#visitor_table').DataTable().destroy();
-					load_data();
+					$('#shipment_table').DataTable().destroy();
+					load_shipment_data();
 					setTimeout(function(){
 						$('#message').html('');
 					}, 5000);
@@ -655,8 +655,8 @@ $(document).ready(function(){
 		console.log("-----filter -- click");
   		var from_date = $('#from_date').val();
   		var to_date = $('#to_date').val();
-  		$('#visitor_table').DataTable().destroy();
-  		load_data(from_date, to_date);
+  		$('#shipment_table').DataTable().destroy();
+  		load_shipment_data(from_date, to_date);
   	});
 
 	//#12
@@ -664,13 +664,13 @@ $(document).ready(function(){
 		console.log("-----refresh -- click");
   		$('#from_date').val('');
   		$('#to_date').val('');
-  		$('#visitor_table').DataTable().destroy();
-  		load_data();
+  		$('#shipment_table').DataTable().destroy();
+  		load_shipment_data();
   	});
 
 	//#13
-  	$('#refresh').click(function(){
-		console.log("-----refresh -- click");
+  	$('#file_export').click(function(){
+		console.log("-----file_export -- click");
   		var from_date = $('#from_date').val();
   		var to_date = $('#to_date').val();
 
