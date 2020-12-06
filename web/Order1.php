@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 	<title>REQUEST AN ORDER </title>
 	<link rel="stylesheet" href="./vendor.css">
-	<link rel="stylesheet" href="./main.css">
+	<link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="./font-awesome.css">
 
