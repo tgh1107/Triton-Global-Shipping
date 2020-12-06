@@ -222,18 +222,18 @@ function deleteOrderInfo(){
     </body>
 </html>
 
-<div id="visitorModal" class="modal fade">
+<div id="shipmemtModal" class="modal fade">
   	<div class="modal-dialog">
-    	<form method="post" id="visitor_form">
+    	<form method="post" id="shipment_form">
       		<div class="modal-content">
         		<div class="modal-header">
-          			<h4 class="modal-title" id="modal_title">Add Visitor</h4>
+          			<h4 class="modal-title" id="modal_title">Add Shipment</h4>
           			<button type="button" class="close" data-dismiss="modal">&times;</button>
         		</div>
         		<div class="modal-body">
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right">Visitor Name</label>
+			            	<label class="col-md-4 text-right">Shipment Name</label>
 			            	<div class="col-md-8">
 			            		<input type="text" name="visitor_name" id="visitor_name" class="form-control" required data-parsley-pattern="/^[a-zA-Z\s]+$/" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
 			            	</div>
@@ -241,7 +241,7 @@ function deleteOrderInfo(){
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right">Visitor Email</label>
+			            	<label class="col-md-4 text-right">Shipment Email</label>
 			            	<div class="col-md-8">
 			            		<input type="text" name="visitor_email" id="visitor_email" class="form-control" required data-parsley-type="email" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
 			            	</div>
@@ -304,27 +304,28 @@ function deleteOrderInfo(){
   	</div>
 </div>
 
-<div id="visitordetailModal" class="modal fade">
+<div id="shipmentdetailModal" class="modal fade">
   	<div class="modal-dialog modal-lg">
-    	<form method="post" id="visitor_details_form">
+    	<form method="post" id="shipment_details_form">
       		<div class="modal-content">
         		<div class="modal-header">
-          			<h4 class="modal-title" id="modal_title">View Visitor Details</h4>
+          			<h4 class="modal-title" id="modal_title">View Shipment Details</h4>
           			<button type="button" class="close" data-dismiss="modal">&times;</button>
         		</div>
         		<div class="modal-body">
-
+					<div class="card-header">Sender</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Visitor Name</b></label>
+			            	<label class="col-md-4 text-right"><b>Sender Name</b></label>
 			            	<div class="col-md-8">
 			            		<span id="visitor_name_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
+					
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Visitor Email</b></label>
+			            	<label class="col-md-4 text-right"><b>Sender Email</b></label>
 			            	<div class="col-md-8">
 			            		<span id="visitor_email_detail"></span>
 			            	</div>
@@ -332,7 +333,7 @@ function deleteOrderInfo(){
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Visitor Mobile No.</b></label>
+			            	<label class="col-md-4 text-right"><b>Sender Mobile No.</b></label>
 			            	<div class="col-md-8">
 			            		<span id="visitor_mobile_no_detail"></span>
 			            	</div>
@@ -340,13 +341,51 @@ function deleteOrderInfo(){
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Visitor Address</b></label>
+			            	<label class="col-md-4 text-right"><b>Sender Address</b></label>
 			            	<div class="col-md-8">
 			            		<span id="visitor_address_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
+					
+					<div class="card-header">Receiver</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Receiver Name</b></label>
+			            	<div class="col-md-8">
+			            		<span id="visitor_name_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+					
 		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Receiver Email</b></label>
+			            	<div class="col-md-8">
+			            		<span id="visitor_email_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Receiver Mobile No.</b></label>
+			            	<div class="col-md-8">
+			            		<span id="visitor_mobile_no_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Receiver Address</b></label>
+			            	<div class="col-md-8">
+			            		<span id="visitor_address_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+					
+		          	
+					<div class="card-header">Shipment Details</div>
+					<div class="form-group">
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Department</b></label>
 			            	<div class="col-md-8">
@@ -380,9 +419,9 @@ function deleteOrderInfo(){
 		          	</div>
         		</div>
         		<div class="modal-footer">
-          			<input type="hidden" name="hidden_visitor_id" id="hidden_visitor_id" />
-          			<input type="hidden" name="action" value="update_outing_detail" />
-          			<input type="submit" name="submit" id="detail_submit_button" class="btn btn-success" value="Save" />
+          			<input type="hidden" name="hidden_shipment_number" id="hidden_shipment_number" />
+          			<input type="hidden" name="action" value="update_shipment_status" />
+          			<input type="submit" name="submit" id="detail_submit_button" class="btn btn-success" value="Confirm" />
           			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         		</div>
       		</div>
@@ -475,12 +514,12 @@ $(document).ready(function(){
 	//#2
 	$('#add_shipment').click(function(){	
 		console.log("-----add_shipment -- click");
-		$('#visitor_form')[0].reset();
-		$('#visitor_form').parsley().reset();
+		$('#shipment_form')[0].reset();
+		$('#shipment_form').parsley().reset();
     	$('#modal_title').text('Add Shipment');
     	$('#action').val('Add');
     	$('#submit_button').val('Add');
-    	$('#visitorModal').modal('show');
+    	$('#shipmemtModal').modal('show');
 	});
 
 	//#3
@@ -497,13 +536,13 @@ $(document).ready(function(){
 	});
 
 	//#4
-	$('#visitor_form').parsley();
+	$('#shipment_form').parsley();
 
 	//#5
-	$('#visitor_form').on('submit', function(event){
-		console.log("-----visitor_form -- submit");
+	$('#shipment_form').on('submit', function(event){
+		console.log("-----shipment_form -- submit");
 		event.preventDefault();
-		if($('#visitor_form').parsley().isValid())
+		if($('#shipment_form').parsley().isValid())
 		{		
 			$.ajax({
 				url:"PendingOrder_action.php",
@@ -517,7 +556,7 @@ $(document).ready(function(){
 				success:function(data)
 				{
 					$('#submit_button').attr('disabled', false);
-					$('#visitorModal').modal('hide');
+					$('#shipmemtModal').modal('hide');
 					$('#message').html(data);
 					$('#shipment_table').DataTable().destroy();
 					load_shipment_data();
@@ -533,7 +572,7 @@ $(document).ready(function(){
 	$(document).on('click', '.edit_button', function(){
 		console.log("-----edit_button -- click");
 		var visitor_id = $(this).data('id');
-		$('#visitor_form').parsley().reset();
+		$('#shipment_form').parsley().reset();
 		$.ajax({
 	      	url:"PendingOrder_action.php",
 	      	method:"POST",
@@ -558,10 +597,10 @@ $(document).ready(function(){
 				$('#visitor_meet_person_name').val(data.visitor_meet_person_name);
 				$('#visitor_reason_to_meet').val(data.visitor_reason_to_meet);
 	        	
-	        	$('#modal_title').text('Edit Data');
+	        	$('#modal_title').text('Edit Shipment');
 	        	$('#action').val('Edit');
 	        	$('#submit_button').val('Edit');
-	        	$('#visitorModal').modal('show');
+	        	$('#shipmemtModal').modal('show');
 	        	$('#hidden_id').val(visitor_id);
 
 	      	}
@@ -595,6 +634,7 @@ $(document).ready(function(){
   	$(document).on('click', '.view_button', function(){
 		console.log("-----view_button -- click");
   		var visitor_id = $(this).data('id');
+		console.log("-----view_button -- click  visitor_id:" + visitor_id);
   		$.ajax({
   			url:"PendingOrder_action.php",
 	      	method:"POST",
@@ -610,20 +650,21 @@ $(document).ready(function(){
 	      		$('#visitor_meet_person_name_detail').text(data.visitor_meet_person_name);
 	      		$('#visitor_reason_to_meet_detail').text(data.visitor_reason_to_meet);
 	      		$('#visitor_outing_remark').val(data.visitor_outing_remark);
-	      		$('#visitordetailModal').modal('show');
-	      		$('#hidden_visitor_id').val(visitor_id);
+	      		$('#shipmentdetailModal').modal('show');
+	      		$('#hidden_shipment_number').val(visitor_id);
 	      	}
   		})
+		console.log("-----view_button -- click  -- done");
   	});
 
 	//#9
-  	$('#visitor_details_form').parsley();
+  	$('#shipment_details_form').parsley();
 
 	//#10
-  	$('#visitor_details_form').on('submit', function(event){
-		console.log("-----visitor_details_form -- submit");
+  	$('#shipment_details_form').on('submit', function(event){
+		console.log("-----shipment_details_form -- submit");
   		event.preventDefault();
-  		if($('#visitor_details_form').parsley().isValid())
+  		if($('#shipment_details_form').parsley().isValid())
 		{		
 			$.ajax({
 				url:"PendingOrder_action.php",
@@ -637,8 +678,8 @@ $(document).ready(function(){
 				success:function(data)
 				{
 					$('#detail_submit_button').attr('disabled', false);
-					$('#detail_submit_button').val('Save');
-					$('#visitordetailModal').modal('hide');
+					$('#detail_submit_button').val('Conform');
+					$('#shipmentdetailModal').modal('hide');
 					$('#message').html(data);
 					$('#shipment_table').DataTable().destroy();
 					load_shipment_data();

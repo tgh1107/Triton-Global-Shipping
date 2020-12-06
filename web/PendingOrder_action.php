@@ -236,7 +236,7 @@ if(isset($_POST["action"]))
 		}
 		else
 		{
-			$order_query = 'ORDER BY tgs_shipment.SHIPMENT_NUM DESC ';
+			$order_query = 'ORDER BY tgs_shipment.SHIPMENT_NUM ASC ';
 		}
 
 		$limit_query = '';
@@ -418,26 +418,22 @@ if(isset($_POST["action"]))
 	}
 
 	//#6
-	if($_POST["action"] == 'update_outing_detail')
+	if($_POST["action"] == 'update_shipment_status')
 	{
 		//console_log("action : update_outing_detail");
 		$data = array(
-			':visitor_outing_remark'	=>	$shipment_system->clean_input($_POST["visitor_outing_remark"]),
-			':visitor_out_time'			=>	$shipment_system->get_datetime(),
-			':visitor_status'			=>	'Out'
+			':SHIPMENT_STATUS'			=>	'Confirmed'
 		);
 
 		$shipment_system->query = "
-		UPDATE visitor_table 
-		SET visitor_outing_remark = :visitor_outing_remark, 
-		visitor_out_time = :visitor_out_time, 
-		visitor_status = :visitor_status 
-		WHERE visitor_id = '".$_POST["hidden_visitor_id"]."'
+		UPDATE tgs_shipment 
+		SET SHIPMENT_STATUS = :SHIPMENT_STATUS 
+		WHERE SHIPMENT_NUM = '".$_POST["hidden_shipment_number"]."'
 		";
 
 		$shipment_system->execute($data);
 
-		echo '<div class="alert alert-success">Visitor Out Details Updated</div>';
+		echo '<div class="alert alert-success">Details Updated</div>';
 	}
 }
 

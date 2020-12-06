@@ -124,59 +124,59 @@ class sms
 		}
 	}
 
-	function Get_total_today_visitor()
+	function Get_total_today_shipment()
 	{
 		$this->query = "
-		SELECT * FROM visitor_table 
-		WHERE DATE(visitor_enter_time) = DATE(NOW())
+		SELECT * FROM tgs_shipment 
+		WHERE DATE(SHIPMENT_ORDER_DAY) = DATE(NOW())
 		";
 
-		if(!$this->is_master_user())
+		/*if(!$this->is_master_user())
 		{
 			$this->query .= " AND visitor_enter_by ='".$_SESSION["admin_id"]."'";
-		}
+		}*/
 
 		$this->execute();
 		return $this->row_count();
 	}
 
-	function Get_total_yesterday_visitor()
+	function Get_total_yesterday_shipment()
 	{
 		$this->query = "
-		SELECT * FROM visitor_table 
-		WHERE DATE(visitor_enter_time) = DATE(NOW()) - INTERVAL 1 DAY
+		SELECT * FROM tgs_shipment 
+		WHERE DATE(SHIPMENT_ORDER_DAY) = DATE(NOW()) - INTERVAL 1 DAY
 		";
-		if(!$this->is_master_user())
+		/*if(!$this->is_master_user())
 		{
 			$this->query .= " AND visitor_enter_by ='".$_SESSION["admin_id"]."'";
-		}
+		}*/
 		$this->execute();
 		return $this->row_count();
 	}
 
-	function Get_last_seven_day_total_visitor()
+	function Get_last_seven_day_total_shipment()
 	{
 		$this->query = "
-		SELECT * FROM visitor_table 
-		WHERE DATE(visitor_enter_time) >= DATE(NOW()) - INTERVAL 7 DAY
+		SELECT * FROM tgs_shipment 
+		WHERE DATE(SHIPMENT_ORDER_DAY) >= DATE(NOW()) - INTERVAL 7 DAY
 		";
-		if(!$this->is_master_user())
+		/*if(!$this->is_master_user())
 		{
 			$this->query .= " AND visitor_enter_by ='".$_SESSION["admin_id"]."'";
-		}
+		}*/
 		$this->execute();
 		return $this->row_count();
 	}
 
-	function Get_total_visitor()
+	function Get_total_shipment()
 	{
 		$this->query = "
-		SELECT * FROM visitor_table 
+		SELECT * FROM tgs_shipment 
 		";
-		if(!$this->is_master_user())
+		/*if(!$this->is_master_user())
 		{
 			$this->query .= " WHERE visitor_enter_by ='".$_SESSION["admin_id"]."'";
-		}
+		}*/
 		$this->execute();
 		return $this->row_count();
 	}

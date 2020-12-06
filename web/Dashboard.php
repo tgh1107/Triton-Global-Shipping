@@ -24,7 +24,7 @@
 	            		<div class="card text-white bg-success mb-3">
 						  	<div class="card-header text-center"><h4>Total Today Order</h4></div>
 						  	<div class="card-body">
-						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_total_today_visitor(); ?></h1>
+						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_total_today_shipment(); ?></h1>
 						  	</div>
 						</div>
 	            	</div>
@@ -32,7 +32,7 @@
 	            		<div class="card text-white bg-primary mb-3">
 						  	<div class="card-header text-center"><h4>Total Order (Week)</h4></div>
 						  	<div class="card-body">
-						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_total_yesterday_visitor(); ?></h1>
+						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_total_yesterday_shipment(); ?></h1>
 						  	</div>
 						</div>
 	            	</div>
@@ -40,7 +40,7 @@
 	            		<div class="card text-white bg-warning mb-3">
 						  	<div class="card-header text-center"><h4>Total Order (Month)</h4></div>
 						  	<div class="card-body">
-						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_last_seven_day_total_visitor(); ?></h1>
+						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_last_seven_day_total_shipment(); ?></h1>
 						  	</div>
 						</div>
 	            	</div>
@@ -48,7 +48,7 @@
 	            		<div class="card text-white bg-info mb-3">
 						  	<div class="card-header text-center"><h4>Total Order (Year)</h4></div>
 						  	<div class="card-body">
-						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_total_visitor(); ?></h1>
+						    	<h1 class="card-title text-center"><?php echo $shipment_system->Get_total_shipment(); ?></h1>
 						  	</div>
 						</div>
 	            	</div>
