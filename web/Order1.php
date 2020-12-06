@@ -27,7 +27,10 @@
     							<a class="nav-link text-uppercase" data-toggle="none" href="index.html">HOME</a></li>
     						<li class="nav-item">
     							<a class="nav-link text-uppercase" data-toggle="none" href="">ABOUT US</a>
-    						</li>
+							</li>
+							<li class="nav-item">
+    							<a class="nav-link text-uppercase" data-toggle="none" href="FAQ.html">FAQs</a>
+							</li>
     						<li class="nav-item">
     							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.html">CONTACT US</a>
     						</li>
@@ -145,15 +148,33 @@
 	
 
 	<!--FOOTER-->
-	<div class="row1">
-		<div class="columnpic">
-			<img src="logo1.png">	
-		</div>
-		<div class="column">
-			<p>TGS 2017 Copyright (c) </br> TRITON GLOBAL SHIPPING (PVT) LTD </br> Office: Level 36, The Riparian Plaza 71 Eagle Street BRISBANE, QLD. 4000 AUSTRALIA</br> </p>
-		</div>
-		<div class="column">
-			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
+	<div class="container-fluid padding">	
+		<div class="row text-center">
+			<div class="col-md-4">
+				<img src="./images/logo1.png">
+			</div>
+			<div class="col-md-4">				
+				<hr class="light">
+				<h5>ADDRESS</h5>
+				<hr class="light">
+				<p>Level 36, The Riparian Plaza</p>
+				<p>71 Eagle Street </p>
+				<p>BRISBANE, QLD, 4000 AUSTRALIA</p>
+			</div>
+			<div class="col-md-4">				
+				<hr class="light">
+				<h5>CONTACT</h5>
+				<hr class="light">
+				<p>Email: info@tritonglobalshipping.com.au</p>
+				<p>Website: wwww.tritonglobalshipping.com.au</p>
+				<p>Sri Lanka: +94 11 252 1394</p>
+				<p>Australia: +61 41725 4352</p>
+				
+			</div>
+			<div class="col-12">
+				<hr class="light-100">
+				<h5>&copy; Group 14 - ICT</h5>
+			</div>
 		</div>
 	</div>
 </body>
