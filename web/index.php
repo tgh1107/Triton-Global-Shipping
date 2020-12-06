@@ -5,10 +5,11 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 	<title>TRITON GLOBAL SHIPPING</title>
-	<link rel="stylesheet" href="./css/vendor.css">
-	<link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/font-awesome.css">
+	<link rel="stylesheet" href="./vendor.css">
+	<link rel="stylesheet" href="./main.css">
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"> 
 	<style type="text/css" id="jarallax-clip-0">#jarallax-container-0 {
            clip: rect(0 1351px 662px 0);
            clip: rect(0, 1351px, 662px, 0);
@@ -33,24 +34,30 @@
     	<div class="container">
     		<div class="row">
     			<nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
-					<img src="./image/logo.png">
-    				<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
-    				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<img src="images/logo.png">
+					<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			        <span class="navbar-toggler-icon"></span>
+		            </button>
+    				<div class="collapse navbar-collapse" id="navbarResponsive">
     					<ul class="navbar-nav ml-auto">
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="index.php">HOME</a></li>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="index.html">HOME</a></li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.php">ABOUT US</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.html">ABOUT US</a>
+							</li>
+							<li class="nav-item">
+    							<a class="nav-link text-uppercase" data-toggle="none" href="FAQ.html">FAQs</a>
+							</li>
+    						<li class="nav-item">
+    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.html">CONTACT US</a>
     						</li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.php">CONTACT US</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.html">OUR NETWORKS</a>
     						</li>
-    						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.php">OUR NETWORKS</a>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.html">ORDER</a>
     						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.php">ORDER</a>
-    						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.php">LOGIN</a>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.html">LOGIN</a>
     						</li>
     					</ul>
     				</div>
@@ -75,7 +82,7 @@
     				</div>
     			</div>
     		</div>
-    		<div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: -100;"><img src="./image/image-45.jpg" alt="hero background" class="jarallax-img" style="object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 1351px; height: 686.8px; overflow: hidden; pointer-events: none; margin-top: 3.1px; transform: translate3d(0px, 24.9px, 0px);"></div>
+    		<div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: -100;"><img src="./images/image-45.jpg" alt="hero background" class="jarallax-img" style="object-fit: cover; object-position: 50% 50%; max-width: 100%; position: fixed; top: 0px; left: 0px; width: 100%; height:auto; overflow: hidden; pointer-events: none; margin-top: 3.1px; transform: translate3d(0px, 24.9px, 0px);"></div>
 	</section>
 	
 	<!--OUR VALUES-->
@@ -89,7 +96,7 @@
                         <article class="col-12 col-sm-6 col-lg-4 mb-18 mb-md-19 mb-lg-20">
                             <div class="card demo-card">
                                 <div class="card-body">
-                                    <img src="./image/demo-1.jpg" alt="landing screenshot" style = "height:350px; width: 350px">
+                                    <img src="./images/demo-1.jpg" alt="landing screenshot" height:350px; width: 350px>
 									<h1 class="mt-9 mb-0 fs-5 fs-md-6 fs-lg-7 text-black">TRUSTWORTHY</h1>
 								</div>
 							</div>
@@ -97,7 +104,7 @@
 						<article class="col-12 col-sm-6 col-lg-4 mb-18 mb-md-19 mb-lg-20">
 							<div class="card demo-card">
 								<div class="card-body">
-									<img src="./image/demo-2.jpg" alt="landing screenshot" style = "height:350px; width: 350px">
+									<img src="./images/demo-2.jpg" alt="landing screenshot" height:350px; width: 350px>
 									<h1 class="mt-9 mb-0 fs-5 fs-md-6 fs-lg-7 text-black">USER FRIENDLY</h1>
 								</div>
 							</div>
@@ -105,7 +112,7 @@
 						<article class="col-12 col-sm-6 col-lg-4 mb-18 mb-md-19 mb-lg-20">
 							<div class="card demo-card">
 								<div class="card-body">
-									<img src="./image/demo-3.jpg" alt="landing screenshot" height:350px; width: 350px>
+									<img src="./images/demo-3.jpg" alt="landing screenshot" height:350px; width: 350px>
 									<h1 class="mt-9 mb-0 fs-5 fs-md-6 fs-lg-7 text-black">LEADERSHIP TEAM</h1>
 								</div>
 							</div>
@@ -113,21 +120,21 @@
 						<article class="col-12 col-sm-6 col-lg-4 mb-18 mb-md-19 mb-lg-20">
 							<div class="card demo-card">
 								<div class="card-body">
-									<img src="./image/demo-4.jpg" alt="landing screenshot" height:350px; width: 350px>
+									<img src="./images/demo-4.jpg" alt="landing screenshot" height:350px; width: 350px>
 									<h1 class="mt-9 mb-0 fs-5 fs-md-6 fs-lg-7 text-black">COST EFFECTIVE</h1>
 								</div>
 							</div>
 						</article>
 						<article class="col-12 col-sm-6 col-lg-4 mb-18 mb-md-19 mb-lg-20">
 							<div class="card demo-card"><div class="card-body">
-								<img src="./image/demo-5.jpg" alt="landing screenshot" height:350px; width: 350px>
+								<img src="./images/demo-5.jpg" alt="landing screenshot" height:350px; width: 350px>
 								<h1 class="mt-9 mb-0 fs-5 fs-md-6 fs-lg-7 text-black">FAST SERVICES</h1>
 							</div>
 						</div>
 					</article>
 					<article class="col-12 col-sm-6 col-lg-4 mb-18 mb-md-19 mb-lg-20">
 						<div class="card demo-card"><div class="card-body">
-							<img src="./image/demo-6.jpg" alt="landing screenshot" height:350px; width: 350px>
+							<img src="./images/demo-6.jpg" alt="landing screenshot" height:350px; width: 350px>
 							<h1 class="mt-9 mb-0 fs-5 fs-md-6 fs-lg-7 text-black">VISION & VALUES</h1>
 						</div>
 					</div>
@@ -135,6 +142,7 @@
 				</div>
 			</div>
 		</section>
+		
 
 		<!--OUR NETWORKS-->
 		
@@ -152,7 +160,7 @@
 								<li class="d-flex align-items-center justify-content-center justify-content-xl-start" style="font-size: 25px">
 									BIG ENOUGH TO HAVE GLOBAL REACH - SMALL ENOUGH TO CARE ABOUT EVERY LOAD</li>
 								</ul>
-								<a href="Ournetworks.php" target="_blank" class="btn btn-lg btn-ghost">OUR NETWORKS</a>
+								<a href="Ournetworks.html" target="_blank" class="btn btn-lg btn-ghost">OUR NETWORKS</a>
 							</div>
 						</div>
 					</div>
@@ -164,27 +172,46 @@
 					<div class="d-flex flex-column justify-content-center align-items-center py-25">
 					<!--<span class="badge badge-pill badge-ghost fs-1 font-family-secondary text-uppercase font-weight-bold letter-spacing-caption">Order Here</span>-->
 						<h1 class="mt-5 mb-5 mb-md-18 fs-6 fs-md-10">Ready to ship your new package?</h1>
-						<a href="Order.php" class="btn btn-lg btn-primary"> ORDER HERE</a>
+						<a href="Order.html" class="btn btn-lg btn-primary"> ORDER HERE</a>
 					</div>
 				</div>
 				<div id="jarallax-container-1" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: -100;">
-						<img src="./image/image-46.jpg" alt="hero background" class="jarallax-img" style="object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 1351px; height: 634px; overflow: hidden; pointer-events: none; margin-top: 29.5px; transform: translate3d(0px, 104.981px, 0px);">
+						<img src="./images/image-46.jpg" alt="hero background" class="jarallax-img" style="object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 1351px; height: 634px; overflow: hidden; pointer-events: none; margin-top: 29.5px; transform: translate3d(0px, 104.981px, 0px);">
 					</div>
 				</section>
 
 <!--FOOTER-->
 				
-	<div class="row1">
-		<div class="columnpic">
-			<img src="./image/logo1.png">	
+	
+<div class="container-fluid padding">	
+	<div class="row text-center">
+		<div class="col-md-4">
+			<img src="./images/logo1.png">
 		</div>
-		<div class="column">
-			<p>TGS 2017 Copyright (c) </br> TRITON GLOBAL SHIPPING (PVT) LTD </br> Office: Level 36, The Riparian Plaza 71 Eagle Street BRISBANE, QLD. 4000 AUSTRALIA</br> </p>
+		<div class="col-md-4">				
+			<hr class="light">
+			<h5>ADDRESS</h5>
+			<hr class="light">
+			<p>Level 36, The Riparian Plaza</p>
+			<p>71 Eagle Street </p>
+			<p>BRISBANE, QLD, 4000 AUSTRALIA</p>
 		</div>
-		<div class="column">
-			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
+		<div class="col-md-4">				
+			<hr class="light">
+			<h5>CONTACT</h5>
+			<hr class="light">
+			<p>Email: info@tritonglobalshipping.com.au</p>
+			<p>Website: wwww.tritonglobalshipping.com.au</p>
+			<p>Sri Lanka: +94 11 252 1394</p>
+			<p>Australia: +61 41725 4352</p>
+			
+		</div>
+		<div class="col-12">
+			<hr class="light-100">
+			<h5>&copy; Group 14 - ICT</h5>
 		</div>
 	</div>
+</div>
 
 
 					
