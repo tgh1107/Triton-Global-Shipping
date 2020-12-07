@@ -318,7 +318,7 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Sender Name</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_name_detail"></span>
+			            		<span id="shipment_sender_name_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
@@ -327,7 +327,7 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Sender Email</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_email_detail"></span>
+			            		<span id="shipment_sender_email_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
@@ -335,7 +335,7 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Sender Mobile No.</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_mobile_no_detail"></span>
+			            		<span id="shipment_sender_mobile_no_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
@@ -343,7 +343,7 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Sender Address</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_address_detail"></span>
+			            		<span id="shipment_sender_address_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
@@ -353,7 +353,7 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Receiver Name</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_name_detail"></span>
+			            		<span id="shipment_receiver_name_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
@@ -362,7 +362,7 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Receiver Email</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_email_detail"></span>
+			            		<span id="shipment_receiver_email_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
@@ -370,7 +370,7 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Receiver Mobile No.</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_mobile_no_detail"></span>
+			            		<span id="shipment_receiver_mobile_no_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
@@ -378,7 +378,7 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Receiver Address</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_address_detail"></span>
+			            		<span id="shipment_receiver_address_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
@@ -387,36 +387,93 @@ function deleteOrderInfo(){
 					<div class="card-header">Shipment Details</div>
 					<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Department</b></label>
+			            	<label class="col-md-4 text-right"><b>Pakage Type</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_department_detail"></span>
+			            		<span id="shipment_pakage_type_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Person To Meet</b></label>
+			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_meet_person_name_detail"></span>
+			            		<span id="shipment_pakage_type_detail_2"></span>
 			            	</div>
 			            </div>
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Reason to Visit</b></label>
+			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
 			            	<div class="col-md-8">
-			            		<span id="visitor_reason_to_meet_detail"></span>
+			            		<span id="shipment_pakage_type_detail_3"></span>
+			            	</div>
+			            </div>
+		          	</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Weight (kg)</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_weight_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Visitor Outing Remark</b></label>
+			            	<label class="col-md-4 text-right"><b>Lenght (cm)</b></label>
 			            	<div class="col-md-8">
-			            		<textarea name="visitor_outing_remark" id="visitor_outing_remark" class="form-control" required data-parsley-maxlength="400" data-parsley-trigger="keyup"></textarea>
+			            		<span id="shipment_pakage_lenght_detail"></span>
 			            	</div>
 			            </div>
 		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Width (cm)</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_width_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Height(cm)</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_height_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Quantity</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_quantity_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Day of dispatch</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_day_of_dispatch_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Day of arrival</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_day_of_arrival_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Priority</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_priority_detail"></span>
+			            	</div>
+			            </div>
+		          	</div>
+
         		</div>
         		<div class="modal-footer">
           			<input type="hidden" name="hidden_shipment_number" id="hidden_shipment_number" />
@@ -633,26 +690,47 @@ $(document).ready(function(){
 	//#8
   	$(document).on('click', '.view_button', function(){
 		console.log("-----view_button -- click");
-  		var visitor_id = $(this).data('id');
-		console.log("-----view_button -- click  visitor_id:" + visitor_id);
+  		var shipment_number = $(this).data('id');
+		console.log("-----view_button -- click  shipment_number:" + shipment_number);
   		$.ajax({
   			url:"PendingOrder_action.php",
 	      	method:"POST",
-	      	data:{visitor_id:visitor_id, action:'fetch_single'},
+	      	data:{shipment_number:shipment_number, action:'fetch_single'},
 	      	dataType:'JSON',
 	      	success:function(data)
 	      	{
-	      		$('#visitor_name_detail').text(data.visitor_name);
-	      		$('#visitor_email_detail').text(data.visitor_email);
-	      		$('#visitor_mobile_no_detail').text(data.visitor_mobile_no);
-	      		$('#visitor_address_detail').text(data.visitor_address);
-	      		$('#visitor_department_detail').text(data.visitor_department);
-	      		$('#visitor_meet_person_name_detail').text(data.visitor_meet_person_name);
-	      		$('#visitor_reason_to_meet_detail').text(data.visitor_reason_to_meet);
-	      		$('#visitor_outing_remark').val(data.visitor_outing_remark);
-	      		$('#shipmentdetailModal').modal('show');
-	      		$('#hidden_shipment_number').val(visitor_id);
-	      	}
+	      		$('#shipment_sender_name_detail').text(data.shipment_sender_name);
+	      		$('#shipment_sender_email_detail').text(data.shipment_sender_email);
+	      		$('#shipment_sender_mobile_no_detail').text(data.shipment_sender_mobile_no);
+	      		$('#shipment_sender_address_detail').text(data.shipment_sender_address);
+				
+				$('#shipment_receiver_name_detail').text(data.shipment_receiver_name);
+	      		$('#shipment_receiver_email_detail').text(data.shipment_receiver_email);
+	      		$('#shipment_receiver_mobile_no_detail').text(data.shipment_receiver_mobile_no);
+	      		$('#shipment_receiver_address_detail').text(data.shipment_receiver_address);
+	      		
+				$('#shipment_pakage_type_detail').text(data.shipment_pakage_type);
+	      		$('#shipment_pakage_type_detail_2').text(data.shipment_pakage_type);
+	      		$('#shipment_pakage_type_detail_3').text(data.shipment_pakage_type);
+	      		$('#shipment_pakage_weight_detail').text(data.shipment_pakage_weight);
+	      		$('#shipment_pakage_lenght_detail').text(data.shipment_pakage_lenght);
+	      		$('#shipment_pakage_width_detail').text(data.shipment_pakage_width);
+				$('#shipment_pakage_height_detail').text(data.shipment_pakage_height);
+	      		$('#shipment_pakage_quantity_detail').text(data.shipment_pakage_quantity);
+	      		$('#shipment_pakage_day_of_dispatch_detail').text(data.shipment_pakage_day_of_dispatch);
+				$('#shipment_pakage_day_of_arrival_detail').text(data.shipment_pakage_day_of_arrival);
+	      		$('#shipment_pakage_priority_detail').text(data.shipment_pakage_priority);
+
+	      		
+				$('#shipmentdetailModal').modal('show');
+	      		$('#hidden_shipment_number').val(shipment_number);
+	      	},
+			error:function(data)
+			{
+				console.log("ERROR : ");
+				console.log(data);
+
+			}
   		})
 		console.log("-----view_button -- click  -- done");
   	});

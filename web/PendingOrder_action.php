@@ -348,25 +348,47 @@ if(isset($_POST["action"]))
 	if($_POST["action"] == 'fetch_single')
 	{
 		//console_log("action : fetch_single");
+		/* $shipment_system->query = "
+		SELECT * FROM tgs_shipment 
+		WHERE visitor_id = '".$_POST["shipment_number"]."'
+		"; */
+		
 		$shipment_system->query = "
-		SELECT * FROM visitor_table 
-		WHERE visitor_id = '".$_POST["visitor_id"]."'
+		SELECT *, t1.*
+		FROM tgs_shipment
+		JOIN tgs_customer t1 ON t1.cus_id = tgs_shipment.CUS_ID_SENDER 
+		JOIN tgs_customer t2 ON t2.cus_id = tgs_shipment.CUS_ID_RECEIVER
+		WHERE SHIPMENT_NUM = '".$_POST["shipment_number"]."'
 		";
-
+		
 		$result = $shipment_system->get_result();
 
 		$data = array();
 
 		foreach($result as $row)
 		{
-			$data['visitor_name'] = $row['visitor_name'];
-			$data['visitor_email'] = $row['visitor_email'];
-			$data['visitor_mobile_no'] = $row['visitor_mobile_no'];
-			$data['visitor_address'] = $row['visitor_address'];
-			$data['visitor_meet_person_name'] = $row['visitor_meet_person_name'];
-			$data['visitor_department'] = $row['visitor_department'];
-			$data['visitor_reason_to_meet'] = $row['visitor_reason_to_meet'];
-			$data['visitor_outing_remark'] = $row['visitor_outing_remark'];
+			$data['shipment_sender_name'] = $row['cus_fname'];
+			$data['shipment_sender_email'] = $row['cus_email'];
+			$data['shipment_sender_mobile_no'] = $row['cus_phone'];
+			$data['shipment_sender_address_detail'] = $row['SHIPMENT_SOURCE'];
+			
+			$data['shipment_receiver_name'] = $row['cus_fname'];
+			$data['shipment_receiver_email'] = $row['cus_email'];
+			$data['shipment_receiver_mobile_no'] = $row['cus_phone'];
+			$data['shipment_receiver_address'] = $row['SHIPMENT_DESTINATION'];
+			
+			$data['shipment_pakage_type_detail'] = $row['SHIPMENT_PACKAGE_TYPE'];
+			//$data['visitor_department'] = $row['visitor_department'];
+			//$data['visitor_reason_to_meet'] = $row['visitor_reason_to_meet'];
+			$data['shipment_pakage_weight'] = $row['SHIPMENT_PACKAGE_WEIGHT'];
+			$data['shipment_pakage_lenght'] = $row['SHIPMENT_PACKAGE_LENGTH'];
+			$data['shipment_pakage_width'] = $row['SHIPMENT_PACKAGE_WIDTH'];
+			$data['shipment_pakage_height'] = $row['SHIPMENT_PACKAGE_HEIGHT'];
+			$data['shipment_pakage_quantity'] = $row['SHIPMENT_PACKAGE_QUANTITY'];
+			$data['shipment_pakage_day_of_dispatch'] = $row['SHIPMENT_ORDER_DAY'];
+			$data['shipment_pakage_day_of_arrival'] = $row['SHIPMENT_END_DATE'];
+			$data['shipment_pakage_priority'] = $row['SHIPMENT_CONFIRMATION_PRIORITY'];
+
 		}
 
 		echo json_encode($data);
