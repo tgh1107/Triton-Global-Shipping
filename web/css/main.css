@@ -7,21 +7,19 @@
 background-color:#E5E7E9;
 
 }
-.column{
-    float: left;
-    width: 33.33%;
-    padding: 30px;
-    margin-top: 50px;
-    
+
+.hr.light {
+	border-top: 1px solid #d5d5d5;
+	width: 75%;
 }
-.columnpic{
-    float: left;
-    width: 33.33%;        
+.light-100 {
+	border-top: 1px solid #d5d5d5;
+	width: 100%;
 }
 .network{
     width: 100%;
     height: 200px;
-    background-image: url("../image/network.jpg");
+    background-image: url("/images/network.jpg");
     color: white;
     text-align: center;
     padding-top: 5%;
@@ -31,7 +29,7 @@ background-color:#E5E7E9;
 .contactus{
     width: 100%;
     height: 200px;
-    background-image: url("../image/contactus.jpg");
+    background-image: url("/images/contactus.jpg");
     color: white;
     text-align: center;
     padding-top: 5%;
@@ -42,7 +40,7 @@ background-color:#E5E7E9;
 .login{
     width: 100%;
     height: 900px;
-    background-image: url("../image/login.jpg");
+    background-image: url("/images/login.jpg");
 }
 .form{
     width: 100%;
@@ -101,7 +99,8 @@ background-color:#E5E7E9;
     border-radius: 5px;
 }
 .order_button{
-    text-align: center;
+   
+    margin-top: 40px;
 }
 .cus_info{
     float: left;
@@ -109,6 +108,12 @@ background-color:#E5E7E9;
     padding: 30px;
     
 }
+.package_info{
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+
 .cus_info input{
     border: 1px solid black;
     margin: 8px 0;
@@ -123,31 +128,3 @@ background-color:#E5E7E9;
     border-radius: 3px;
     width: 53%;
 }
-.form_title{
-    margin-left: 3%;
-}
-
-.edit_btn {
-    text-decoration: none;
-    padding: 2px 5px;
-    background: #2E8B57;
-    color: white;
-    border-radius: 3px;
-}
-
-.confirm_btn {
-    text-decoration: none;
-    padding: 2px 5px;
-    color: white;
-    border-radius: 3px;
-    background: #800000;
-}
-
-.package_info{
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-}
-
-
-

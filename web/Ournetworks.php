@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html class="js cssmask" lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-	<title>OUR NETWORKS</title>
-	<link rel="stylesheet" href="./css/vendor.css">
-    <link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/font-awesome.css">
+	<title>TRITON GLOBAL SHIPPING</title>
+	<link rel="stylesheet" href="./vendor.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"> 
     <title>Google Maps Multiple Markers</title>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJYjmTFKo21igdDqgNXOb171mXQzn3hnk&sensor=false&libraries=visualization"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -20,24 +20,27 @@
     	<div class="container">
     		<div class="row">
     			<nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
-					<img src="./image/logo.png">
+					<img src="./images/logo.png">
     				<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
-    				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     					<ul class="navbar-nav ml-auto">
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="index.php">HOME</a></li>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="index.html">HOME</a></li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.php">ABOUT US</a>
-    						</li>
-    						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.php">CONTACT US</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.html">ABOUT US</a>
     						</li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.php">OUR NETWORKS</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.html">CONTACT US</a>
     						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.php">ORDER</a>
+    						<li class="nav-item">
+    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.html">OUR NETWORKS</a>
     						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.php">LOGIN</a>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.html">ORDER</a>
+    						</li>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.html">LOGIN</a>
     						</li>
     					</ul>
     				</div>
@@ -56,18 +59,35 @@
     <div id="map" style="width: 100%; height: 700px;"></div>
 
     <!--FOOTER-->
-    <div class="row1">
-		<div class="columnpic">
-			<img src="./image/logo1.png">	
-		</div>
-		<div class="column">
-			<p>TGS 2017 Copyright (c) </br> TRITON GLOBAL SHIPPING (PVT) LTD </br> Office: Level 36, The Riparian Plaza 71 Eagle Street BRISBANE, QLD. 4000 AUSTRALIA</br> </p>
-		</div>
-		<div class="column">
-			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
-		</div>
+    <div class="container-fluid padding">	
+        <div class="row text-center">
+            <div class="col-md-4">
+                <img src="./images/logo1.png">
+            </div>
+            <div class="col-md-4">				
+                <hr class="light">
+                <h5>ADDRESS</h5>
+                <hr class="light">
+                <p>Level 36, The Riparian Plaza</p>
+                <p>71 Eagle Street </p>
+                <p>BRISBANE, QLD, 4000 AUSTRALIA</p>
+            </div>
+            <div class="col-md-4">				
+                <hr class="light">
+                <h5>CONTACT</h5>
+                <hr class="light">
+                <p>Email: info@tritonglobalshipping.com.au</p>
+                <p>Website: wwww.tritonglobalshipping.com.au</p>
+                <p>Sri Lanka: +94 11 252 1394</p>
+                <p>Australia: +61 41725 4352</p>
+                
+            </div>
+            <div class="col-12">
+                <hr class="light-100">
+                <h5>&copy; Group 14 - ICT</h5>
+            </div>
+        </div>
     </div>
-    
     <script type="text/javascript">
         var bounds = new google.maps.LatLngBounds();
         var locations = [
@@ -357,7 +377,7 @@
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map,
                 title: locations[i][0],
-                icon: './image/map2.png'
+                icon: 'map2.png'
             });
             bounds.extend(marker.position);
             marker.id = uniqid;
@@ -461,7 +481,7 @@
                         position: new google.maps.LatLng(servicelocations[i][1], servicelocations[i][2]),
                         map: map,
                         title: servicelocations[i][0],
-                        icon: './image/map1.png'
+                        icon: 'map1.png'
                     });
 
                     var startPt = new google.maps.LatLng(locations[locid - 1][1], locations[locid-1][2]);
