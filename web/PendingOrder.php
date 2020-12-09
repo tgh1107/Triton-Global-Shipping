@@ -223,7 +223,7 @@ function deleteOrderInfo(){
 </html>
 
 <div id="shipmemtModal" class="modal fade">
-  	<div class="modal-dialog">
+  	<div class="modal-dialog modal-lg">
     	<form method="post" id="shipment_form">
       		<div class="modal-content">
         		<div class="modal-header">
@@ -231,67 +231,172 @@ function deleteOrderInfo(){
           			<button type="button" class="close" data-dismiss="modal">&times;</button>
         		</div>
         		<div class="modal-body">
+					<div class="card-header">Sender</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right">Shipment Name</label>
+			            	<label class="col-md-4 text-right">Sender Name</label>
 			            	<div class="col-md-8">
-			            		<input type="text" name="visitor_name" id="visitor_name" class="form-control" required data-parsley-pattern="/^[a-zA-Z\s]+$/" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
+			            		<input type="text" name="shipment_sender_name" id="shipment_sender_name" class="form-control" required data-parsley-pattern="/^[a-zA-Z\s]+$/" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
 			            	</div>
 			            </div>
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right">Shipment Email</label>
+			            	<label class="col-md-4 text-right">Sender Email</label>
 			            	<div class="col-md-8">
-			            		<input type="text" name="visitor_email" id="visitor_email" class="form-control" required data-parsley-type="email" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
+			            		<input type="text" name="shipment_sender_email" id="shipment_sender_email" class="form-control" required data-parsley-type="email" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
 			            	</div>
 			            </div>
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right">Visitor Mobile No.</label>
+			            	<label class="col-md-4 text-right">Sender Mobile No.</label>
 			            	<div class="col-md-8">
-			            		<input type="text" name="visitor_mobile_no" id="visitor_mobile_no" class="form-control" required data-parsley-type="integer" data-parsley-minlength="10" data-parsley-maxlength="12" data-parsley-trigger="keyup" />
+			            		<input type="text" name="shipment_sender_mobile_no" id="shipment_sender_mobile_no" class="form-control" required data-parsley-type="integer" data-parsley-minlength="10" data-parsley-maxlength="12" data-parsley-trigger="keyup" />
 			            	</div>
 			            </div>
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right">Visitor Address</label>
+			            	<label class="col-md-4 text-right">Sender Address</label>
 			            	<div class="col-md-8">
-			            		<textarea name="visitor_address" id="visitor_address" class="form-control" required data-parsley-maxlength="400" data-parsley-trigger="keyup"></textarea>
+			            		<textarea name="shipment_sender_address" id="shipment_sender_address" class="form-control" required data-parsley-maxlength="400" data-parsley-trigger="keyup"></textarea>
+			            	</div>
+			            </div>
+		          	</div>
+					
+					<div class="card-header">Receiver</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Receiver Name</label>
+			            	<div class="col-md-8">
+			            		<input type="text" name="shipment_receiver_name" id="shipment_receiver_name" class="form-control" required data-parsley-pattern="/^[a-zA-Z\s]+$/" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
 			            	</div>
 			            </div>
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right">Department</label>
+			            	<label class="col-md-4 text-right">Receiver Email</label>
 			            	<div class="col-md-8">
-			            		<select name="visitor_department" id="visitor_department" class="form-control" required data-parsley-trigger="keyup">
-			            			<option value="">Select Departent</option>
-			            			<?php echo $shipment_system->load_department(); ?>
+			            		<input type="text" name="shipment_receiver_email" id="shipment_receiver_email" class="form-control" required data-parsley-type="email" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Receiver Mobile No.</label>
+			            	<div class="col-md-8">
+			            		<input type="text" name="shipment_receiver_mobile_no" id="shipment_receiver_mobile_no" class="form-control" required data-parsley-type="integer" data-parsley-minlength="10" data-parsley-maxlength="12" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Receiver Address</label>
+			            	<div class="col-md-8">
+			            		<textarea name="shipment_receiver_address" id="shipment_receiver_address" class="form-control" required data-parsley-maxlength="400" data-parsley-trigger="keyup"></textarea>
+			            	</div>
+			            </div>
+		          	</div>
+					
+					<div class="card-header">Shipment Details</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
+			            	<div class="col-md-8">			            		
+								<select name="shipment_pakage_type" id="shipment_pakage_type" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="">Select Pakage Type</option>
 			            		</select>
 			            	</div>
 			            </div>
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right">Person To Meet</label>
+			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
 			            	<div class="col-md-8">
-			            		<select name="visitor_meet_person_name" id="visitor_meet_person_name" class="form-control" required data-parsley-trigger="keyup">
-			            			<option value="">Select Person</option>
+								<select name="shipment_pakage_type_2" id="shipment_pakage_type_2" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="">Select Package Type</option>
 			            		</select>
 			            	</div>
 			            </div>
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right">Reason to Visit</label>
+			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
 			            	<div class="col-md-8">
-			            		<textarea name="visitor_reason_to_meet" id="visitor_reason_to_meet" class="form-control" required data-parsley-maxlength="400" data-parsley-trigger="keyup"></textarea>
+								<select name="shipment_pakage_type_3" id="shipment_pakage_type_3" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="">Select Package Type</option>
+			            		</select>
 			            	</div>
 			            </div>
 		          	</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Weight (kg)</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_weight" id="shipment_pakage_weight" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Lenght (cm)</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_lenght" id="shipment_pakage_lenght" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Width (cm)</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_width" id="shipment_pakage_width" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Height(cm)</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_height" id="shipment_pakage_height" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Quantity</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_quantity" id="shipment_pakage_quantity" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Day of dispatch</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_day_of_dispatch"></span>
+			            	</div>
+			            </div>
+		          	</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Day of arrival</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_day_of_arrival"></span>
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Priority</b></label>
+			            	<div class="col-md-8">
+			            		<span id="shipment_pakage_priority"></span>
+			            	</div>
+			            </div>
+		          	</div>
+					
+				
+					
         		</div>
         		<div class="modal-footer">
           			<input type="hidden" name="hidden_id" id="hidden_id" />
@@ -582,14 +687,14 @@ $(document).ready(function(){
 	//#3
 	$(document).on('change', '#visitor_department', function(){
 		console.log("-----visitor_department -- change");
-		var person = $('#visitor_department').find(':selected').data('person');
+		/* var person = $('#visitor_department').find(':selected').data('person');
 		var person_array = person.split(", ");
 		var html = '<option value="">Select Person</option>';
 		for(var count = 0; count < person_array.length; count++)
 		{
 			html += '<option value="'+person_array[count]+'">'+person_array[count]+'</option>';
 		}
-		$('#visitor_meet_person_name').html(html);
+		$('#visitor_meet_person_name').html(html); */
 	});
 
 	//#4
@@ -620,6 +725,12 @@ $(document).ready(function(){
 					setTimeout(function(){
 						$('#message').html('');
 					}, 5000);
+				},
+				error:function(data)
+				{
+					console.log("ERROR : load error");
+					console.log(data);
+
 				}
 			})
 		}
@@ -628,16 +739,39 @@ $(document).ready(function(){
 	//#6
 	$(document).on('click', '.edit_button', function(){
 		console.log("-----edit_button -- click");
-		var visitor_id = $(this).data('id');
+		var shipment_number = $(this).data('id');
 		$('#shipment_form').parsley().reset();
 		$.ajax({
 	      	url:"PendingOrder_action.php",
 	      	method:"POST",
-	      	data:{visitor_id:visitor_id, action:'fetch_single'},
+	      	data:{shipment_number:shipment_number, action:'fetch_single'},
 	      	dataType:'JSON',
 	      	success:function(data)
 	      	{
-	        	$('#visitor_name').val(data.visitor_name);
+				$('#shipment_sender_name').val(data.shipment_sender_name);
+	      		$('#shipment_sender_email').val(data.shipment_sender_email);
+	      		$('#shipment_sender_mobile_no').val(data.shipment_sender_mobile_no);
+	      		$('#shipment_sender_address').val(data.shipment_sender_address);
+				
+				$('#shipment_receiver_name').val(data.shipment_receiver_name);
+	      		$('#shipment_receiver_email').val(data.shipment_receiver_email);
+	      		$('#shipment_receiver_mobile_no').val(data.shipment_receiver_mobile_no);
+	      		$('#shipment_receiver_address').val(data.shipment_receiver_address);
+				
+				
+				$('#shipment_pakage_type').text(data.shipment_pakage_type);
+	      		$('#shipment_pakage_type_2').text(data.shipment_pakage_type);
+	      		$('#shipment_pakage_type_3').text(data.shipment_pakage_type);
+	      		$('#shipment_pakage_weight').val(data.shipment_pakage_weight);
+	      		$('#shipment_pakage_lenght').val(data.shipment_pakage_lenght);
+	      		$('#shipment_pakage_width').val(data.shipment_pakage_width);
+				$('#shipment_pakage_height').val(data.shipment_pakage_height);
+	      		$('#shipment_pakage_quantity').val(data.shipment_pakage_quantity);
+	      		$('#shipment_pakage_day_of_dispatch').text(data.shipment_pakage_day_of_dispatch);
+				$('#shipment_pakage_day_of_arrival').text(data.shipment_pakage_day_of_arrival);
+	      		$('#shipment_pakage_priority').text(data.shipment_pakage_priority);
+				
+	        	/* $('#visitor_name').val(data.visitor_name);
 	        	$('#visitor_email').val(data.visitor_email);
 	        	$('#visitor_mobile_no').val(data.visitor_mobile_no);
 	        	$('#visitor_address').val(data.visitor_address);
@@ -652,15 +786,21 @@ $(document).ready(function(){
 				}
 				$('#visitor_meet_person_name').html(html);
 				$('#visitor_meet_person_name').val(data.visitor_meet_person_name);
-				$('#visitor_reason_to_meet').val(data.visitor_reason_to_meet);
+				$('#visitor_reason_to_meet').val(data.visitor_reason_to_meet); */
 	        	
 	        	$('#modal_title').text('Edit Shipment');
 	        	$('#action').val('Edit');
 	        	$('#submit_button').val('Edit');
 	        	$('#shipmemtModal').modal('show');
-	        	$('#hidden_id').val(visitor_id);
+	        	$('#hidden_id').val(shipment_number);
 
-	      	}
+	      	},
+			error:function(data)
+			{
+				console.log("ERROR : load error");
+				console.log(data);
+
+			}
 	    })
 	});
 	
@@ -682,7 +822,13 @@ $(document).ready(function(){
         			setTimeout(function(){
         				$('#message').html('');
         			}, 5000);
-        		}
+        		},
+				error:function(data)
+				{
+					console.log("ERROR : load error");
+					console.log(data);
+
+				}
         	});
     	}
   	});
@@ -764,6 +910,12 @@ $(document).ready(function(){
 					setTimeout(function(){
 						$('#message').html('');
 					}, 5000);
+				},
+				error:function(data)
+				{
+					console.log("ERROR : load error");
+					console.log(data);
+
 				}
 			});
 		}

@@ -348,10 +348,6 @@ if(isset($_POST["action"]))
 	if($_POST["action"] == 'fetch_single')
 	{
 		//console_log("action : fetch_single");
-		/* $shipment_system->query = "
-		SELECT * FROM tgs_shipment 
-		WHERE visitor_id = '".$_POST["shipment_number"]."'
-		"; */
 		
 		$shipment_system->query = "
 		SELECT *, t1.*
@@ -399,30 +395,31 @@ if(isset($_POST["action"]))
 	{
 		//console_log("action : Edit");
 		$data = array(
-			':visitor_name'			=>	$shipment_system->clean_input($_POST["visitor_name"]),
+			/* ':visitor_name'			=>	$shipment_system->clean_input($_POST["visitor_name"]),
 			':visitor_email'		=>	$_POST["visitor_email"],
 			':visitor_mobile_no'	=>	$_POST["visitor_mobile_no"],
-			':visitor_address'		=>	$shipment_system->clean_input($_POST["visitor_address"]),
-			':visitor_meet_person_name' =>	$_POST["visitor_meet_person_name"],
-			':visitor_department'	=>	$_POST["visitor_department"],
-			':visitor_reason_to_meet' =>	$shipment_system->clean_input($_POST["visitor_reason_to_meet"]),
+			':visitor_address'		=>	$shipment_system->clean_input($_POST["visitor_address"]), */
+			':shipment_pakage_weight' =>	$_POST["shipment_pakage_weight"],
+			':shipment_pakage_lenght'	=>	$_POST["shipment_pakage_lenght"],
+			':shipment_pakage_width' =>	$_POST["shipment_pakage_width"],
+			':shipment_pakage_height'	=>	$_POST["shipment_pakage_height"],
+			':shipment_pakage_quantity'	=>	$_POST["shipment_pakage_quantity"],
+			/* ':visitor_reason_to_meet' =>	$shipment_system->clean_input($_POST["visitor_reason_to_meet"]), */
 		);
 
 		$shipment_system->query = "
-		UPDATE visitor_table 
-		SET visitor_name = :visitor_name, 
-		visitor_email = :visitor_email, 
-		visitor_mobile_no = :visitor_mobile_no, 
-		visitor_address = :visitor_address, 
-		visitor_meet_person_name = :visitor_meet_person_name, 
-		visitor_department = :visitor_department, 
-		visitor_reason_to_meet = :visitor_reason_to_meet 
-		WHERE visitor_id = '".$_POST['hidden_id']."'
+		UPDATE tgs_shipment 
+		SET SHIPMENT_PACKAGE_WEIGHT = :shipment_pakage_weight, 
+		SHIPMENT_PACKAGE_LENGTH = :shipment_pakage_lenght, 
+		SHIPMENT_PACKAGE_WIDTH = :shipment_pakage_width,
+		SHIPMENT_PACKAGE_HEIGHT = :shipment_pakage_height,
+		SHIPMENT_PACKAGE_QUANTITY = :shipment_pakage_quantity 
+		WHERE SHIPMENT_NUM = '".$_POST['hidden_id']."'
 		";
 
 		$shipment_system->execute($data);
 
-		echo '<div class="alert alert-success">Visitor Details Updated</div>';
+		echo '<div class="alert alert-success">Shipment Details Updated</div>';
 	}
 
 	//#5
