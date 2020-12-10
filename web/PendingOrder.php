@@ -305,7 +305,9 @@ function deleteOrderInfo(){
 			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
 			            	<div class="col-md-8">			            		
 								<select name="shipment_pakage_type" id="shipment_pakage_type" class="form-control" required data-parsley-trigger="keyup">
-			            			<option value="">Select Pakage Type</option>
+			            			<option value="">Hazardous item ?</option>
+									<option value="">Hazardous</option>
+									<option value="">Non-hazardous</option>
 			            		</select>
 			            	</div>
 			            </div>
@@ -315,7 +317,9 @@ function deleteOrderInfo(){
 			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
 			            	<div class="col-md-8">
 								<select name="shipment_pakage_type_2" id="shipment_pakage_type_2" class="form-control" required data-parsley-trigger="keyup">
-			            			<option value="">Select Package Type</option>
+			            			<option value="">Solid</option>
+									<option value="">Liquid</option>	
+									<option value="">Gas</option>
 			            		</select>
 			            	</div>
 			            </div>
@@ -325,7 +329,9 @@ function deleteOrderInfo(){
 			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
 			            	<div class="col-md-8">
 								<select name="shipment_pakage_type_3" id="shipment_pakage_type_3" class="form-control" required data-parsley-trigger="keyup">
-			            			<option value="">Select Package Type</option>
+			            			<option value="">Food ?</option>
+									<option value="">Yes</option>
+									<option value="">No</option>	
 			            		</select>
 			            	</div>
 			            </div>
@@ -372,17 +378,18 @@ function deleteOrderInfo(){
 		          	</div>
 		          	<div class="form-group">
 		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Day of dispatch</b></label>
-			            	<div class="col-md-8">
-			            		<span id="shipment_pakage_day_of_dispatch"></span>
-			            	</div>
+			            	<label class="col-md-4 text-right"><b>Day of dispatch</b></label>        		
+							<div class="col-md-8 input-daterange">
+								<input type="text" name="shipment_pakage_day_of_dispatch" id="shipment_pakage_day_of_dispatch" class="form-control form-control-sm" placeholder="Day of dispatch" readonly />
+							</div>
+			      
 			            </div>
 		          	</div>
 					<div class="form-group">
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Day of arrival</b></label>
-			            	<div class="col-md-8">
-			            		<span id="shipment_pakage_day_of_arrival"></span>
+			            	<div class="col-md-8 input-daterange">
+								<input type="text" name="shipment_pakage_day_of_arrival" id="shipment_pakage_day_of_arrival" class="form-control form-control-sm" placeholder="Day of arrival" readonly />
 			            	</div>
 			            </div>
 		          	</div>
@@ -390,7 +397,12 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Priority</b></label>
 			            	<div class="col-md-8">
-			            		<span id="shipment_pakage_priority"></span>
+								<select name="shipment_pakage_priority" id="shipment_pakage_priority" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="">Priority</option>
+									<option value="level1"> In 1 week</option>
+									<option value="level2"> In 2 weeks</option>
+									<option value="level3"> In 1 month</option>
+			            		</select>
 			            	</div>
 			            </div>
 		          	</div>
