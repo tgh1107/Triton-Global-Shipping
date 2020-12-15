@@ -180,7 +180,7 @@ function deleteOrderInfo(){
 	            	</div>
 	            	<div class="card-body">
 	            		<div class="table-responsive">
-	            			<table class="table table-striped table-bordered small text-xsmall" id="shipment_table">
+	            			<table class="table table-striped table-bordered small text-xsmall display compact" id="shipment_table"  style="zoom: 75%;" >
 	            				<thead>
 	            					<tr>
 	            						<th class="th-sm">Shipment Number</th>
@@ -306,8 +306,8 @@ function deleteOrderInfo(){
 			            	<div class="col-md-8">			            		
 								<select name="shipment_pakage_type" id="shipment_pakage_type" class="form-control" required data-parsley-trigger="keyup">
 			            			<option value="">Hazardous item ?</option>
-									<option value="">Hazardous</option>
-									<option value="">Non-hazardous</option>
+									<option value="Hazardous">Hazardous</option>
+									<option value="Non-hazardous">Non-hazardous</option>
 			            		</select>
 			            	</div>
 			            </div>
@@ -317,9 +317,9 @@ function deleteOrderInfo(){
 			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
 			            	<div class="col-md-8">
 								<select name="shipment_pakage_type_2" id="shipment_pakage_type_2" class="form-control" required data-parsley-trigger="keyup">
-			            			<option value="">Solid</option>
-									<option value="">Liquid</option>	
-									<option value="">Gas</option>
+			            			<option value="Solid">Solid</option>
+									<option value="Liquid">Liquid</option>	
+									<option value="Gas">Gas</option>
 			            		</select>
 			            	</div>
 			            </div>
@@ -330,8 +330,8 @@ function deleteOrderInfo(){
 			            	<div class="col-md-8">
 								<select name="shipment_pakage_type_3" id="shipment_pakage_type_3" class="form-control" required data-parsley-trigger="keyup">
 			            			<option value="">Food ?</option>
-									<option value="">Yes</option>
-									<option value="">No</option>	
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>	
 			            		</select>
 			            	</div>
 			            </div>
@@ -399,14 +399,28 @@ function deleteOrderInfo(){
 			            	<div class="col-md-8">
 								<select name="shipment_pakage_priority" id="shipment_pakage_priority" class="form-control" required data-parsley-trigger="keyup">
 			            			<option value="">Priority</option>
-									<option value="level1"> In 1 week</option>
-									<option value="level2"> In 2 weeks</option>
-									<option value="level3"> In 1 month</option>
+									<option value="1"> In 1 week</option>
+									<option value="2"> In 2 weeks</option>
+									<option value="3"> In 1 month</option>
 			            		</select>
 			            	</div>
 			            </div>
 		          	</div>
 					
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Shipment Status</b></label>
+			            	<div class="col-md-8">
+								<select name="shipment_pakage_status" id="shipment_pakage_status" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="Pending">Pending</option>
+									<option value="Confirmed">Confirmed</option>
+									<option value="In Ship">In Ship</option>
+									<option value="Done">Done</option>
+									<option value="Cancelled">Cancelled</option>
+			            		</select>
+			            	</div>
+			            </div>
+		          	</div>
 				
 					
         		</div>
