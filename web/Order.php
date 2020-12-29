@@ -299,3 +299,47 @@ function saveData()
 	</script>
 </body>
 </html>
+
+<script>
+$(document).ready(function(){
+	
+	//#
+	$('#shipment_form').on('submit', function(event){
+		console.log("-----shipment_form -- submit");
+		event.preventDefault();
+		if($('#shipment_form').parsley().isValid())
+		{		
+			$.ajax({
+				url:"Order_action.php",
+				method:"POST",
+				data:$(this).serialize(),
+				beforeSend:function()
+				{
+					$('#submit_button').attr('disabled', 'disabled');
+					$('#submit_button').val('wait...');
+				},
+				success:function(data)
+				{
+					$('#submit_button').attr('disabled', false);
+					$('#shipmemtModal').modal('hide');
+					$('#message').html(data);
+					$('#shipment_table').DataTable().destroy();
+					load_shipment_data();
+					setTimeout(function(){
+						$('#message').html('');
+					}, 5000);
+				},
+				error:function(data)
+				{
+					console.log("ERROR : load error");
+					console.log(data);
+
+				}
+			})
+		}
+	});
+
+});
+
+</script>
+	

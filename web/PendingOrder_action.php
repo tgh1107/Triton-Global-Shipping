@@ -332,9 +332,18 @@ if(isset($_POST["action"]))
 			':shipment_pakage_quantity' =>	$_POST["shipment_pakage_quantity"]
 		); 
 
+		$shipment_system->query = "
+		INSERT INTO tgs_customer ( cus_email, cus_phone, cus_lname, cus_fname, cus_initial, cus_type, cus_company, rg_code) 
+		VALUES
+		('1@gmail.com', '0481272471', 'tran 1', 'hoi 1', 'g', 1, 'triton', 0)
+		";
+
+		$shipment_system->execute();
+		
+		//LAST_INSERT_ID()
 		$shipment_system->query = "	
 		INSERT INTO tgs_shipment 
-		( CUS_ID_SENDER, CUS_ID_RECEIVER, SHIPMENT_DESCRIPTION, SHIPMENT_ESTIMATED_COST, SHIPMENT_ACTUAL_COST, SHIPMENT_SOURCE, SHIPMENT_DESTINATION, SHIPMENT_ORDER_DAY,SHIPMENT_CONFIRMATION_PRIORITY, SHIPMENT_STATUS, SHIPMENT_SIGNED_DATE, SHIPMENT_START_DATE, SHIPMENT_END_DATE, SHIPMENT_ACTUAL_START_DATE, SHIPMENT_ACTUAL_END_DATE, SHIPMENT_PACKAGE_TYPE, SHIPMENT_PACKAGE_WEIGHT, SHIPMENT_PACKAGE_LENGTH, SHIPMENT_PACKAGE_WIDTH, SHIPMENT_PACKAGE_HEIGHT, SHIPMENT_PACKAGE_QUANTITY) 
+		( LAST_INSERT_ID(), CUS_ID_RECEIVER, SHIPMENT_DESCRIPTION, SHIPMENT_ESTIMATED_COST, SHIPMENT_ACTUAL_COST, SHIPMENT_SOURCE, SHIPMENT_DESTINATION, SHIPMENT_ORDER_DAY,SHIPMENT_CONFIRMATION_PRIORITY, SHIPMENT_STATUS, SHIPMENT_SIGNED_DATE, SHIPMENT_START_DATE, SHIPMENT_END_DATE, SHIPMENT_ACTUAL_START_DATE, SHIPMENT_ACTUAL_END_DATE, SHIPMENT_PACKAGE_TYPE, SHIPMENT_PACKAGE_WEIGHT, SHIPMENT_PACKAGE_LENGTH, SHIPMENT_PACKAGE_WIDTH, SHIPMENT_PACKAGE_HEIGHT, SHIPMENT_PACKAGE_QUANTITY) 
 		
 		VALUES ('1', '2', 'DESCRIPTION', '50', '50', 'Australia', 'Viet Nam', :shipment_order_day, :shipment_pakage_priority, 'Pending',:shipment_order_day , :shipment_pakage_day_of_dispatch, :shipment_pakage_day_of_dispatch, :shipment_pakage_day_of_arrival, :shipment_pakage_day_of_arrival, :shipment_pakage_type, :shipment_pakage_weight, :shipment_pakage_lenght, :shipment_pakage_width, :shipment_pakage_height, :shipment_pakage_quantity)
 		";

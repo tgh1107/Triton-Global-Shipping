@@ -218,7 +218,6 @@ function deleteOrderInfo(){
 			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
 		</div>
 	</div>-->
-	
     </body>
 </html>
 
