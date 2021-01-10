@@ -11,6 +11,10 @@ if(isset($_POST["action"]))
 	//#1
 	if($_POST["action"] == 'Add')
 	{
+		
+		$message = 'Customer number: '.$_POST['sender_number'].';'.' Customer Name: '.$_POST['sender_name'] .';'.'Day of Dispatch : '.$_POST['day_of_dispatch'].';'.'Level of urgency : '.$_POST['level_of_urgency'] ;
+		$shipment_system->send_message($message);
+		
 		//console_log("action : Add");
 		 $data = array(
 			':shipment_sender_name'			=>	$shipment_system->clean_input($_POST["shipment_sender_name"]),

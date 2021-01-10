@@ -4,6 +4,7 @@
 //shipment management system
 
 include_once('./include/debug.php');
+include_once './service/vendor/autoload.php';
 class sms
 {
 	public $base_url = 'http://localhost/Triton-Global-Shipping/web/';
@@ -43,6 +44,11 @@ class sms
 	function get_result()
 	{
 		return $this->connect->query($this->query, PDO::FETCH_ASSOC);
+	}
+	
+	function get_insert_id()
+	{
+		return $this->connect->lastInsertId();
 	}
 
 	function is_login()
@@ -86,12 +92,33 @@ class sms
 		SELECT * FROM  twilio_service where USER_ID = 1
 		";
 		$result = $this->get_result();
-		/*$output = '';
-		foreach($result as $row)
-		{
-			$output .= '<option value="'.$row["department_name"].'" data-person="'.$row["department_contact_person"].'">'.$row["department_name"].'</option>';
-		}*/
 		return $result;
+	}
+	
+	function send_message($message)
+	{
+		// get admin info
+		$phone_info = $shipment_system->get_phone_number();
+		$account_sid = $phone_info['ACCOUNT_SID'];
+		$auth_token = $phone_info['AUTH_TOKEN'];
+		$twilio_number = $phone_info['PHONE_NUMBER'];
+		$AdminNumber = $phone_info['ADMIN_PHONE_NUMBER'];
+		
+		if(empty($account_sid) && empty($auth_token) && empty($twilio_number) && empty($AdminNumber))
+		{
+			$client = new Twilio\Rest\Client($account_sid, $auth_token);
+			$client->messages->create(
+							$AdminNumber, 
+								array(
+									  'from' => $twilio_number,
+									  'body' => $Message
+									 )
+							);
+		}else{
+			console_log("ERROR : Can not send the messages");
+		}	
+		
+		
 	}
 	
 	function load_department()
@@ -131,10 +158,7 @@ class sms
 		WHERE DATE(SHIPMENT_ORDER_DAY) = DATE(NOW())
 		";
 
-		/*if(!$this->is_master_user())
-		{
-			$this->query .= " AND visitor_enter_by ='".$_SESSION["admin_id"]."'";
-		}*/
+		
 
 		$this->execute();
 		return $this->row_count();
@@ -146,10 +170,7 @@ class sms
 		SELECT * FROM tgs_shipment 
 		WHERE DATE(SHIPMENT_ORDER_DAY) = DATE(NOW()) - INTERVAL 1 DAY
 		";
-		/*if(!$this->is_master_user())
-		{
-			$this->query .= " AND visitor_enter_by ='".$_SESSION["admin_id"]."'";
-		}*/
+		
 		$this->execute();
 		return $this->row_count();
 	}
@@ -160,10 +181,7 @@ class sms
 		SELECT * FROM tgs_shipment 
 		WHERE DATE(SHIPMENT_ORDER_DAY) >= DATE(NOW()) - INTERVAL 7 DAY
 		";
-		/*if(!$this->is_master_user())
-		{
-			$this->query .= " AND visitor_enter_by ='".$_SESSION["admin_id"]."'";
-		}*/
+		
 		$this->execute();
 		return $this->row_count();
 	}
@@ -173,10 +191,7 @@ class sms
 		$this->query = "
 		SELECT * FROM tgs_shipment 
 		";
-		/*if(!$this->is_master_user())
-		{
-			$this->query .= " WHERE visitor_enter_by ='".$_SESSION["admin_id"]."'";
-		}*/
+		
 		$this->execute();
 		return $this->row_count();
 	}
