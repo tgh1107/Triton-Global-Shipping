@@ -4,7 +4,7 @@
 //shipment management system
 
 include_once('./include/debug.php');
-include_once './service/vendor/autoload.php';
+include_once('./service/vendor/autoload.php');
 class sms
 {
 	public $base_url = 'http://localhost/Triton-Global-Shipping/web/';
@@ -14,7 +14,7 @@ class sms
 
 	function sms()
 	{
-		$this->connect = new PDO("mysql:host=localhost;dbname=visitor_managment_system", "root", "");
+		$this->connect = new PDO("mysql:host=localhost;dbname=shipment_managment_system", "root", "");
 		session_start();
 	}
 

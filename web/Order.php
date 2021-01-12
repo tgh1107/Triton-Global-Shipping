@@ -190,7 +190,7 @@ function saveData()
 	<h2 style="margin-top: 30px; text-align: center;">READY TO SHIP YOUR PACKAGE? </h2>
 	<div class="order_form">
 		<p> Fields marked * are required</p>
-		<form action = "" method="post" >
+		<form action = "" method="post" id="shipment_form">
 			<div>
 			<div class="cus_info">
 				<h4> SENDER DETAILS</h4>
@@ -321,13 +321,13 @@ $(document).ready(function(){
 				success:function(data)
 				{
 					$('#submit_button').attr('disabled', false);
-					$('#shipmemtModal').modal('hide');
-					$('#message').html(data);
-					$('#shipment_table').DataTable().destroy();
-					load_shipment_data();
-					setTimeout(function(){
-						$('#message').html('');
-					}, 5000);
+					//$('#shipmemtModal').modal('hide');
+					//$('#message').html(data);
+					//$('#shipment_table').DataTable().destroy();
+					//load_shipment_data();
+					//setTimeout(function(){
+						//$('#message').html('');
+					//}, 5000);
 				},
 				error:function(data)
 				{
