@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	if($shipment_system->is_login())
 	{
-		header("location:".$shipment_system->base_url."dashboard.php");
+		header("location:".$shipment_system->base_url."Dashboard.php");
 	}
 
 	include('admin_header.php');
@@ -131,7 +131,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     	<div class="container">
     		<div class="row">
     			<nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
-					<img src="./image/logo.png">
+					<img src="./images/logo.png">
     				<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
     				<div class="collapse navbar-collapse" id="navbarSupportedContent">
     					<ul class="navbar-nav ml-auto">
@@ -207,7 +207,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<!--FOOTER-->
 	<div class="row1">
 		<div class="columnpic">
-			<img src="./image/logo1.png">	
+			<img src="./images/logo1.png">	
 		</div>
 		<div class="column">
 			<p>TGS 2017 Copyright (c) </br> TRITON GLOBAL SHIPPING (PVT) LTD </br> Office: Level 36, The Riparian Plaza 71 Eagle Street BRISBANE, QLD. 4000 AUSTRALIA</br> </p>

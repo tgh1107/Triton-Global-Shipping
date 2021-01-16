@@ -21,8 +21,8 @@
 // Include file
 include_once './include/debug.php';
 //require_once './include/EnvFile.php';
-require_once './service/config.php';
-require_once './service/database_connection.php';
+//require_once './service/config.php';
+//require_once './service/database_connection.php';
 include_once './service/vendor/autoload.php';
 
 // Define variables and initialize with empty values
@@ -117,20 +117,20 @@ function saveData()
 
 	// main process
 	//readEnv();
-	getAdminInfo();
+	/* getAdminInfo();
 	console_log("account_sid :".$account_sid);
 	console_log("auth_token : ".$auth_token);
 	console_log("twilio_number : ".$twilio_number);
-	console_log("AdminNumber : ".$AdminNumber);
+	console_log("AdminNumber : ".$AdminNumber); */
 	
 	// handle post
 	//if(isset($_POST['sender_number'])&& isset($_POST['sender_name']) && isset($_POST['day_of_dispatch']) && isset($_POST['level_of_urgency'])){
-	if($_SERVER["REQUEST_METHOD"] == "POST"){ 
+	/* if($_SERVER["REQUEST_METHOD"] == "POST"){ 
 		$Message = 'Customer number: '.$_POST['sender_number'].';'.' Customer Name: '.$_POST['sender_name'] .';'.'Day of Dispatch : '.$_POST['day_of_dispatch'].';'.'Level of urgency : '.$_POST['level_of_urgency'] ;
 		
 		sendMessage($Message);
 
-	}
+	} */
 	
 	//------ END ----------//
 ?>
@@ -291,12 +291,12 @@ function saveData()
 			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
 		</div>
 	</div>
-	<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LeSCLMZAAAAAKVvuKlLIW4VcnyHi_yYvp3Ar1Qh&#038;ver=3.0'></script>
+	<!-- <script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LeSCLMZAAAAAKVvuKlLIW4VcnyHi_yYvp3Ar1Qh&#038;ver=3.0'></script>
 	<script type='text/javascript'>
 	/* <![CDATA[ */
 	var wpcf7_recaptcha = {"sitekey":"6LeSCLMZAAAAAKVvuKlLIW4VcnyHi_yYvp3Ar1Qh","actions":{"homepage":"homepage","contactform":"contactform"}};
 	/* ]]> */
-	</script>
+	</script> -->
 </body>
 </html>
 

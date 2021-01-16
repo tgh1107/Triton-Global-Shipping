@@ -24,7 +24,7 @@
 	            	//$profile_active = 'inactive_class';
 	            	$change_password_active = 'inactive_class';
 
-	            	if($page_name == 'dashboard.php')
+	            	if($page_name == 'Dashboard.php')
 	            	{
 	            		$dashboard_active = 'active_class';
 	            	}
@@ -52,7 +52,7 @@
 
 
 	            	<li class="nav-item">
-	                    <a class="nav-link <?php echo $dashboard_active; ?>" href="dashboard.php"><span class="ml-2 d-none d-sm-inline"><i class="fas fa-tachometer-alt"></i> Dashboard</span></a>
+	                    <a class="nav-link <?php echo $dashboard_active; ?>" href="Dashboard.php"><span class="ml-2 d-none d-sm-inline"><i class="fas fa-tachometer-alt"></i> Dashboard</span></a>
 	                </li>
 
 	            	<?php
