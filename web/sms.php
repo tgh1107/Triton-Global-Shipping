@@ -7,13 +7,15 @@ include_once('./include/debug.php');
 include_once('./service/vendor/autoload.php');
 class sms
 {
-	public $base_url = 'http://triton.ictatjcub.com/Triton-Global-Shipping/web/';
+	//public $base_url = 'http://triton.ictatjcub.com/Triton-Global-Shipping/web/';
+	public $base_url = '';
 	public $connect;
 	public $query;
 	public $statement;
 
 	function sms()
 	{
+		$base_url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']) ;
 		$this->connect = new PDO("mysql:host=localhost;dbname=ictatjcu_triton", "ictatjcu_triton", "Triton2020");
 		session_start();
 	}

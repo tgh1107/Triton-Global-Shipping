@@ -42,22 +42,22 @@
     				<div class="collapse navbar-collapse" id="navbarResponsive">
     					<ul class="navbar-nav ml-auto">
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="index.html">HOME</a></li>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="index.php">HOME</a></li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.html">ABOUT US</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.php">ABOUT US</a>
 							</li>
 							<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="FAQ.html">FAQs</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="FAQ.php">FAQs</a>
 							</li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.html">CONTACT US</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.php">CONTACT US</a>
     						</li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.html">OUR NETWORKS</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.php">OUR NETWORKS</a>
     						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.html">ORDER</a>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.php">ORDER</a>
     						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.html">LOGIN</a>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.php">LOGIN</a>
     						</li>
     					</ul>
     				</div>
@@ -160,7 +160,7 @@
 								<li class="d-flex align-items-center justify-content-center justify-content-xl-start" style="font-size: 25px">
 									BIG ENOUGH TO HAVE GLOBAL REACH - SMALL ENOUGH TO CARE ABOUT EVERY LOAD</li>
 								</ul>
-								<a href="Ournetworks.html" target="_blank" class="btn btn-lg btn-ghost">OUR NETWORKS</a>
+								<a href="Ournetworks.php" target="_blank" class="btn btn-lg btn-ghost">OUR NETWORKS</a>
 							</div>
 						</div>
 					</div>
@@ -172,7 +172,7 @@
 					<div class="d-flex flex-column justify-content-center align-items-center py-25">
 					<!--<span class="badge badge-pill badge-ghost fs-1 font-family-secondary text-uppercase font-weight-bold letter-spacing-caption">Order Here</span>-->
 						<h1 class="mt-5 mb-5 mb-md-18 fs-6 fs-md-10">Ready to ship your new package?</h1>
-						<a href="Order.html" class="btn btn-lg btn-primary"> ORDER HERE</a>
+						<a href="Order.php" class="btn btn-lg btn-primary"> ORDER HERE</a>
 					</div>
 				</div>
 				<div id="jarallax-container-1" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: -100;">

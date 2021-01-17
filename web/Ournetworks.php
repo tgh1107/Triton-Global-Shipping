@@ -28,19 +28,22 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     					<ul class="navbar-nav ml-auto">
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="index.html">HOME</a></li>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="index.php">HOME</a></li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.html">ABOUT US</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.php">ABOUT US</a>
+    						</li>
+							<li class="nav-item">
+    							<a class="nav-link text-uppercase" data-toggle="none" href="FAQ.php">FAQs</a>
+							</li>
+    						<li class="nav-item">
+    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.php">CONTACT US</a>
     						</li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.html">CONTACT US</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.php">OUR NETWORKS</a>
     						</li>
-    						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.html">OUR NETWORKS</a>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.php">ORDER</a>
     						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.html">ORDER</a>
-    						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.html">LOGIN</a>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.php">LOGIN</a>
     						</li>
     					</ul>
     				</div>

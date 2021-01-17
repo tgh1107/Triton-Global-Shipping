@@ -88,11 +88,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     mysqli_close($link);
 }*/
+	include_once('./include/debug.php');
+	include_once('sms.php');
 
-	include('sms.php');
-
+	//echo("-----load_data ==".$_SERVER['HTTP_HOST']  . dirname($_SERVER['PHP_SELF']));
 	$shipment_system = new sms();
 
+	
 	if($shipment_system->is_login())
 	{
 		header("location:".$shipment_system->base_url."Dashboard.php");
@@ -140,6 +142,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     						<li class="nav-item">
     							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.php">ABOUT US</a>
     						</li>
+							<li class="nav-item">
+    							<a class="nav-link text-uppercase" data-toggle="none" href="FAQ.php">FAQs</a>
+							</li>
     						<li class="nav-item">
     							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.php">CONTACT US</a>
     						</li>

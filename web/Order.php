@@ -162,13 +162,16 @@ function saveData()
     						<li class="nav-item">
     							<a class="nav-link text-uppercase" data-toggle="none" href="">ABOUT US</a>
     						</li>
+							<li class="nav-item">
+    							<a class="nav-link text-uppercase" data-toggle="none" href="FAQ.php">FAQs</a>
+							</li>
     						<li class="nav-item">
     							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.php">CONTACT US</a>
     						</li>
     						<li class="nav-item">
     							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.php">OUR NETWORKS</a>
     						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="">ORDER</a>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.php">ORDER</a>
     						</li>
     						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.php">LOGIN</a>
     						</li>
