@@ -23,6 +23,7 @@
 	            	$phone_management_active = 'inactive_class';
 	            	//$profile_active = 'inactive_class';
 	            	$change_password_active = 'inactive_class';
+					$live_chat_active = 'inactive_class';
 
 	            	if($page_name == 'Dashboard.php')
 	            	{
@@ -48,6 +49,10 @@
 	            	{
 	            		$change_password_active = 'active_class';
 	            	}
+					if($page_name == 'Livechat.php')
+	            	{
+	            		$live_chat_active = 'active_class';
+	            	}
 	            	?>
 
 
@@ -61,23 +66,26 @@
 	            	{
 	            	?>
 	            	<li class="nav-item">
-	                    <a class="nav-link <?php echo $pending_order_active; ?>" href="PendingOrder.php"><span class="ml-2 d-none d-sm-inline"><i class="fas fa-users"></i> Pending Order</span></a>
+	                    <a class="nav-link <?php echo $pending_order_active; ?>" href="PendingOrder.php"><span class="ml-2 d-none d-sm-inline"><i class="fas fa-clipboard"></i> Pending Order</span></a>
 	                </li>
 	                <li class="nav-item">
-	                    <a class="nav-link <?php echo $order_active; ?>" href="OrderManagement.php"><span class="ml-2 d-none d-sm-inline"><i class="far fa-building"></i> Order</span></a>
+	                    <a class="nav-link <?php echo $order_active; ?>" href="OrderManagement.php"><span class="ml-2 d-none d-sm-inline"><i class="far fa-clipboard"></i> Order</span></a>
 	                </li>
 	            	<?php
 	            	}
 
 	            	?>
 	            	<li class="nav-item">
-	                    <a class="nav-link <?php echo $phone_management_active; ?>" href="PhoneManagement.php"><span class="ml-2 d-none d-sm-inline"><i class="fas fa-person-booth"></i>Phone Management</span></a>
+	                    <a class="nav-link <?php echo $phone_management_active; ?>" href="PhoneManagement.php"><span class="ml-2 d-none d-sm-inline"><i class="fas fa-mobile-alt"></i> Phone Management</span></a>
 	                </li>
 	                <!--<li class="nav-item">
 	                    <a class="nav-link <?php echo $profile_active; ?>" href="profile.php"><span class="ml-2 d-none d-sm-inline"><i class="far fa-id-badge"></i>&nbsp;&nbsp;Profile</span></a>
 	                </li>-->
 	                <li class="nav-item">
 	                    <a class="nav-link <?php echo $change_password_active; ?>" href="PasswordChange.php"><span class="ml-2 d-none d-sm-inline"><i class="fas fa-key"></i>&nbsp;&nbsp;Change Password</span></a>
+	                </li>
+					 <li class="nav-item">
+	                    <a class="nav-link <?php echo $live_chat_active; ?>" href="Livechat.php"><span class="ml-2 d-none d-sm-inline"><i class="fas fa-comment-dots"></i>&nbsp;&nbsp;Live chat</span></a>
 	                </li>
 	                <li class="nav-item">
 	                    <a class="nav-link inactive_class" href="Logout.php"><span class="ml-2 d-none d-sm-inline"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</span></a>

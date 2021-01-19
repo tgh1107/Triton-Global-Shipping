@@ -145,7 +145,18 @@ function saveData()
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/font-awesome.css">
    
-    
+    	<script>
+	$(document).ready(function(){
+		var date = new Date();
+			
+		$('.input-daterange').datepicker({
+			todayBtn: "linked",
+			format: "yyyy-mm-dd",
+			autoclose: true
+		});
+			
+	});
+	</script>
 </head>
 <body>
 	<!--NAVIGATION-->
@@ -153,7 +164,7 @@ function saveData()
     	<div class="container">
     		<div class="row">
     			<nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
-					<img src="./image/logo.png">
+					<img src="./images/logo.png">
     				<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
     				<div class="collapse navbar-collapse" id="navbarSupportedContent">
     					<ul class="navbar-nav ml-auto">
@@ -191,7 +202,9 @@ function saveData()
 		<h1> REQUEST AN ORDER</h1>
 	</div>
 	<h2 style="margin-top: 30px; text-align: center;">READY TO SHIP YOUR PACKAGE? </h2>
-	<div class="order_form">
+	
+	
+	<!--<div class="order_form">
 		<p> Fields marked * are required</p>
 		<form action = "" method="post" id="shipment_form">
 			<div>
@@ -271,21 +284,228 @@ function saveData()
 			</div>
 			<div class="order_button">
 				<!--<button> ADD ANOTHER ITEM</button>
-				<button> ORDER</button>-->
+				<button> ORDER</button>--
 				<input type="submit" value="ORDER">
 			</div>
 		</form>
 
 	</div>
-	
+	-->
 
 
-	
+
+    	<form method="post" id="shipment_form">
+      		<div class="modal-content">
+        		<div class="modal-header">
+          			<h4 class="modal-title" id="modal_title">Add Shipment</h4>
+        		</div>
+        		<div class="modal-body">
+					<div class="card-header">Sender</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Sender Name</label>
+			            	<div class="col-md-8">
+			            		<input type="text" name="shipment_sender_name" id="shipment_sender_name" class="form-control" required data-parsley-pattern="/^[a-zA-Z\s]+$/" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Sender Email</label>
+			            	<div class="col-md-8">
+			            		<input type="text" name="shipment_sender_email" id="shipment_sender_email" class="form-control" required data-parsley-type="email" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Sender Mobile No.</label>
+			            	<div class="col-md-8">
+			            		<input type="text" name="shipment_sender_mobile_no" id="shipment_sender_mobile_no" class="form-control" required data-parsley-type="integer" data-parsley-minlength="10" data-parsley-maxlength="12" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Sender Address</label>
+			            	<div class="col-md-8">
+			            		<textarea name="shipment_sender_address" id="shipment_sender_address" class="form-control" required data-parsley-maxlength="400" data-parsley-trigger="keyup"></textarea>
+			            	</div>
+			            </div>
+		          	</div>
+					
+					<div class="card-header">Receiver</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Receiver Name</label>
+			            	<div class="col-md-8">
+			            		<input type="text" name="shipment_receiver_name" id="shipment_receiver_name" class="form-control" required data-parsley-pattern="/^[a-zA-Z\s]+$/" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Receiver Email</label>
+			            	<div class="col-md-8">
+			            		<input type="text" name="shipment_receiver_email" id="shipment_receiver_email" class="form-control" required data-parsley-type="email" data-parsley-maxlength="150" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Receiver Mobile No.</label>
+			            	<div class="col-md-8">
+			            		<input type="text" name="shipment_receiver_mobile_no" id="shipment_receiver_mobile_no" class="form-control" required data-parsley-type="integer" data-parsley-minlength="10" data-parsley-maxlength="12" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right">Receiver Address</label>
+			            	<div class="col-md-8">
+			            		<textarea name="shipment_receiver_address" id="shipment_receiver_address" class="form-control" required data-parsley-maxlength="400" data-parsley-trigger="keyup"></textarea>
+			            	</div>
+			            </div>
+		          	</div>
+					
+					<div class="card-header">Shipment Details</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
+			            	<div class="col-md-8">			            		
+								<select name="shipment_pakage_type" id="shipment_pakage_type" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="">Hazardous item ?</option>
+									<option value="Hazardous">Hazardous</option>
+									<option value="Non-hazardous">Non-hazardous</option>
+			            		</select>
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
+			            	<div class="col-md-8">
+								<select name="shipment_pakage_type_2" id="shipment_pakage_type_2" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="Solid">Solid</option>
+									<option value="Liquid">Liquid</option>	
+									<option value="Gas">Gas</option>
+			            		</select>
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Package Type</b></label>
+			            	<div class="col-md-8">
+								<select name="shipment_pakage_type_3" id="shipment_pakage_type_3" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="">Food ?</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>	
+			            		</select>
+			            	</div>
+			            </div>
+		          	</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Weight (kg)</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_weight" id="shipment_pakage_weight" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Lenght (cm)</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_lenght" id="shipment_pakage_lenght" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Width (cm)</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_width" id="shipment_pakage_width" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Height(cm)</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_height" id="shipment_pakage_height" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Quantity</b></label>
+			            	<div class="col-md-8">
+								<input type="text" name="shipment_pakage_quantity" id="shipment_pakage_quantity" class="form-control" required data-parsley-type="integer" data-parsley-minlength="1" data-parsley-maxlength="10" data-parsley-trigger="keyup" />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Day of dispatch</b></label>        		
+							<div class="col-md-8 input-daterange">
+								<input type="text" name="shipment_pakage_day_of_dispatch" id="shipment_pakage_day_of_dispatch" class="form-control form-control-sm" placeholder="Day of dispatch" readonly />
+							</div>
+			      
+			            </div>
+		          	</div>
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Day of arrival</b></label>
+			            	<div class="col-md-8 input-daterange">
+								<input type="text" name="shipment_pakage_day_of_arrival" id="shipment_pakage_day_of_arrival" class="form-control form-control-sm" placeholder="Day of arrival" readonly />
+			            	</div>
+			            </div>
+		          	</div>
+		          	<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Priority</b></label>
+			            	<div class="col-md-8">
+								<select name="shipment_pakage_priority" id="shipment_pakage_priority" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="">Priority</option>
+									<option value="1"> In 1 week</option>
+									<option value="2"> In 2 weeks</option>
+									<option value="3"> In 1 month</option>
+			            		</select>
+			            	</div>
+			            </div>
+		          	</div>
+					
+					<div class="form-group">
+		          		<div class="row">
+			            	<label class="col-md-4 text-right"><b>Shipment Status</b></label>
+			            	<div class="col-md-8">
+								<select name="shipment_pakage_status" id="shipment_pakage_status" class="form-control" required data-parsley-trigger="keyup">
+			            			<option value="Pending">Pending</option>
+									<option value="Confirmed">Confirmed</option>
+									<option value="In Ship">In Ship</option>
+									<option value="Done">Done</option>
+									<option value="Cancelled">Cancelled</option>
+			            		</select>
+			            	</div>
+			            </div>
+		          	</div>
+				
+					
+        		</div>
+        		<div class="modal-footer">
+          			<input type="hidden" name="hidden_id" id="hidden_id" />
+          			<input type="hidden" name="action" id="action" value="Add" />
+          			<input type="submit" name="submit" id="submit_button" class="btn btn-success" value="Add" />
+
+        		</div>
+      		</div>
+    	</form>
 
 	<!--FOOTER-->
 	<div class="row1">
 		<div class="columnpic">
-			<img src="./image/logo1.png">	
+			<img src="./images/logo1.png">	
 		</div>
 		<div class="column">
 			<p>TGS 2017 Copyright (c) </br> TRITON GLOBAL SHIPPING (PVT) LTD </br> Office: Level 36, The Riparian Plaza 71 Eagle Street BRISBANE, QLD. 4000 AUSTRALIA</br> </p>

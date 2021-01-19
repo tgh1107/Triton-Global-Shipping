@@ -13,10 +13,14 @@ class sms
 	public $query;
 	public $statement;
 
-	function sms()
+	function __construct()
 	{
 		$base_url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']) ;
-		$this->connect = new PDO("mysql:host=localhost;dbname=ictatjcu_triton", "ictatjcu_triton", "Triton2020");
+		if ( $_SERVER["SERVER_ADDR"] == '127.0.0.1' ||  $_SERVER["SERVER_ADDR"] == '::1') {	//localhost server
+			$this->connect = new PDO("mysql:host=localhost;dbname=shipment_managment_system", "root", "");
+		}else{ //web server
+			$this->connect = new PDO("mysql:host=localhost;dbname=ictatjcu_triton", "ictatjcu_triton", "Triton2020");
+		}			
 		session_start();
 	}
 
