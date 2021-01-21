@@ -1614,19 +1614,19 @@ doc.setAttribute( 'data-useragent', navigator.userAgent );
     				<div class="collapse navbar-collapse" id="navbarResponsive">
     					<ul class="navbar-nav ml-auto">
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="index.html">HOME</a></li>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="index.php">HOME</a></li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.html">ABOUT US</a>
-    						</li>
-    						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.html">CONTACT US</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.php">ABOUT US</a>
     						</li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.html">OUR NETWORKS</a>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="ContactUs.php">CONTACT US</a>
     						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.html">ORDER</a>
+    						<li class="nav-item">
+    							<a class="nav-link text-uppercase" data-toggle="none" href="Ournetworks.php">OUR NETWORKS</a>
     						</li>
-    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.html">LOGIN</a>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Order.php">ORDER</a>
+    						</li>
+    						<li class="nav-item"><a class="nav-link text-uppercase" data-toggle="none" href="Login.php">LOGIN</a>
     						</li>
     					</ul>
     				</div>
@@ -1671,8 +1671,13 @@ doc.setAttribute( 'data-useragent', navigator.userAgent );
 <div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode">
 <div class="panel-heading">
 <h4 class="panel-title toggle">
-<a class="active" aria-expanded="true" aria-controls="1e381c19dd8655d2b" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#1e381c19dd8655d2b" href="#1e381c19dd8655d2b"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span>
-<span class="fusion-toggle-heading">What is Dangerous Goods Declaration..??</span></a></h4></div>
+<a class="active" aria-expanded="true" aria-controls="1e381c19dd8655d2b" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#1e381c19dd8655d2b" href="#1e381c19dd8655d2b">
+<span class="fusion-toggle-icon-wrapper" aria-hidden="true">
+<i class="fa-fusion-box"></i></span>
+<span class="fusion-toggle-heading">1. What is Dangerous Goods Declaration..??</span>
+</a>
+</h4>
+</div>
 <div id="1e381c19dd8655d2b" class="panel-collapse collapse in">
 <div class="panel-body toggle-content fusion-clearfix">
 <p>Explosives, Gases (compressed, liquefied or dissolved under pressure), Flammable liquids, Flammable solids (substances liable to spontaneous combustion; substances which, in contact with water, emit flammable gases), Oxidizing substances (agents) and organic peroxides, Toxic and infectious substances, Radioactive materials, Corrosives, Miscellaneous dangerous substances and articles non-classified materials</p>
@@ -1680,7 +1685,75 @@ doc.setAttribute( 'data-useragent', navigator.userAgent );
 </div>
 </div>
 
-<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="a1beaafbbff3411ed" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#a1beaafbbff3411ed" href="#a1beaafbbff3411ed"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">Can cargo be released without collection of destination charges..??</span></a></h4></div><div id="a1beaafbbff3411ed" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>The charges for any shipment from Point A to Point B must be paid either at Point A (Prepaid) or Point B (Collect or in some cases at Point C (Collect Elsewhere) which could be anywhere in the world where the shipping line has accounting facilities) with the manifest</p></div></div></div><div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="9c8e91477b486e475" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#9c8e91477b486e475" href="#9c8e91477b486e475"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">How long must I store original bills of lading after shipment is complete..??</span></a></h4></div><div id="9c8e91477b486e475" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>Once the original bill of landing after a shipment has been completed, and duly is paid. You keep the recepit or destroy them, it doesn't matter.</p></div></div></div><div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="e9dd099a7fb60fe13" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#e9dd099a7fb60fe13" href="#e9dd099a7fb60fe13"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">What to do when the original bill of lading is lost..??</span></a></h4></div><div id="e9dd099a7fb60fe13" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>If a bill of lading is lost, stolen, or destroyed, Please contact us on our customer conact number or drop us email. We always there to help you. </p></div></div></div><div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="32f039a3499f283c5" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#32f039a3499f283c5" href="#32f039a3499f283c5"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">How many original bills of lading must I surrender to get release of cargo..??</span></a></h4></div><div id="32f039a3499f283c5" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>There are only two types of bills of lading that involve the issuance of original bills and they are Straight Bill of Lading and Negotiable Bill of Lading..</p></div></div></div><div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="1adc7a443f4f488e4" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#1adc7a443f4f488e4" href="#1adc7a443f4f488e4"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">Responsibility of buyer and seller in the case of cargo damage</span></a></h4></div><div id="1adc7a443f4f488e4" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>The seller is responsible to check and ensure that the container used is in cargoworthy condition and there are no holes in the container and that the container door seals close properly.. Whatever the Incoterms used, in the event of the container being neither cargo worthy nor sea worthy, the shipper will be held liable liable for the damages.</p></div></div></div><div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="013926c6e3ccbf681" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#013926c6e3ccbf681" href="#013926c6e3ccbf681"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">What is the minimum weight required to book a whole container?</span></a></h4></div><div id="013926c6e3ccbf681" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>Minimum 15kg is required to book a whole container.</p></div></div></div><div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="610322d5c393a3aee" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#610322d5c393a3aee" href="#610322d5c393a3aee"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">Can I arrange an instalment payment?</span></a></h4></div><div id="610322d5c393a3aee" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>Trition does not have instalment plans. You can make numerous payments of transport fees up to the transport date. Last payment of total transport charges must be paid by the shipping date.</p></div></div></div><div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="1556d75620df197eb" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#1556d75620df197eb" href="#1556d75620df197eb"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">How can I make my payments?</span></a></h4></div><div id="1556d75620df197eb" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>You can use your valid credit/ debit card to make payment or you can pay cash at our office.</p></div></div></div><div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="472546cbfdd2bc8eb" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#472546cbfdd2bc8eb" href="#472546cbfdd2bc8eb"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">What if my friend or relative wants to make payment for me?</span>
+<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading">
+<h4 class="panel-title toggle">
+<a aria-expanded="false" aria-controls="a1beaafbbff3411ed" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#a1beaafbbff3411ed" href="#a1beaafbbff3411ed">
+<span class="fusion-toggle-icon-wrapper" aria-hidden="true">
+<i class="fa-fusion-box"></i></span>
+<span class="fusion-toggle-heading">2. Can cargo be released without collection of destination charges..??</span>
+</a>
+</h4>
+</div>
+<div id="a1beaafbbff3411ed" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix">
+<p>The charges for any shipment from Point A to Point B must be paid either at Point A (Prepaid) or Point B (Collect or in some cases at Point C (Collect Elsewhere) which could be anywhere in the world where the shipping line has accounting facilities) with the manifest</p>
+</div>
+</div>
+</div>
+
+
+<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading">
+<h4 class="panel-title toggle">
+<a aria-expanded="false" aria-controls="9c8e91477b486e475" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#9c8e91477b486e475" href="#9c8e91477b486e475">
+<span class="fusion-toggle-icon-wrapper" aria-hidden="true">
+<i class="fa-fusion-box"></i></span>
+<span class="fusion-toggle-heading">3.How long must I store original bills of lading after shipment is complete..??</span>
+</a>
+</h4>
+</div>
+<div id="9c8e91477b486e475" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>Once the original bill of landing after a shipment has been completed, and duly is paid. You keep the recepit or destroy them, it doesn't matter.</p>
+</div>
+</div>
+</div>
+
+<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode">
+<div class="panel-heading"><h4 class="panel-title toggle">
+<a aria-expanded="false" aria-controls="e9dd099a7fb60fe13" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#e9dd099a7fb60fe13" href="#e9dd099a7fb60fe13">
+<span class="fusion-toggle-icon-wrapper" aria-hidden="true">
+<i class="fa-fusion-box"></i></span>
+<span class="fusion-toggle-heading">4.What to do when the original bill of lading is lost..??</span>
+</a>
+</h4>
+</div>
+<div id="e9dd099a7fb60fe13" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix">
+<p>If a bill of lading is lost, stolen, or destroyed, Please contact us on our customer conact number or drop us email. We always there to help you. </p>
+</div>
+</div>
+</div>
+
+<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading">
+<h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="32f039a3499f283c5" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#32f039a3499f283c5" href="#32f039a3499f283c5"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">5.How many original bills of lading must I surrender to get release of cargo..??</span></a></h4></div><div id="32f039a3499f283c5" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>There are only two types of bills of lading that involve the issuance of original bills and they are Straight Bill of Lading and Negotiable Bill of Lading..</p></div></div>
+</div>
+
+<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="1adc7a443f4f488e4" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#1adc7a443f4f488e4" href="#1adc7a443f4f488e4"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">6. Responsibility of buyer and seller in the case of cargo damage</span></a></h4></div><div id="1adc7a443f4f488e4" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>The seller is responsible to check and ensure that the container used is in cargoworthy condition and there are no holes in the container and that the container door seals close properly.. Whatever the Incoterms used, in the event of the container being neither cargo worthy nor sea worthy, the shipper will be held liable liable for the damages.</p></div></div>
+</div>
+
+<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="013926c6e3ccbf681" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#013926c6e3ccbf681" href="#013926c6e3ccbf681"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">7. What is the minimum weight required to book a whole container?</span></a></h4></div>
+<div id="013926c6e3ccbf681" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>Minimum 15kg is required to book a whole container.</p></div></div>
+</div>
+
+<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="610322d5c393a3aee" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#610322d5c393a3aee" href="#610322d5c393a3aee"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">8.Can I arrange an instalment payment?</span></a></h4></div>
+<div id="610322d5c393a3aee" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>Trition does not have instalment plans. You can make numerous payments of transport fees up to the transport date. Last payment of total transport charges must be paid by the shipping date.</p></div></div>
+</div>
+
+<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle"><a aria-expanded="false" aria-controls="1556d75620df197eb" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#1556d75620df197eb" href="#1556d75620df197eb"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box"></i></span><span class="fusion-toggle-heading">9.How can I make my payments?</span></a></h4></div>
+<div id="1556d75620df197eb" class="panel-collapse collapse "><div class="panel-body toggle-content fusion-clearfix"><p>You can use your valid credit/ debit card to make payment or you can pay cash at our office.</p></div></div>
+</div>
+
+<div class="fusion-panel panel-default fusion-toggle-no-divider fusion-toggle-boxed-mode"><div class="panel-heading"><h4 class="panel-title toggle">
+<a aria-expanded="false" aria-controls="472546cbfdd2bc8eb" role="radiobutton" data-toggle="collapse" data-parent="#accordion-1202-1" data-target="#472546cbfdd2bc8eb" href="#472546cbfdd2bc8eb">
+<span class="fusion-toggle-icon-wrapper" aria-hidden="true">
+<i class="fa-fusion-box"></i></span>
+<span class="fusion-toggle-heading">10.What if my friend or relative wants to make payment for me?</span>
 </a>
 </h4>
 </div>
@@ -1695,7 +1768,7 @@ doc.setAttribute( 'data-useragent', navigator.userAgent );
 <span class="fusion-toggle-icon-wrapper" aria-hidden="true">
 <i class="fa-fusion-box"></i>
 </span>
-<span class="fusion-toggle-heading">Will there be a charge if I transfer money from an international bank?</span>
+<span class="fusion-toggle-heading">11.Will there be a charge if I transfer money from an international bank?</span>
 </a>
 </h4>
 </div>
@@ -1704,6 +1777,8 @@ doc.setAttribute( 'data-useragent', navigator.userAgent );
 </div>
 </div>
 </div>
+
+
 </div>
 </div>
 </div>
@@ -1712,10 +1787,7 @@ doc.setAttribute( 'data-useragent', navigator.userAgent );
 <div class="fusion-clearfix"></div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+
 </section>
 </div>
 </main>
@@ -1764,9 +1836,15 @@ doc.setAttribute( 'data-useragent', navigator.userAgent );
 <div class="fusion-clearfix"></div></div></div>
 </footer>
 <footer id="footer" class="fusion-footer-copyright-area">
-<div class="fusion-row">
-</div></div></div></footer></div>
-<div class="fusion-sliding-bar-wrapper"></div></div></div>
+<div class="fusion-row"></div>
+</footer>
+</div>
+</footer>
+</div>
+
+<div class="fusion-sliding-bar-wrapper"></div>
+
+
 <div class="fusion-top-frame"></div>
 <div class="fusion-bottom-frame"></div>
 <div class="fusion-boxed-shadow"></div> 
@@ -1827,7 +1905,7 @@ doc.setAttribute( 'data-useragent', navigator.userAgent );
 						});
 					}
 				});</script> 
-			</div> 
-	<script defer src="https://www.jcub.edu.au/wp-content/cache/autoptimize/js/autoptimize_4437b00ffb3ee31171b6a9b78ec825fc.js"></script>
+</div>			 
+
 </body>
 </html>
