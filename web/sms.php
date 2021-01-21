@@ -95,29 +95,39 @@ class sms
 	function get_phone_number()
 	{
 		$this->query = "
-		SELECT * FROM  twilio_service where USER_ID = 1
+		SELECT * FROM  twilio_service WHERE USER_ID = 1
 		";
 		$result = $this->get_result();
-		return $result;
+		$data = array();
+
+		foreach($result as $row)
+		{
+			$data['ACCOUNT_SID'] = $row['ACCOUNT_SID'];
+			$data['AUTH_TOKEN'] = $row['AUTH_TOKEN'];
+			$data['PHONE_NUMBER'] = $row['PHONE_NUMBER'];
+			$data['ADMIN_PHONE_NUMBER'] = $row['ADMIN_PHONE_NUMBER'];
+		}
+
+		return $data;
 	}
 	
 	function send_message($message)
 	{
 		// get admin info
-		$phone_info = $shipment_system->get_phone_number();
+		$phone_info = $this->get_phone_number();
 		$account_sid = $phone_info['ACCOUNT_SID'];
 		$auth_token = $phone_info['AUTH_TOKEN'];
 		$twilio_number = $phone_info['PHONE_NUMBER'];
 		$AdminNumber = $phone_info['ADMIN_PHONE_NUMBER'];
 		
-		if(empty($account_sid) && empty($auth_token) && empty($twilio_number) && empty($AdminNumber))
+		if(!empty($account_sid) && !empty($auth_token) && !empty($twilio_number) && !empty($AdminNumber))
 		{
 			$client = new Twilio\Rest\Client($account_sid, $auth_token);
 			$client->messages->create(
 							$AdminNumber, 
 								array(
 									  'from' => $twilio_number,
-									  'body' => $Message
+									  'body' => $message
 									 )
 							);
 		}else{

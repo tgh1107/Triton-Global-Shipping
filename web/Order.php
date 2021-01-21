@@ -292,7 +292,8 @@ function saveData()
 	</div>
 	-->
 
-
+<div id="shipmemtModal" class="">
+  	<div class="">
 
     	<form method="post" id="shipment_form">
       		<div class="modal-content">
@@ -476,20 +477,7 @@ function saveData()
 			            </div>
 		          	</div>
 					
-					<div class="form-group">
-		          		<div class="row">
-			            	<label class="col-md-4 text-right"><b>Shipment Status</b></label>
-			            	<div class="col-md-8">
-								<select name="shipment_pakage_status" id="shipment_pakage_status" class="form-control" required data-parsley-trigger="keyup">
-			            			<option value="Pending">Pending</option>
-									<option value="Confirmed">Confirmed</option>
-									<option value="In Ship">In Ship</option>
-									<option value="Done">Done</option>
-									<option value="Cancelled">Cancelled</option>
-			            		</select>
-			            	</div>
-			            </div>
-		          	</div>
+
 				
 					
         		</div>
@@ -501,6 +489,9 @@ function saveData()
         		</div>
       		</div>
     	</form>
+		
+	  	</div>
+</div>	
 
 	<!--FOOTER-->
 	<div class="row1">
@@ -526,9 +517,10 @@ function saveData()
 <script>
 $(document).ready(function(){
 	
+	$('#shipment_form').parsley();
 	//#
 	$('#shipment_form').on('submit', function(event){
-		console.log("-----shipment_form -- submit");
+		console.log("-----shipment_form -- submit --");
 		event.preventDefault();
 		if($('#shipment_form').parsley().isValid())
 		{		
@@ -543,7 +535,10 @@ $(document).ready(function(){
 				},
 				success:function(data)
 				{
+					console.log("add success ");
+					console.log(data);
 					$('#submit_button').attr('disabled', false);
+					$('#submit_button').val('Add');
 					//$('#shipmemtModal').modal('hide');
 					//$('#message').html(data);
 					//$('#shipment_table').DataTable().destroy();
