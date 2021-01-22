@@ -160,19 +160,26 @@ function saveData()
 </head>
 <body>
 	<!--NAVIGATION-->
-	<div class="header-main bg-white">
+	  <div id="page-start-anchor"></div>
+    	<section class="header">
+    		
+			<!--NAVIGATION-->
+    <div class="header-main bg-white">
     	<div class="container">
     		<div class="row">
     			<nav class="navbar navbar-expand-lg navbar-light w-100" id="header-navbar">
-					<img src="./images/logo.png">
-    				<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
-    				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<img src="images/logo.png">
+					<a class="navbar-brand font-weight-bold">TRITON GLOBAL </br> &nbsp; &nbsp; SHIPPING</a> 
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			        <span class="navbar-toggler-icon"></span>
+		            </button>
+    				<div class="collapse navbar-collapse" id="navbarResponsive">
     					<ul class="navbar-nav ml-auto">
     						<li class="nav-item">
     							<a class="nav-link text-uppercase" data-toggle="none" href="index.php">HOME</a></li>
     						<li class="nav-item">
-    							<a class="nav-link text-uppercase" data-toggle="none" href="">ABOUT US</a>
-    						</li>
+    							<a class="nav-link text-uppercase" data-toggle="none" href="AboutUs.php">ABOUT US</a>
+							</li>
 							<li class="nav-item">
     							<a class="nav-link text-uppercase" data-toggle="none" href="FAQ.php">FAQs</a>
 							</li>
@@ -494,23 +501,63 @@ function saveData()
 </div>	
 
 	<!--FOOTER-->
-	<div class="row1">
-		<div class="columnpic">
-			<img src="./images/logo1.png">	
+	<div class="container-fluid padding">	
+	<div class="row text-center">
+		<div class="col-md-4">
+			<img src="./images/logo1.png">
 		</div>
-		<div class="column">
-			<p>TGS 2017 Copyright (c) </br> TRITON GLOBAL SHIPPING (PVT) LTD </br> Office: Level 36, The Riparian Plaza 71 Eagle Street BRISBANE, QLD. 4000 AUSTRALIA</br> </p>
+		<div class="col-md-4">				
+			<hr class="light">
+			<h5>ADDRESS</h5>
+			<hr class="light">
+			<p>Level 36, The Riparian Plaza</p>
+			<p>71 Eagle Street </p>
+			<p>BRISBANE, QLD, 4000 AUSTRALIA</p>
 		</div>
-		<div class="column">
-			<p>TELEPHONE Sri Lanka- +94 11 252 1394 </br> TELEPHONE Australia - +61 41 725 4352 </br> EMAIL- info@tritonglobalshipping.com.au </br> WEB-www.tritonglobalshipping.com.au</p>
+		<div class="col-md-4">				
+			<hr class="light">
+			<h5>CONTACT</h5>
+			<hr class="light">
+			<p>Email: info@tritonglobalshipping.com.au</p>
+			<p>Website: wwww.tritonglobalshipping.com.au</p>
+			<p>Sri Lanka: +94 11 252 1394</p>
+			<p>Australia: +61 41725 4352</p>
+			
+		</div>
+		<div class="col-12">
+			<hr class="light-100">
+			<h5>&copy; Group 14 - ICT</h5>
 		</div>
 	</div>
-	<!-- <script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LeSCLMZAAAAAKVvuKlLIW4VcnyHi_yYvp3Ar1Qh&#038;ver=3.0'></script>
-	<script type='text/javascript'>
-	/* <![CDATA[ */
-	var wpcf7_recaptcha = {"sitekey":"6LeSCLMZAAAAAKVvuKlLIW4VcnyHi_yYvp3Ar1Qh","actions":{"homepage":"homepage","contactform":"contactform"}};
-	/* ]]> */
-	</script> -->
+</div>
+
+
+					
+				
+				<script type="text/javascript" async="" src="./js/analytics.js.download"></script>
+				<script async="" src="./js"></script>
+				<script>window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-176058743-1');</script>
+	<script src="./js/vendor.js.download"></script>
+	<script src="./js/polyfills.js.download"></script>
+	<script src="./js/app.js.download"></script>
+	
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+	(function(){
+	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+	s1.async=true;
+	s1.src='https://embed.tawk.to/5fec1448df060f156a9200fb/1eqp2ufgh';
+	s1.charset='UTF-8';
+	s1.setAttribute('crossorigin','*');
+	s0.parentNode.insertBefore(s1,s0);
+	})();
+	</script>
+	<!--End of Tawk.to Script-->
 </body>
 </html>
 
