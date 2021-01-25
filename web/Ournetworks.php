@@ -380,7 +380,7 @@
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map,
                 title: locations[i][0],
-                icon: 'map2.png'
+                icon: './images/map2.png'
             });
             bounds.extend(marker.position);
             marker.id = uniqid;
@@ -484,7 +484,7 @@
                         position: new google.maps.LatLng(servicelocations[i][1], servicelocations[i][2]),
                         map: map,
                         title: servicelocations[i][0],
-                        icon: 'map1.png'
+                        icon: './images/map1.png'
                     });
 
                     var startPt = new google.maps.LatLng(locations[locid - 1][1], locations[locid-1][2]);

@@ -396,7 +396,7 @@ function deleteOrderInfo(){
 		          		<div class="row">
 			            	<label class="col-md-4 text-right"><b>Priority</b></label>
 			            	<div class="col-md-8">
-								<select name="shipment_pakage_priority" id="shipment_pakage_priority" class="form-control" required data-parsley-trigger="keyup">
+								<select name="shipment_pakage_priority" id="shipment_pakage_priority" class="form-control" required data-parsley-trigger="keydown">
 			            			<option value="">Priority</option>
 									<option value="1"> In 1 week</option>
 									<option value="2"> In 2 weeks</option>
