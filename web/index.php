@@ -24,8 +24,13 @@
 		   
         }
     </style>
-    </head>
-    <body class="">
+		<script src="./js/vendor.js.download"></script>
+	<?php
+		include_once('loading.php');
+	?>
+</head>
+
+<body class="">
     	<div id="page-start-anchor"></div>
     	<section class="header">
     		
@@ -216,16 +221,16 @@
 
 					
 				
-				<script type="text/javascript" async="" src="./js/analytics.js.download"></script>
+				<!--<script type="text/javascript" async="" src="./js/analytics.js.download"></script>
 				<script async="" src="./js"></script>
 				<script>window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-176058743-1');</script>
-	<script src="./js/vendor.js.download"></script>
-	<script src="./js/polyfills.js.download"></script>
-	<script src="./js/app.js.download"></script>
+	<script src="./js/vendor.js.download"></script>-->
+	<!--<script src="./js/polyfills.js.download"></script>
+	<script src="./js/app.js.download"></script>-->
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

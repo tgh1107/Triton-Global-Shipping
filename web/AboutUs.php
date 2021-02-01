@@ -5,9 +5,9 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 	<title>TRITON GLOBAL SHIPPING</title>
-	<link rel="stylesheet" href="./vendor.css">
+	<link rel="stylesheet" href="./css/vendor.css">
 	<link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
 	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"> 
 	<style type="text/css" id="jarallax-clip-0">#jarallax-container-0 {
@@ -24,6 +24,10 @@
 		   
         }
     </style>
+	<script src="./js/vendor.js.download"></script>
+	<?php
+		include_once('loading.php');
+	?>
     </head>
     <body class="">
     	<div id="page-start-anchor"></div>
@@ -72,7 +76,7 @@
 	
 	<!--BODY-->
 	
-	<div class="contactus">
+	<div class="contactus" style="background-image: url(./images/contactus.jpg);">
 		<h1> ABOUT US</h1>
 	</div>
 	<div class="aboutus_content">

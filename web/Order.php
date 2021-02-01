@@ -134,7 +134,7 @@ function saveData()
 	
 	//------ END ----------//
 ?>
-<html>
+<html >
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -144,7 +144,37 @@ function saveData()
 	<link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/font-awesome.css">
-   
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"> 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJYjmTFKo21igdDqgNXOb171mXQzn3hnk&sensor=false&libraries=visualization"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+			
+	<style>
+	/* Paste this css to your style sheet file or under head tag */
+	/* This only works with JavaScript, 
+	if it's not present, don't show loader */
+	.no-js #loader { display: none;  }
+	.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+	.se-pre-con {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url(./images/Preloader_2.gif) center no-repeat #fff;
+	}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+	<script>
+		//paste this code under head tag or in a seperate js file.
+		// Wait for window load
+		$(window).load(function() {
+			// Animate loader off screen
+			$(".se-pre-con").fadeOut("slow");;
+		});
+	</script>
     <script>
 	$(document).ready(function(){
 		var date = new Date();
@@ -157,6 +187,10 @@ function saveData()
 			
 	});
 	</script>
+	<script src="./js/vendor.js.download"></script>
+	<?php
+		include_once('loading.php');
+	?>
 </head>
 <body>
 	<!--NAVIGATION-->
@@ -205,7 +239,7 @@ function saveData()
 	
 	<!--BODY-->
 	
-	<div class="network">
+	<div class="network" style="background-image: url(./images/contactus.jpg);">
 		<h1> REQUEST AN ORDER</h1>
 	</div>
 	<h2 style="margin-top: 30px; text-align: center;">READY TO SHIP YOUR PACKAGE? </h2>
@@ -531,7 +565,10 @@ function saveData()
 	</div>
 </div>
 
-
+	<!-- <div class="se-pre-con"></div>
+	Ends -->
+	
+	
 					
 				
 	<!--<script type="text/javascript" async="" src="./js/analytics.js.download"></script>

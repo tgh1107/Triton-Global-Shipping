@@ -147,6 +147,10 @@ doc.setAttribute( 'data-useragent', navigator.userAgent );
 	<link rel="stylesheet" href="./css/faq.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
 	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"> 
+	<script src="./js/vendor.js.download"></script>
+	<?php
+		include_once('loading.php');
+	?>
 
 </head>
 

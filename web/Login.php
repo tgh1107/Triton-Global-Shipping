@@ -118,18 +118,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/font-awesome.css">
 
-    <!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <title>Login</title>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"> 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJYjmTFKo21igdDqgNXOb171mXQzn3hnk&sensor=false&libraries=visualization"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ padding: 20px; }
     </style>
+	<script src="./js/vendor.js.download"></script>
+	<?php
+		include_once('loading.php');
+	?>
 </head>
 <body>
 
 	<!--NAVIGATION-->
-	    	<div id="page-start-anchor"></div>
+	  <div id="page-start-anchor"></div>
     	<section class="header">
     		
 			<!--NAVIGATION-->
@@ -170,6 +176,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
     </section>
     <div class="header-spacing-helper" style="height: 90px;">
+	</div>
+	
+	<div class="contactus" style="background-image: url(./images/contactus.jpg);">
+		<h1> LOG IN</h1>
 	</div>
 	
 		<!--FORM-->

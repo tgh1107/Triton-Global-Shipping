@@ -5,14 +5,17 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 	<title>TRITON GLOBAL SHIPPING</title>
-	<link rel="stylesheet" href="./vendor.css">
+	<link rel="stylesheet" href="./css/vendor.css">
 	<link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
 	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"> 
-    <title>Google Maps Multiple Markers</title>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJYjmTFKo21igdDqgNXOb171mXQzn3hnk&sensor=false&libraries=visualization"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="./js/vendor.js.download"></script>
+	<?php
+		include_once('loading.php');
+	?>
 </head>
 <body>
 <!--NAVIGATION-->
@@ -56,7 +59,7 @@
     <div class="header-spacing-helper" style="height: 90px;">
     </div>
     
-    <div class="network">
+    <div class="network" style="background-image: url(./images/contactus.jpg);">
         <h1>OUR NETWORKS</h1>
     </div>
     <div id="map" style="width: 100%; height: 700px;"></div>
