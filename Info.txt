@@ -1,0 +1,17 @@
+# Triton-Global-Shipping
+
+
+demo: http://triton.ictatjcub.com
+
+Admin Login Details:
+
+	User  : admin
+	Password : password123
+	
+Database 
+
+http://triton.ictatjcub.com/phpmyadmin/
+	User 		: ictatjcu_triton
+	Password	: Triton2020
+
+

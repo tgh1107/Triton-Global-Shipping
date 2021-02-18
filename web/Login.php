@@ -120,16 +120,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
 	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"> 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJYjmTFKo21igdDqgNXOb171mXQzn3hnk&sensor=false&libraries=visualization"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!--
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>-->
 
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ padding: 20px; }
     </style>
-	<script src="./js/vendor.js.download"></script>
+	<!--<script src="./js/vendor.js.download"></script>-->
 	<?php
 		include_once('loading.php');
+		//echo "$_SERVER[SERVER_ADDR] " . $_SERVER['SERVER_ADDR'] . "<br>";
+		console_log("Host server : " . $_SERVER['SERVER_ADDR']);
 	?>
 </head>
 <body>
@@ -184,7 +186,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 		<!--FORM-->
 	<div class="login">
-    <div class="form"> 
+    <div class=""> 
 		<div class="wrapper">
 		<!--<h2>ARE YOU A MEMBER?</h2> -->
 		<h3> Log In here</h3>
@@ -227,7 +229,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	</div>
 
 	<!--FOOTER-->
-<div class="container-fluid padding">	
+	<div class="row1">
+	<div class="container-fluid padding">	
 	<div class="row text-center">
 		<div class="col-md-4">
 			<img src="./images/logo1.png">
@@ -255,7 +258,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			<h5>&copy; Group 14 - ICT</h5>
 		</div>
 	</div>
-</div>
+	</div>
+	</div>
 
 
 					
@@ -271,7 +275,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<script src="./js/polyfills.js.download"></script>
 	<script src="./js/app.js.download"></script>-->
 	<!--Start of Tawk.to Script-->
-	<script type="text/javascript">
+	<!--<script type="text/javascript">
 	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 	(function(){
 	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -281,7 +285,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	s1.setAttribute('crossorigin','*');
 	s0.parentNode.insertBefore(s1,s0);
 	})();
-	</script>
+	</script>-->
 	<!--End of Tawk.to Script-->
 	
 </body>
@@ -290,7 +294,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <script>
 
 $(document).ready(function(){
-
+	
+	
 	$('#login_form').parsley();
 
 	$('#login_form').on('submit', function(event){
@@ -320,6 +325,12 @@ $(document).ready(function(){
 					{
 						window.location.href = "<?php echo $shipment_system->base_url; ?>Dashboard.php";
 					}
+				},
+				error:function(data)
+				{
+					console.log("ERROR : load error");
+					console.log(data);
+
 				}
 			})
 		}
